@@ -1959,6 +1959,121 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 10,
+      "title": "Repaso general",
+      "description": "Repaso general de palabras",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "En esta lección repasaremos la mayoría de los caracteres",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "fácil fajín limón mitológico patólogo gráfica desposeído",
+          "description": "Teclee las siguientes palabras con tilde",
+          "repetitions": 1
+        },
+        {
+          "id": 2,
+          "text": "cólico calcáreo cúspide maniático",
+          "description": "Teclee las siguientes palabras con tilde",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "árbol esdrújula péndulo marrón",
+          "description": "Teclee las siguientes palabras con tilde",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "mejillón insólito médula tendón",
+          "description": "Recuerde que la tilde se pulsa con el dedo meñique de la mano derecha",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "santiamén néctar gramófono demócrata",
+          "description": "Recuerde que la tilde se pulsa con el dedo meñique de la mano derecha",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "efusión fogón elástico joyería",
+          "description": "Recuerde que la tilde se pulsa con el dedo meñique de la mano derecha",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "náutico patíbulo recíproca telón",
+          "description": "No olvide que la barra espaciadora se pulsa con el dedo pulgar de la mano contraria a la última tecla pulsada",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "témpano xenón vudú xilófono",
+          "description": "No olvide que la barra espaciadora se pulsa con el dedo pulgar de la mano contraria a la última tecla pulsada",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "Tánger sánscrito ramplón quemazón",
+          "description": "No olvide que la barra espaciadora se pulsa con el dedo pulgar de la mano contraria a la última tecla pulsada",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "París, motín, ingrávido, gramática",
+          "description": "Ahora también pulsaremos la coma entre cada palabra, sin olvidar que después de la coma va un espacio",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "explícito, cadáver, éxito, avión",
+          "description": "Ahora también pulsaremos la coma entre cada palabra, sin olvidar que después de la coma va un espacio",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "automóvil, blasón, cuádruple, básico",
+          "description": "Ahora también pulsaremos la coma entre cada palabra, sin olvidar que después de la coma va un espacio",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "bisoñé, flautín, frívolo, góndola",
+          "description": "Ahora también pulsaremos la coma entre cada palabra, sin olvidar que después de la coma va un espacio",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "gorrón, incómodo. láctico; \"malévolo\".",
+          "description": "Practiquemos más palabras con tilde, separándolas con la tecla punto y coma, punto y comillas",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "Niágara; nítrico, plátano, \"prólogo\".",
+          "description": "Practiquemos más palabras con tilde, separándolas con la tecla punto y coma, punto y comillas",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "rápido. rebeldía; \"sábado\", somnífero;",
+          "description": "Practiquemos más palabras con tilde, separándolas con la tecla punto y coma, punto y comillas",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "",
+          "description": "¡Enhorabuena! Ha acabado la décima lección",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

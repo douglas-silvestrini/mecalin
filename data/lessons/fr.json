@@ -1959,6 +1959,121 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 10,
+      "title": "Révision générale",
+      "description": "Révision générale des mots",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "Dans cette leçon, nous allons réviser la plupart des caractères",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "café château être français élève où déjà",
+          "description": "Tapez les mots suivants avec accent",
+          "repetitions": 1
+        },
+        {
+          "id": 2,
+          "text": "mère père frère sœur école",
+          "description": "Tapez les mots suivants avec accent",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "âme tête fenêtre forêt",
+          "description": "Tapez les mots suivants avec accent",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "garçon leçon français reçu",
+          "description": "Rappelez-vous que l'accent se tape avec le petit doigt de la main droite",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "été liberté vérité société",
+          "description": "Rappelez-vous que l'accent se tape avec le petit doigt de la main droite",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "voilà déjà là où",
+          "description": "Rappelez-vous que l'accent se tape avec le petit doigt de la main droite",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "élève étudiant école système",
+          "description": "N'oubliez pas que la barre d'espacement se tape avec le pouce de la main opposée",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "français européen général spécial",
+          "description": "N'oubliez pas que la barre d'espacement se tape avec le pouce de la main opposée",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "hôtel côté fenêtre être",
+          "description": "N'oubliez pas que la barre d'espacement se tape avec le pouce de la main opposée",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "café, château, être, français",
+          "description": "Maintenant nous allons aussi taper la virgule entre chaque mot, sans oublier qu'après la virgule il y a un espace",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "école, élève, étudiant, leçon",
+          "description": "Maintenant nous allons aussi taper la virgule entre chaque mot, sans oublier qu'après la virgule il y a un espace",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "liberté, égalité, fraternité, société",
+          "description": "Maintenant nous allons aussi taper la virgule entre chaque mot, sans oublier qu'après la virgule il y a un espace",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "français, européen, général, spécial",
+          "description": "Maintenant nous allons aussi taper la virgule entre chaque mot, sans oublier qu'après la virgule il y a un espace",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "étudiant, école. système; « leçon ».",
+          "description": "Pratiquons plus de mots avec accent, en les séparant avec le point, le point-virgule et les guillemets",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "français; européen, général, « spécial ».",
+          "description": "Pratiquons plus de mots avec accent, en les séparant avec le point, le point-virgule et les guillemets",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "liberté. société; « égalité », fraternité;",
+          "description": "Pratiquons plus de mots avec accent, en les séparant avec le point, le point-virgule et les guillemets",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "",
+          "description": "Félicitations ! Vous avez terminé la dixième leçon",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

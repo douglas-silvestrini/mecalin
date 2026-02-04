@@ -1840,6 +1840,121 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 10,
+      "title": "Przegląd ogólny",
+      "description": "Ogólny przegląd słów",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "W tej lekcji powtórzymy większość znaków",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "łódź Kraków być mąż żona ćwiczenie źródło",
+          "description": "Wpisz następujące słowa z polskimi znakami",
+          "repetitions": 1
+        },
+        {
+          "id": 2,
+          "text": "ząb mądry pięć sześć",
+          "description": "Wpisz następujące słowa z polskimi znakami",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "ćma świat żółty zielony",
+          "description": "Wpisz następujące słowa z polskimi znakami",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "lekcja ćwiczenie nauka szkoła",
+          "description": "Pamiętaj, że polskie znaki wpisujesz za pomocą odpowiednich klawiszy",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "książka słowo zdanie tekst",
+          "description": "Pamiętaj, że polskie znaki wpisujesz za pomocą odpowiednich klawiszy",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "język polski angielski francuski",
+          "description": "Pamiętaj, że polskie znaki wpisujesz za pomocą odpowiednich klawiszy",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "również więc ponieważ dlatego",
+          "description": "Nie zapomnij, że spację naciskasz kciukiem przeciwnej ręki",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "będzie może można trzeba",
+          "description": "Nie zapomnij, że spację naciskasz kciukiem przeciwnej ręki",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "ważny główny różny każdy",
+          "description": "Nie zapomnij, że spację naciskasz kciukiem przeciwnej ręki",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "łódź, Kraków, być, mąż",
+          "description": "Teraz będziemy również naciskać przecinek między każdym słowem, nie zapominając, że po przecinku jest spacja",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "żona, ćwiczenie, źródło, ząb",
+          "description": "Teraz będziemy również naciskać przecinek między każdym słowem, nie zapominając, że po przecinku jest spacja",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "lekcja, nauka, szkoła, książka",
+          "description": "Teraz będziemy również naciskać przecinek między każdym słowem, nie zapominając, że po przecinku jest spacja",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "język, polski, angielski, francuski",
+          "description": "Teraz będziemy również naciskać przecinek między każdym słowem, nie zapominając, że po przecinku jest spacja",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "uczeń, szkoła. system; \"lekcja\".",
+          "description": "Ćwiczmy więcej słów z polskimi znakami, oddzielając je kropką, średnikiem i cudzysłowami",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "język; ważny, główny, \"różny\".",
+          "description": "Ćwiczmy więcej słów z polskimi znakami, oddzielając je kropką, średnikiem i cudzysłowami",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "łódź. Kraków; \"być\", również;",
+          "description": "Ćwiczmy więcej słów z polskimi znakami, oddzielając je kropką, średnikiem i cudzysłowami",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "",
+          "description": "Gratulacje! Ukończyłeś dziesiątą lekcję",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

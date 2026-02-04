@@ -1984,6 +1984,121 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 10,
+      "title": "Revisão geral",
+      "description": "Revisão geral de palavras",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "Nesta lição vamos rever a maioria dos caracteres",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "café ação português está até José também",
+          "description": "Digite as seguintes palavras com acento",
+          "repetitions": 1
+        },
+        {
+          "id": 2,
+          "text": "água pública música prática",
+          "description": "Digite as seguintes palavras com acento",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "ônibus âmbito ângulo pêssego",
+          "description": "Digite as seguintes palavras com acento",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "lição emoção canção nação",
+          "description": "Lembre-se que o acento se digita com o dedo mindinho da mão direita",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "José María avô avó",
+          "description": "Lembre-se que o acento se digita com o dedo mindinho da mão direita",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "português inglês francês país",
+          "description": "Lembre-se que o acento se digita com o dedo mindinho da mão direita",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "também além porém parabéns",
+          "description": "Não esqueça que a barra de espaço se pressiona com o polegar da mão contrária",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "está será após através",
+          "description": "Não esqueça que a barra de espaço se pressiona com o polegar da mão contrária",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "público prático básico único",
+          "description": "Não esqueça que a barra de espaço se pressiona com o polegar da mão contrária",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "café, ação, português, está",
+          "description": "Agora também vamos pressionar a vírgula entre cada palavra, sem esquecer que depois da vírgula há um espaço",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "José, María, também, além",
+          "description": "Agora também vamos pressionar a vírgula entre cada palavra, sem esquecer que depois da vírgula há um espaço",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "lição, emoção, canção, nação",
+          "description": "Agora também vamos pressionar a vírgula entre cada palavra, sem esquecer que depois da vírgula há um espaço",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "público, prático, básico, único",
+          "description": "Agora também vamos pressionar a vírgula entre cada palavra, sem esquecer que depois da vírgula há um espaço",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "estudante, escola. sistema; \"lição\".",
+          "description": "Pratiquemos mais palavras com acento, separando-as com o ponto, o ponto e vírgula e as aspas",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "português; público, prático, \"básico\".",
+          "description": "Pratiquemos mais palavras com acento, separando-as com o ponto, o ponto e vírgula e as aspas",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "café. ação; \"também\", português;",
+          "description": "Pratiquemos mais palavras com acento, separando-as com o ponto, o ponto e vírgula e as aspas",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "",
+          "description": "Parabéns! Acabou a décima lição",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

@@ -1960,6 +1960,121 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 10,
+      "title": "Ripasso generale",
+      "description": "Ripasso generale delle parole",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "In questa lezione ripasseremo la maggior parte dei caratteri",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "città perché così più caffè università già",
+          "description": "Digita le seguenti parole con accento",
+          "repetitions": 1
+        },
+        {
+          "id": 2,
+          "text": "però qualità libertà società",
+          "description": "Digita le seguenti parole con accento",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "virtù gioventù tribù menù",
+          "description": "Digita le seguenti parole con accento",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "lunedì martedì mercoledì giovedì",
+          "description": "Ricorda che l'accento si digita con il mignolo della mano destra",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "venerdì sabato università città",
+          "description": "Ricorda che l'accento si digita con il mignolo della mano destra",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "qualità verità felicità libertà",
+          "description": "Ricorda che l'accento si digita con il mignolo della mano destra",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "perché così però caffè",
+          "description": "Non dimenticare che la barra spaziatrice si preme con il pollice della mano opposta",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "più già là società",
+          "description": "Non dimenticare che la barra spaziatrice si preme con il pollice della mano opposta",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "università città qualità libertà",
+          "description": "Non dimenticare che la barra spaziatrice si preme con il pollice della mano opposta",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "città, perché, così, più",
+          "description": "Ora premeremo anche la virgola tra ogni parola, senza dimenticare che dopo la virgola c'è uno spazio",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "caffè, università, già, però",
+          "description": "Ora premeremo anche la virgola tra ogni parola, senza dimenticare che dopo la virgola c'è uno spazio",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "qualità, libertà, società, verità",
+          "description": "Ora premeremo anche la virgola tra ogni parola, senza dimenticare che dopo la virgola c'è uno spazio",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "lunedì, martedì, mercoledì, giovedì",
+          "description": "Ora premeremo anche la virgola tra ogni parola, senza dimenticare che dopo la virgola c'è uno spazio",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "studente, scuola. sistema; \"lezione\".",
+          "description": "Pratichiamo più parole con accento, separandole con il punto, il punto e virgola e le virgolette",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "università; qualità, libertà, \"società\".",
+          "description": "Pratichiamo più parole con accento, separandole con il punto, il punto e virgola e le virgolette",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "città. perché; \"così\", caffè;",
+          "description": "Pratichiamo più parole con accento, separandole con il punto, il punto e virgola e le virgolette",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "",
+          "description": "Congratulazioni! Hai finito la decima lezione",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

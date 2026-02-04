@@ -1984,6 +1984,121 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 10,
+      "title": "Repaso xeral",
+      "description": "Repaso xeral de palabras",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "Nesta lección imos repasar a maioría dos caracteres",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "café está José até nación tamén música",
+          "description": "Escriba as seguintes palabras con acento",
+          "repetitions": 1
+        },
+        {
+          "id": 2,
+          "text": "público práctico básico único",
+          "description": "Escriba as seguintes palabras con acento",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "árbore música práctica lección",
+          "description": "Escriba as seguintes palabras con acento",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "nación emoción canción acción",
+          "description": "Lembre que o acento se preme co dedo mínimo da man dereita",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "José María avó tamén",
+          "description": "Lembre que o acento se preme co dedo mínimo da man dereita",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "galego inglés francés país",
+          "description": "Lembre que o acento se preme co dedo mínimo da man dereita",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "tamén ademais porén parabéns",
+          "description": "Non esqueza que a barra espazadora se preme co polgar da man contraria",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "está será após través",
+          "description": "Non esqueza que a barra espazadora se preme co polgar da man contraria",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "público práctico básico único",
+          "description": "Non esqueza que a barra espazadora se preme co polgar da man contraria",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "café, está, José, até",
+          "description": "Agora tamén prememos a coma entre cada palabra, sen esquecer que despois da coma vai un espazo",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "nación, tamén, música, público",
+          "description": "Agora tamén prememos a coma entre cada palabra, sen esquecer que despois da coma vai un espazo",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "lección, emoción, canción, acción",
+          "description": "Agora tamén prememos a coma entre cada palabra, sen esquecer que despois da coma vai un espazo",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "práctico, básico, único, galego",
+          "description": "Agora tamén prememos a coma entre cada palabra, sen esquecer que despois da coma vai un espazo",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "estudante, escola. sistema; \"lección\".",
+          "description": "Practiquemos máis palabras con acento, separándoas co punto, o punto e coma e as comiñas",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "galego; público, práctico, \"básico\".",
+          "description": "Practiquemos máis palabras con acento, separándoas co punto, o punto e coma e as comiñas",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "café. nación; \"tamén\", música;",
+          "description": "Practiquemos máis palabras con acento, separándoas co punto, o punto e coma e as comiñas",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "",
+          "description": "¡Parabéns! Rematou a décima lección",
+          "introduction": true
+        }
+      ]
     }
   ]
 }
