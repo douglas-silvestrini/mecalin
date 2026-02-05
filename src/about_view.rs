@@ -7,22 +7,13 @@ use libadwaita::subclass::prelude::*;
 mod imp {
     use super::*;
 
-    #[derive(gtk::CompositeTemplate)]
+    #[derive(Default, gtk::CompositeTemplate)]
     #[template(resource = "/io/github/nacho/mecalin/ui/about_view.ui")]
     pub struct AboutView {
         #[template_child]
         pub version_row: gtk::TemplateChild<adw::ActionRow>,
         #[template_child]
         pub app_icon: gtk::TemplateChild<gtk::Image>,
-    }
-
-    impl Default for AboutView {
-        fn default() -> Self {
-            Self {
-                version_row: Default::default(),
-                app_icon: Default::default(),
-            }
-        }
     }
 
     #[glib::object_subclass]
