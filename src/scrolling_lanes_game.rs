@@ -4,9 +4,8 @@ use gtk::graphene;
 use gtk::pango;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use i18n_format::i18n_fmt;
-use rand::seq::SliceRandom;
-use rand::Rng;
+use i18n_format::i18n_format;
+use rand::prelude::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 
@@ -104,7 +103,8 @@ mod lane_widget {
 
 glib::wrapper! {
     pub struct LaneWidget(ObjectSubclass<lane_widget::LaneWidget>)
-        @extends gtk::Widget;
+        @extends gtk::Widget,
+        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 
 impl LaneWidget {
@@ -342,12 +342,10 @@ impl ScrollingLanesGame {
 
     fn spawn_text(&self) {
         let imp = self.imp();
-        let mut rng = rand::thread_rng();
+        let mut rng = rand::rng();
 
-        let lane_index = rng.gen_range(0..4);
-        let word = imp
-            .word_list
-            .borrow()
+        let lane_index = rng.random_range(0..4);
+        let word = imp.word_list.borrow()[..]
             .choose(&mut rng)
             .expect("word list contains at least 1 word")
             .clone();
@@ -457,13 +455,13 @@ impl ScrollingLanesGame {
             let mut score = imp.score.borrow_mut();
             if found {
                 *score += 1;
-                let score_text = i18n_fmt! { i18n_fmt("Score: {}", *score) };
+                let score_text = i18n_format!("Score: {}", *score);
                 imp.score_label.set_text(&score_text);
 
                 if (*score).is_multiple_of(10) {
                     let mut difficulty = imp.difficulty.borrow_mut();
                     *difficulty += 1;
-                    let level_text = i18n_fmt! { i18n_fmt("Level: {}", *difficulty) };
+                    let level_text = i18n_format!("Level: {}", *difficulty);
                     imp.level_label.set_text(&level_text);
 
                     let mut speed = imp.speed.borrow_mut();
@@ -471,7 +469,7 @@ impl ScrollingLanesGame {
                 }
             } else if *score > 0 {
                 *score -= 1;
-                let score_text = i18n_fmt! { i18n_fmt("Score: {}", *score) };
+                let score_text = i18n_format!("Score: {}", *score);
                 imp.score_label.set_text(&score_text);
             }
         }
@@ -521,10 +519,8 @@ impl ScrollingLanesGame {
         imp.results_box.set_visible(false);
         imp.game_area.set_visible(true);
 
-        imp.score_label
-            .set_text(&i18n_fmt! { i18n_fmt("Score: {}", 0) });
-        imp.level_label
-            .set_text(&i18n_fmt! { i18n_fmt("Level: {}", 1) });
+        imp.score_label.set_text(&i18n_format!("Score: {}", 0));
+        imp.level_label.set_text(&i18n_format!("Level: {}", 1));
 
         for lane in imp.lanes.borrow().iter() {
             lane.queue_draw();

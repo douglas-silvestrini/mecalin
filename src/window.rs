@@ -1,7 +1,7 @@
 use gettextrs::gettext;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use i18n_format::i18n_fmt;
+use i18n_format::i18n_format;
 use libadwaita as adw;
 use libadwaita::prelude::ActionRowExt;
 use libadwaita::subclass::prelude::*;
@@ -218,12 +218,17 @@ impl MecalinWindow {
                 self.set_title(&lesson.title);
 
                 if lesson.introduction {
-                    let subtitle = i18n_fmt! { i18n_fmt("Lesson {}", lesson.id) };
+                    let subtitle = i18n_format!("Lesson {}", lesson.id);
                     self.set_subtitle(&subtitle);
                 } else {
                     let current_step = lesson_view.current_step_index() as usize;
                     let total_steps = lesson.steps.len();
-                    let subtitle = i18n_fmt! { i18n_fmt("Lesson {}: Step {}/{}", lesson.id, current_step + 1, total_steps) };
+                    let subtitle = i18n_format!(
+                        "Lesson {}: Step {}/{}",
+                        lesson.id,
+                        current_step + 1,
+                        total_steps
+                    );
                     self.set_subtitle(&subtitle);
                 }
             }

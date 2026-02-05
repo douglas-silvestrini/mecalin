@@ -1,7 +1,7 @@
 use gettextrs::gettext;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use i18n_format::i18n_fmt;
+use i18n_format::i18n_format;
 use std::cell::{Cell, RefCell};
 
 use crate::course::Lesson;
@@ -380,7 +380,7 @@ impl LessonView {
                 let step_index = self.current_step_index() as usize;
                 if let Some(step) = lesson.steps.get(step_index) {
                     let label_text =
-                        i18n_fmt! { i18n_fmt("{}/{} Good", current_repetition, step.repetitions) };
+                        i18n_format!("{}/{} Good", current_repetition, step.repetitions);
                     imp.typing_row.set_repetition_text(&label_text);
                 }
             }

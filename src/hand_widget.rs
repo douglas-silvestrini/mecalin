@@ -274,7 +274,8 @@ mod imp {
 
 glib::wrapper! {
     pub struct HandWidget(ObjectSubclass<imp::HandWidget>)
-        @extends gtk::Widget;
+        @extends gtk::Widget,
+        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 
 impl HandWidget {

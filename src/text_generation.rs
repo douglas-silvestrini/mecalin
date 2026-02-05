@@ -336,7 +336,7 @@ pub fn advanced(language: Language) -> String {
 
 // Should work for most languages
 fn simple_generic(lang_code: &str, spacing: &str) -> String {
-    let mut rng = thread_rng();
+    let mut rng = rand::rng();
     let generated = random_words_from_lang_code(lang_code, &mut rng);
 
     generated.into_iter().map(|s| s + spacing).collect()
@@ -349,7 +349,7 @@ fn advanced_generic(
     punctuations: &[Punctuation],
     numerals: &Numerals,
 ) -> String {
-    let mut rng = thread_rng();
+    let mut rng = rand::rng();
 
     let mut generated = random_words_from_lang_code(lang_code, &mut rng);
 

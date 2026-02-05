@@ -1185,7 +1185,8 @@ mod imp {
 
 glib::wrapper! {
     pub struct KeyboardWidget(ObjectSubclass<imp::KeyboardWidget>)
-        @extends gtk::Widget;
+        @extends gtk::Widget,
+        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 
 impl KeyboardWidget {

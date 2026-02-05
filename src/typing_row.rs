@@ -240,7 +240,7 @@ impl imp::TypingRow {
 glib::wrapper! {
     pub struct TypingRow(ObjectSubclass<imp::TypingRow>)
         @extends adw::PreferencesRow, gtk::ListBoxRow, gtk::Widget,
-        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
+        @implements gtk::Accessible, gtk::Actionable, gtk::Buildable, gtk::ConstraintTarget;
 }
 
 impl TypingRow {

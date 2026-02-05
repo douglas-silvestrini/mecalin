@@ -20,7 +20,7 @@
 use crate::typing_test_utils::*;
 use gettextrs::gettext;
 use gtk::glib;
-use i18n_format::i18n_fmt;
+use i18n_format::{i18n_format, i18n_nformat};
 use libadwaita::prelude::*;
 use libadwaita::subclass::prelude::*;
 use std::cell::{Cell, RefCell};
@@ -158,7 +158,8 @@ mod imp {
 
 glib::wrapper! {
     pub struct SpeedTestResultsView(ObjectSubclass<imp::SpeedTestResultsView>)
-        @extends gtk::Widget, @implements gtk::Orientable;
+        @extends gtk::Widget,
+        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget, gtk::Orientable;
 }
 
 impl SpeedTestResultsView {
@@ -180,7 +181,7 @@ impl SpeedTestResultsView {
         // The `{}` block will be replaced with the percentage number,
         // do not translate it!
         imp.accuracy_label
-            .set_label(&i18n_fmt! { i18n_fmt("{}%", display_accuracy) });
+            .set_label(&i18n_format!("{}%", display_accuracy));
 
         imp.duration_label
             .set_label(&human_readable_duration(real_duration));
@@ -215,14 +216,14 @@ pub fn human_readable_duration(duration: Duration) -> String {
     if minutes > 0 && secs > 0 {
         // Translators: The `{}` blocks will be replaced with the number of minutes
         // and seconds. Do not translate them!
-        i18n_fmt! { i18n_fmt("{}m {}s", minutes, secs) }
+        i18n_format!("{}m {}s", minutes, secs)
     } else if minutes > 0 {
         // Translators: The `{}` block will be replaced with the number of minutes.
         // Do not translate it!
-        i18n_fmt! { i18n_nfmt("{} minute", "{} minutes", minutes as u32, minutes) }
+        i18n_nformat!("{} minute", "{} minutes", minutes as u32, minutes)
     } else {
         // Translators: The `{}` block will be replaced with the number of seconds.
         // Do not translate it!
-        i18n_fmt! { i18n_nfmt("{} second", "{} seconds", secs as u32, secs) }
+        i18n_nformat!("{} second", "{} seconds", secs as u32, secs)
     }
 }

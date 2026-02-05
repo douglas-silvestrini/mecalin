@@ -65,7 +65,8 @@ mod imp {
 
 glib::wrapper! {
     pub struct AboutView(ObjectSubclass<imp::AboutView>)
-        @extends gtk::Widget, adw::PreferencesPage;
+        @extends adw::PreferencesPage, gtk::Widget,
+        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 
 impl AboutView {

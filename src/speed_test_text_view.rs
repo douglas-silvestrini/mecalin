@@ -221,7 +221,8 @@ mod imp {
 
 glib::wrapper! {
     pub struct SpeedTestTextView(ObjectSubclass<imp::SpeedTestTextView>)
-        @extends gtk::Widget, @implements gtk::Accessible;
+        @extends gtk::Widget,
+        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 
 impl SpeedTestTextView {

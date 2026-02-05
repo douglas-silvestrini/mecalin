@@ -4,7 +4,7 @@ use gtk::graphene;
 use gtk::pango;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use i18n_format::i18n_fmt;
+use i18n_format::i18n_format;
 use rand::Rng;
 use std::cell::RefCell;
 use std::rc::Rc;
@@ -69,7 +69,8 @@ mod falling_keys_widget {
 
 glib::wrapper! {
     pub struct FallingKeysWidget(ObjectSubclass<falling_keys_widget::FallingKeysWidget>)
-        @extends gtk::Widget;
+        @extends gtk::Widget,
+        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 
 impl FallingKeysWidget {
@@ -245,16 +246,16 @@ impl FallingKeysGame {
 
     fn spawn_key(&self) {
         let imp = self.imp();
-        let mut rng = rand::thread_rng();
+        let mut rng = rand::rng();
 
         if let Some(drawing_area) = imp.falling_keys_widget.borrow().as_ref() {
             let width = drawing_area.width() as f64;
             if width > 100.0 {
-                let key = KEYS[rng.gen_range(0..KEYS.len())];
+                let key = KEYS[rng.random_range(0..KEYS.len())];
 
                 imp.falling_keys.borrow_mut().push(FallingKey {
                     key,
-                    x: rng.gen_range(50.0..width - 50.0),
+                    x: rng.random_range(50.0..width - 50.0),
                     y: 0.0,
                 });
             }
@@ -304,14 +305,14 @@ impl FallingKeysGame {
 
             let mut score = imp.score.borrow_mut();
             *score += 1;
-            let score_text = i18n_fmt! { i18n_fmt("Score: {}", *score) };
+            let score_text = i18n_format!("Score: {}", *score);
             imp.score_label.set_text(&score_text);
 
             // Increase difficulty every 10 points
             if (*score).is_multiple_of(10) {
                 let mut difficulty = imp.difficulty.borrow_mut();
                 *difficulty += 1;
-                let level_text = i18n_fmt! { i18n_fmt("Level: {}", *difficulty) };
+                let level_text = i18n_format!("Level: {}", *difficulty);
                 imp.difficulty_label.set_text(&level_text);
 
                 let mut speed = imp.speed.borrow_mut();
@@ -326,7 +327,7 @@ impl FallingKeysGame {
             let mut score = imp.score.borrow_mut();
             if *score > 0 {
                 *score -= 1;
-                let score_text = i18n_fmt! { i18n_fmt("Score: {}", *score) };
+                let score_text = i18n_format!("Score: {}", *score);
                 imp.score_label.set_text(&score_text);
             }
         }
@@ -388,10 +389,8 @@ impl FallingKeysGame {
             keyboard.set_visible(true);
         }
 
-        imp.score_label
-            .set_text(&i18n_fmt! { i18n_fmt("Score: {}", 0) });
-        imp.difficulty_label
-            .set_text(&i18n_fmt! { i18n_fmt("Level: {}", 1) });
+        imp.score_label.set_text(&i18n_format!("Score: {}", 0));
+        imp.difficulty_label.set_text(&i18n_format!("Level: {}", 1));
 
         if let Some(drawing_area) = imp.falling_keys_widget.borrow().as_ref() {
             drawing_area.grab_focus();
