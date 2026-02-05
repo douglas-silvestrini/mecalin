@@ -3,10 +3,10 @@ use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use i18n_format::i18n_fmt;
 use libadwaita as adw;
-use libadwaita::prelude::{ActionRowExt, AdwDialogExt};
+use libadwaita::prelude::ActionRowExt;
 use libadwaita::subclass::prelude::*;
 
-use crate::config;
+use crate::about_view::AboutView;
 use crate::course::Lesson;
 use crate::falling_keys_game::FallingKeysGame;
 use crate::lesson_view::LessonView;
@@ -50,6 +50,7 @@ mod imp {
         type ParentType = adw::ApplicationWindow;
 
         fn class_init(klass: &mut Self::Class) {
+            AboutView::ensure_type();
             LessonView::ensure_type();
             TypingRow::ensure_type();
             FallingKeysGame::ensure_type();
@@ -151,7 +152,7 @@ impl MecalinWindow {
         let imp = self.imp();
         let current_page = imp.main_stack.visible_child_name();
 
-        if let Some("lessons" | "game" | "lanes_game" | "speed_test" | "preferences") =
+        if let Some("lessons" | "game" | "lanes_game" | "speed_test" | "preferences" | "about") =
             current_page.as_deref()
         {
             imp.main_stack.set_visible_child_name("main_menu");
@@ -162,44 +163,11 @@ impl MecalinWindow {
     }
 
     pub fn show_about(&self) {
-        let about = adw::AboutDialog::builder()
-            .application_name("Mecalin")
-            .application_icon(config::APPLICATION_ID)
-            .developer_name("Ignacio Casal Quinteiro")
-            .version(config::VERSION)
-            .website("https://github.com/nacho/mecalin")
-            .issue_url("https://github.com/nacho/mecalin/issues")
-            .copyright("© 2026 Ignacio Casal Quinteiro\n© 2024–2025 Brage Fuglseth")
-            .license_type(gtk::License::Gpl30)
-            .build();
-
-        about.add_credit_section(
-            Some(&gettext("Code by")),
-            &[
-                "Ignacio Casal Quinteiro",
-                "Brage Fuglseth https://bragefuglseth.dev",
-            ],
-        );
-
-        about.add_credit_section(
-            Some(&gettext("Speed Test Orthography")),
-            &[
-                "Angelo Verlain Shema https://www.vixalien.com/",
-                "Arnob Goswami",
-                "Daniel Uhrinyi",
-                "Fabio Lovato https://loviuz.it/",
-                "Gregor Niehl https://gregorni.gitlab.io/",
-                "Hadi Azarnasab https://hadi7546.ir/",
-                "Ibrahim Muhammad",
-                "Kim Jimin https://developomp.com",
-                "Shellheim",
-                "Tamazight teachers of Tizi Ouzou",
-                "Urtsi Santsi",
-                "Yevhen Popok",
-            ],
-        );
-
-        about.present(Some(self));
+        let imp = self.imp();
+        imp.main_stack.set_visible_child_name("about");
+        imp.back_button.set_visible(true);
+        self.set_title(&gettext("About Mecalin"));
+        self.set_subtitle("");
     }
 
     pub fn show_preferences(&self) {

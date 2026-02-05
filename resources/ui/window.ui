@@ -114,6 +114,14 @@
                 </property>
               </object>
             </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">about</property>
+                <property name="child">
+                  <object class="MecalinAboutView" id="about_view_widget"/>
+                </property>
+              </object>
+            </child>
           </object>
         </property>
       </object>

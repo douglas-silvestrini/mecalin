@@ -1,3 +1,4 @@
+mod about_view;
 mod application;
 mod course;
 mod falling_keys_game;

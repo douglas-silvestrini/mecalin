@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mecalin 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-03 18:21+0100\n"
+"POT-Creation-Date: 2026-02-05 10:21+0100\n"
 "PO-Revision-Date: 2026-01-14 15:35+0100\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
@@ -24,6 +24,42 @@ msgstr "Mecalin"
 msgid "Learn how to type"
 msgstr "Aprende a escribir"
 
+#: resources/ui/about_view.ui:23 src/window.rs:169
+msgid "About Mecalin"
+msgstr "Acerca de Mecalin"
+
+#: resources/ui/about_view.ui:31
+msgid "Developer"
+msgstr "Desarrollador"
+
+#: resources/ui/about_view.ui:37
+msgid "Website"
+msgstr "Sitio web"
+
+#: resources/ui/about_view.ui:45
+msgid "Report an Issue"
+msgstr "Reportar un problema"
+
+#: resources/ui/about_view.ui:55
+msgid "Code by"
+msgstr "Código por"
+
+#: resources/ui/about_view.ui:73
+msgid "Speed Test Orthography"
+msgstr "Ortografía de prueba de velocidad"
+
+#: resources/ui/about_view.ui:153
+msgid "Legal"
+msgstr "Legal"
+
+#: resources/ui/about_view.ui:156
+msgid "Copyright"
+msgstr "Derechos de autor"
+
+#: resources/ui/about_view.ui:163
+msgid "License"
+msgstr "Licencia"
+
 #: resources/ui/falling_keys_game.ui:56 resources/ui/scrolling_lanes_game.ui:57
 msgid "Score"
 msgstr "Puntuación"
@@ -36,7 +72,7 @@ msgstr "Nivel Alcanzado"
 msgid "Play Again"
 msgstr "Jugar de Nuevo"
 
-#: resources/ui/lesson_view.ui:72
+#: resources/ui/lesson_view.ui:81
 msgid "Continue"
 msgstr "Continuar"
 
@@ -88,7 +124,7 @@ msgstr "Lecciones"
 msgid "Learn typing fundamentals"
 msgstr "Aprende los fundamentos de mecanografía"
 
-#: resources/ui/window.ui:46 src/window.rs:146
+#: resources/ui/window.ui:46 src/window.rs:147
 msgid "Speed Test"
 msgstr "Prueba de velocidad"
 
@@ -96,7 +132,7 @@ msgstr "Prueba de velocidad"
 msgid "Test your typing speed"
 msgstr "Prueba tu velocidad de escritura"
 
-#: resources/ui/window.ui:53 src/window.rs:109
+#: resources/ui/window.ui:53 src/window.rs:110
 msgid "Falling Keys"
 msgstr "Teclas Cayendo"
 
@@ -104,7 +140,7 @@ msgstr "Teclas Cayendo"
 msgid "Practice with a fun game"
 msgstr "Practica con un juego divertido"
 
-#: resources/ui/window.ui:60 src/window.rs:124
+#: resources/ui/window.ui:60 src/window.rs:125
 msgid "Scrolling Lanes"
 msgstr "Carriles Deslizantes"
 
@@ -112,7 +148,7 @@ msgstr "Carriles Deslizantes"
 msgid "Type fast in multiple lanes"
 msgstr "Escribe rápido en múltiples carriles"
 
-#: resources/ui/window.ui:67 src/window.rs:209
+#: resources/ui/window.ui:67 src/window.rs:177
 msgid "Preferences"
 msgstr "Preferencias"
 
@@ -139,19 +175,11 @@ msgstr "Puntuación: {}"
 msgid "Level: {}"
 msgstr "Nivel: {}"
 
-#: src/window.rs:177
-msgid "Code by"
-msgstr "Código por"
-
-#: src/window.rs:185
-msgid "Speed Test Orthography"
-msgstr "Ortografía de prueba de velocidad"
-
-#: src/window.rs:253
+#: src/window.rs:221
 msgid "Lesson {}"
 msgstr "Lección {}"
 
-#: src/window.rs:258
+#: src/window.rs:226
 msgid "Lesson {}: Step {}/{}"
 msgstr "Lección {}: Paso {}/{}"
 

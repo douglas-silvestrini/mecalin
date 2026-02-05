@@ -1,4 +1,5 @@
 data/io.github.nacho.mecalin.desktop.in
+resources/ui/about_view.ui
 resources/ui/falling_keys_game.ui
 resources/ui/lesson_view.ui
 resources/ui/preferences_view.ui
