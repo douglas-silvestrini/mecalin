@@ -193,7 +193,7 @@ impl imp::LessonView {
                 #[weak(rename_to = lesson_view)]
                 obj,
                 move |_settings, _| {
-                    lesson_view.load_course_and_lesson();
+                    lesson_view.load_lesson_from_settings();
                 }
             ),
         );
@@ -213,32 +213,40 @@ impl LessonView {
         glib::Object::new()
     }
 
-    fn load_course_and_lesson(&self) {
+    fn load_course(&self) {
         let language = crate::utils::language_from_locale();
         let course = crate::course::Course::new_with_language(language).unwrap_or_default();
+        self.set_course(course);
+    }
 
-        let settings = gio::Settings::new("io.github.nacho.mecalin");
-        let current_lesson = settings.uint("current-lesson");
-        let current_step = settings.uint("current-step");
+    fn load_course_and_lesson(&self) {
+        self.load_course();
+        self.load_lesson_from_settings();
+    }
 
-        if let Some(lesson) = course.get_lesson(current_lesson) {
-            self.set_course(course.clone());
-            self.set_lesson(lesson);
+    fn load_lesson_from_settings(&self) {
+        let imp = self.imp();
+        let course = imp.course.borrow();
 
-            // Load the saved step
-            if current_step > 0 {
-                let step_index = current_step - 1;
-                self.load_step(step_index);
+        if let Some(course) = course.as_ref() {
+            let settings = gio::Settings::new("io.github.nacho.mecalin");
+            let current_lesson = settings.uint("current-lesson");
+            let current_step = settings.uint("current-step");
+
+            if let Some(lesson) = course.get_lesson(current_lesson) {
+                self.apply_lesson(lesson);
+
+                // Load the saved step
+                if current_step > 0 {
+                    let step_index = current_step - 1;
+                    self.load_step(step_index);
+                }
             }
         }
     }
 
-    fn set_lesson(&self, lesson: &Lesson) {
+    fn apply_lesson(&self, lesson: &Lesson) {
         self.set_current_lesson(Some(glib::BoxedAnyObject::new(lesson.clone())));
-
-        // Save current lesson to settings
-        let settings = gio::Settings::new("io.github.nacho.mecalin");
-        settings.set_uint("current-lesson", lesson.id).unwrap();
 
         let imp = self.imp();
         imp.lesson_description.set_text(&lesson.description);
@@ -298,6 +306,16 @@ impl LessonView {
 
         imp.typing_row.clear();
         imp.has_mistake.set(false);
+    }
+
+    fn set_lesson(&self, lesson: &Lesson) {
+        // Save current lesson to settings
+        let settings = gio::Settings::new("io.github.nacho.mecalin");
+        settings.set_uint("current-lesson", lesson.id).unwrap();
+
+        // Apply the lesson (this will be called again by the settings change handler,
+        // but that's okay - it's idempotent)
+        self.apply_lesson(lesson);
     }
 
     fn load_step(&self, step_index: u32) {
