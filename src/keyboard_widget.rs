@@ -793,22 +793,32 @@ mod imp {
                     // to compose them (e.g., 'a' + '´' = 'á')
                     for &visible_char in visible.iter() {
                         if !layout_borrowed.contains_character(visible_char) {
-                            if let glib::CharacterDecomposition::Pair(dead_key, base) =
+                            if let glib::CharacterDecomposition::Pair(combining_accent, base) =
                                 visible_char.decompose()
                             {
-                                if base_char == dead_key || base_char == base {
+                                // Map combining accents to spacing accents
+                                let spacing_accent = match combining_accent {
+                                    '\u{0301}' => '´',
+                                    '\u{0300}' => '`',
+                                    '\u{0302}' => '^',
+                                    '\u{0303}' => '~',
+                                    '\u{0308}' => '¨',
+                                    _ => combining_accent,
+                                };
+
+                                if base_char == spacing_accent || base_char == base {
                                     return true;
                                 }
                                 if let Some(shift) = &key_info.shift {
                                     if let Some(shift_char) = shift.chars().next() {
-                                        if shift_char == dead_key || shift_char == base {
+                                        if shift_char == spacing_accent || shift_char == base {
                                             return true;
                                         }
                                     }
                                 }
                                 if let Some(altgr) = &key_info.altgr {
                                     if let Some(altgr_char) = altgr.chars().next() {
-                                        if altgr_char == dead_key || altgr_char == base {
+                                        if altgr_char == spacing_accent || altgr_char == base {
                                             return true;
                                         }
                                     }
