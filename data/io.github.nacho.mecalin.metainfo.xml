@@ -113,6 +113,23 @@
   </screenshots>
   
   <releases>
+    <release version="0.10.0" date="2026-02-06">
+      <description>
+        <ul>
+          <li>Added lesson 10 (General Review) to all languages with language-specific vocabulary and punctuation</li>
+          <li>Fixed stack overflow issue in lesson loading caused by circular settings updates</li>
+          <li>Fixed keyboard highlighting for characters with AltGr variants</li>
+          <li>Fixed repetition counting to not mark mistakes at the beginning of exercises</li>
+          <li>Fixed mistake detection for wrong space key presses</li>
+          <li>Fixed hand widget updates when dead key sequences advance</li>
+          <li>Fixed Portuguese lesson content and key descriptions</li>
+          <li>Improved hand widget proportions and drawing</li>
+          <li>Refactored lesson loading to separate course loading from lesson loading</li>
+          <li>Refactored TypingRow with cleaner public API and custom signals</li>
+          <li>Updated dependencies to latest versions</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.9.0" date="2026-02-03">
       <description>
         <ul>
