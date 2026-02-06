@@ -184,7 +184,7 @@ impl imp::TypingRow {
             move |_, preedit| {
                 let is_composing = !preedit.is_empty();
                 // If composition started with a single character, it's a dead key
-                if is_composing && preedit.len() == 1 {
+                if is_composing && preedit.chars().count() == 1 {
                     typing_row.emit_by_name::<()>("dead-key-started", &[]);
                 }
             }
