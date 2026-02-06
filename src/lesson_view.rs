@@ -138,8 +138,11 @@ impl imp::LessonView {
                     let imp = lesson_view.imp();
                     let next_char = next_char_str.chars().next();
                     imp.keyboard_widget.set_current_key(next_char);
+
+                    // Get finger for the actual current key (might be dead key after decomposition)
+                    let current_key = *imp.keyboard_widget.imp().current_key.borrow();
                     let finger =
-                        next_char.and_then(|ch| imp.keyboard_widget.get_finger_for_char(ch));
+                        current_key.and_then(|ch| imp.keyboard_widget.get_finger_for_char(ch));
                     imp.hand_widget.set_current_finger(finger);
                 }
             ),
