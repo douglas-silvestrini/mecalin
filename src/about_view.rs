@@ -20,7 +20,7 @@ mod imp {
     impl ObjectSubclass for AboutView {
         const NAME: &'static str = "MecalinAboutView";
         type Type = super::AboutView;
-        type ParentType = adw::PreferencesPage;
+        type ParentType = adw::NavigationPage;
 
         fn class_init(klass: &mut Self::Class) {
             klass.bind_template();
@@ -60,12 +60,12 @@ mod imp {
     }
 
     impl WidgetImpl for AboutView {}
-    impl PreferencesPageImpl for AboutView {}
+    impl NavigationPageImpl for AboutView {}
 }
 
 glib::wrapper! {
     pub struct AboutView(ObjectSubclass<imp::AboutView>)
-        @extends adw::PreferencesPage, gtk::Widget,
+        @extends adw::NavigationPage, gtk::Widget,
         @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 

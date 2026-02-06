@@ -4,6 +4,7 @@ use gtk::{gio, glib};
 use i18n_format::i18n_format;
 use libadwaita as adw;
 use libadwaita::prelude::*;
+use libadwaita::subclass::prelude::*;
 
 use crate::course::Course;
 
@@ -27,7 +28,7 @@ mod imp {
     impl ObjectSubclass for PreferencesView {
         const NAME: &'static str = "MecalinPreferencesView";
         type Type = super::PreferencesView;
-        type ParentType = gtk::Box;
+        type ParentType = adw::NavigationPage;
 
         fn class_init(klass: &mut Self::Class) {
             klass.bind_template();
@@ -46,7 +47,7 @@ mod imp {
     }
 
     impl WidgetImpl for PreferencesView {}
-    impl BoxImpl for PreferencesView {}
+    impl NavigationPageImpl for PreferencesView {}
 
     impl PreferencesView {
         fn setup_settings(&self) {
@@ -99,8 +100,8 @@ mod imp {
 
 glib::wrapper! {
     pub struct PreferencesView(ObjectSubclass<imp::PreferencesView>)
-        @extends gtk::Box, gtk::Widget,
-        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget, gtk::Orientable;
+        @extends adw::NavigationPage, gtk::Widget,
+        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 
 impl PreferencesView {

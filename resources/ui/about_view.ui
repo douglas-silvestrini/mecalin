@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="MecalinAboutView" parent="AdwPreferencesPage">
+  <template class="MecalinAboutView" parent="AdwNavigationPage">
+    <property name="tag">about</property>
+    <property name="title" translatable="yes">About</property>
+    <property name="child">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar"/>
+        </child>
+        <property name="content">
+          <object class="AdwPreferencesPage">
     <child>
       <object class="AdwPreferencesGroup">
         <child>
@@ -166,5 +175,9 @@
         </child>
       </object>
     </child>
+          </object>
+        </property>
+      </object>
+    </property>
   </template>
 </interface>

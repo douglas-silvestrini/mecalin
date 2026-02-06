@@ -127,36 +127,10 @@
           </object>
         </child>
         <child>
-          <object class="AdwNavigationPage">
-            <property name="tag">preferences</property>
-            <property name="title" translatable="yes">Preferences</property>
-            <property name="child">
-              <object class="AdwToolbarView">
-                <child type="top">
-                  <object class="AdwHeaderBar"/>
-                </child>
-                <property name="content">
-                  <object class="MecalinPreferencesView" id="preferences_view_widget"/>
-                </property>
-              </object>
-            </property>
-          </object>
+          <object class="MecalinPreferencesView" id="preferences_view_widget"/>
         </child>
         <child>
-          <object class="AdwNavigationPage">
-            <property name="tag">about</property>
-            <property name="title" translatable="yes">About</property>
-            <property name="child">
-              <object class="AdwToolbarView">
-                <child type="top">
-                  <object class="AdwHeaderBar"/>
-                </child>
-                <property name="content">
-                  <object class="MecalinAboutView" id="about_view_widget"/>
-                </property>
-              </object>
-            </property>
-          </object>
+          <object class="MecalinAboutView" id="about_view_widget"/>
         </child>
       </object>
     </property>
