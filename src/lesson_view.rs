@@ -10,6 +10,7 @@ use crate::course::Lesson;
 use crate::hand_widget::HandWidget;
 use crate::keyboard_widget::KeyboardWidget;
 use crate::typing_row::TypingRow;
+use crate::utils::extract_keys;
 
 mod imp {
     use super::*;
@@ -572,55 +573,14 @@ impl LessonView {
         }
     }
 
-    fn extract_keys(text: &str) -> std::collections::HashSet<char> {
-        text.chars().filter(|ch| !ch.is_control()).collect()
-    }
-
     fn update_keyboard_keys(&self, text: &str) {
         self.imp()
             .keyboard_widget
-            .set_visible_keys(Some(Self::extract_keys(text)));
+            .set_visible_keys(Some(extract_keys(text)));
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    #[test]
-    fn test_extract_keys_basic() {
-        let keys = LessonView::extract_keys("hello");
-        assert_eq!(keys.len(), 4);
-        assert!(keys.contains(&'h'));
-        assert!(keys.contains(&'e'));
-        assert!(keys.contains(&'l'));
-        assert!(keys.contains(&'o'));
-    }
-
-    #[test]
-    fn test_extract_keys_accented() {
-        let keys = LessonView::extract_keys("café");
-        assert_eq!(keys.len(), 4);
-        assert!(keys.contains(&'c'));
-        assert!(keys.contains(&'a'));
-        assert!(keys.contains(&'f'));
-        assert!(keys.contains(&'é'));
-    }
-
-    #[test]
-    fn test_extract_keys_mixed_accents() {
-        let keys = LessonView::extract_keys("niño español");
-        assert!(keys.contains(&'ñ'));
-        assert!(keys.contains(&'a'));
-        assert!(keys.contains(&' '));
-    }
-
-    #[test]
-    fn test_extract_keys_control_chars() {
-        let keys = LessonView::extract_keys("hello\nworld\t");
-        assert!(!keys.contains(&'\n'));
-        assert!(!keys.contains(&'\t'));
-        assert!(keys.contains(&'h'));
-        assert!(keys.contains(&'w'));
-    }
 }

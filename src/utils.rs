@@ -38,6 +38,11 @@ pub fn decompose_with_spacing_accent(ch: char) -> Option<(char, char)> {
     }
 }
 
+/// Extract unique non-control characters from text
+pub fn extract_keys(text: &str) -> std::collections::HashSet<char> {
+    text.chars().filter(|ch| !ch.is_control()).collect()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -80,6 +85,43 @@ mod tests {
     fn test_decompose_with_spacing_accent_non_composed() {
         assert_eq!(decompose_with_spacing_accent('a'), None);
         assert_eq!(decompose_with_spacing_accent('z'), None);
+    }
+
+    #[test]
+    fn test_extract_keys_basic() {
+        let keys = extract_keys("hello");
+        assert_eq!(keys.len(), 4);
+        assert!(keys.contains(&'h'));
+        assert!(keys.contains(&'e'));
+        assert!(keys.contains(&'l'));
+        assert!(keys.contains(&'o'));
+    }
+
+    #[test]
+    fn test_extract_keys_accented() {
+        let keys = extract_keys("café");
+        assert_eq!(keys.len(), 4);
+        assert!(keys.contains(&'c'));
+        assert!(keys.contains(&'a'));
+        assert!(keys.contains(&'f'));
+        assert!(keys.contains(&'é'));
+    }
+
+    #[test]
+    fn test_extract_keys_mixed_accents() {
+        let keys = extract_keys("niño español");
+        assert!(keys.contains(&'ñ'));
+        assert!(keys.contains(&'a'));
+        assert!(keys.contains(&' '));
+    }
+
+    #[test]
+    fn test_extract_keys_control_chars() {
+        let keys = extract_keys("hello\nworld\t");
+        assert!(!keys.contains(&'\n'));
+        assert!(!keys.contains(&'\t'));
+        assert!(keys.contains(&'h'));
+        assert!(keys.contains(&'w'));
     }
 
     #[test]
