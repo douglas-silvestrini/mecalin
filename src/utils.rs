@@ -1,3 +1,6 @@
+use gtk::glib;
+use gtk::glib::Unichar;
+
 pub fn language_from_locale() -> &'static str {
     let locale = std::env::var("LANG").unwrap_or_else(|_| "en_US".to_string());
     if locale.starts_with("es") {
@@ -17,12 +20,67 @@ pub fn language_from_locale() -> &'static str {
     }
 }
 
+/// Decompose a character and map combining accent to spacing accent
+/// Returns (spacing_accent, base_char) for composed characters, None otherwise
+pub fn decompose_with_spacing_accent(ch: char) -> Option<(char, char)> {
+    if let glib::CharacterDecomposition::Pair(base, combining_accent) = ch.decompose() {
+        let spacing_accent = match combining_accent {
+            '\u{0301}' => '´',
+            '\u{0300}' => '`',
+            '\u{0302}' => '^',
+            '\u{0303}' => '~',
+            '\u{0308}' => '¨',
+            _ => combining_accent,
+        };
+        Some((spacing_accent, base))
+    } else {
+        None
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
     use std::sync::Mutex;
 
     static TEST_MUTEX: Mutex<()> = Mutex::new(());
+
+    #[test]
+    fn test_decompose_with_spacing_accent_acute() {
+        assert_eq!(decompose_with_spacing_accent('á'), Some(('´', 'a')));
+        assert_eq!(decompose_with_spacing_accent('é'), Some(('´', 'e')));
+        assert_eq!(decompose_with_spacing_accent('ó'), Some(('´', 'o')));
+    }
+
+    #[test]
+    fn test_decompose_with_spacing_accent_grave() {
+        assert_eq!(decompose_with_spacing_accent('à'), Some(('`', 'a')));
+        assert_eq!(decompose_with_spacing_accent('è'), Some(('`', 'e')));
+    }
+
+    #[test]
+    fn test_decompose_with_spacing_accent_circumflex() {
+        assert_eq!(decompose_with_spacing_accent('â'), Some(('^', 'a')));
+        assert_eq!(decompose_with_spacing_accent('ê'), Some(('^', 'e')));
+    }
+
+    #[test]
+    fn test_decompose_with_spacing_accent_tilde() {
+        assert_eq!(decompose_with_spacing_accent('ã'), Some(('~', 'a')));
+        assert_eq!(decompose_with_spacing_accent('ñ'), Some(('~', 'n')));
+    }
+
+    #[test]
+    fn test_decompose_with_spacing_accent_diaeresis() {
+        assert_eq!(decompose_with_spacing_accent('ä'), Some(('¨', 'a')));
+        assert_eq!(decompose_with_spacing_accent('ü'), Some(('¨', 'u')));
+    }
+
+    #[test]
+    fn test_decompose_with_spacing_accent_non_composed() {
+        assert_eq!(decompose_with_spacing_accent('a'), None);
+        assert_eq!(decompose_with_spacing_accent('z'), None);
+    }
 
     #[test]
     fn test_language_from_locale_spanish() {

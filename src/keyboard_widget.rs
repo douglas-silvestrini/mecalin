@@ -1,4 +1,4 @@
-use glib::Unichar;
+use crate::utils::decompose_with_spacing_accent;
 use gtk::gdk;
 use gtk::glib;
 use gtk::pango;
@@ -793,19 +793,9 @@ mod imp {
                     // to compose them (e.g., 'a' + '´' = 'á')
                     for &visible_char in visible.iter() {
                         if !layout_borrowed.contains_character(visible_char) {
-                            if let glib::CharacterDecomposition::Pair(base, combining_accent) =
-                                visible_char.decompose()
+                            if let Some((spacing_accent, base)) =
+                                decompose_with_spacing_accent(visible_char)
                             {
-                                // Map combining accents to spacing accents
-                                let spacing_accent = match combining_accent {
-                                    '\u{0301}' => '´',
-                                    '\u{0300}' => '`',
-                                    '\u{0302}' => '^',
-                                    '\u{0303}' => '~',
-                                    '\u{0308}' => '¨',
-                                    _ => combining_accent,
-                                };
-
                                 if base_char == spacing_accent || base_char == base {
                                     return true;
                                 }
@@ -1259,16 +1249,7 @@ impl KeyboardWidget {
         if let Some(ch) = key {
             // Only decompose if the character doesn't exist in the layout
             if !imp.layout.borrow().contains_character(ch) {
-                if let glib::CharacterDecomposition::Pair(base, combining_accent) = ch.decompose() {
-                    // Map combining accent to spacing accent for keyboard
-                    let spacing_accent = match combining_accent {
-                        '\u{0301}' => '´',
-                        '\u{0300}' => '`',
-                        '\u{0302}' => '^',
-                        '\u{0303}' => '~',
-                        '\u{0308}' => '¨',
-                        _ => combining_accent,
-                    };
+                if let Some((spacing_accent, base)) = decompose_with_spacing_accent(ch) {
                     *imp.current_key_sequence.borrow_mut() = vec![spacing_accent, base];
                     *imp.sequence_index.borrow_mut() = 0;
                     *imp.current_key.borrow_mut() = Some(spacing_accent);
