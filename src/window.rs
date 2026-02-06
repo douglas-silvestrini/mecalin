@@ -1,13 +1,10 @@
-use gettextrs::gettext;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use i18n_format::i18n_format;
 use libadwaita as adw;
 use libadwaita::prelude::{ActionRowExt, NavigationPageExt};
 use libadwaita::subclass::prelude::*;
 
 use crate::about_view::AboutView;
-use crate::course::Lesson;
 use crate::falling_keys_game::FallingKeysGame;
 use crate::lesson_view::LessonView;
 use crate::preferences_view::PreferencesView;
@@ -25,8 +22,6 @@ mod imp {
         pub header_bar: TemplateChild<adw::HeaderBar>,
         #[template_child]
         pub window_title: TemplateChild<adw::WindowTitle>,
-        #[template_child]
-        pub lessons_title: TemplateChild<adw::WindowTitle>,
         #[template_child]
         pub navigation_view: TemplateChild<adw::NavigationView>,
         #[template_child]
@@ -69,8 +64,6 @@ mod imp {
         fn constructed(&self) {
             self.parent_constructed();
             self.setup_signals();
-            self.obj().setup_lesson_view_signals();
-            self.obj().setup_navigation_signals();
         }
     }
     impl WidgetImpl for MecalinWindow {}
@@ -94,14 +87,6 @@ impl MecalinWindow {
     pub fn show_lessons(&self) {
         let imp = self.imp();
         imp.navigation_view.push_by_tag("lessons");
-
-        if let Some(page) = imp.navigation_view.find_page("lessons") {
-            if let Some(toolbar_view) = page.child().and_downcast::<adw::ToolbarView>() {
-                if let Some(lesson_view) = toolbar_view.content().and_downcast::<LessonView>() {
-                    lesson_view.grab_focus();
-                }
-            }
-        }
     }
 
     pub fn show_game(&self) {
@@ -161,115 +146,6 @@ impl MecalinWindow {
     pub fn set_subtitle(&self, subtitle: &str) {
         let imp = self.imp();
         imp.window_title.set_subtitle(subtitle);
-    }
-
-    fn setup_lesson_view_signals(&self) {
-        let imp = self.imp();
-        if let Some(page) = imp.navigation_view.find_page("lessons") {
-            if let Some(toolbar_view) = page.child().and_downcast::<adw::ToolbarView>() {
-                if let Some(lesson_view) = toolbar_view.content().and_downcast::<LessonView>() {
-                    let window = self.downgrade();
-                    lesson_view.connect_notify_local(
-                        Some("current-lesson"),
-                        move |lesson_view, _| {
-                            if let Some(window) = window.upgrade() {
-                                window.update_title_from_lesson_view(lesson_view);
-                            }
-                        },
-                    );
-
-                    let window = self.downgrade();
-                    lesson_view.connect_notify_local(
-                        Some("current-step-index"),
-                        move |lesson_view, _| {
-                            if let Some(window) = window.upgrade() {
-                                window.update_title_from_lesson_view(lesson_view);
-                            }
-                        },
-                    );
-                }
-            }
-        }
-    }
-
-    fn setup_navigation_signals(&self) {
-        let imp = self.imp();
-        let window = self.downgrade();
-
-        imp.navigation_view
-            .connect_notify_local(Some("visible-page"), move |nav_view, _| {
-                if let Some(window) = window.upgrade() {
-                    if let Some(page) = nav_view.visible_page() {
-                        let tag = page.tag().map(|s| s.to_string());
-
-                        match tag.as_deref() {
-                            Some("main_menu") => {
-                                window.set_title("Mecalin");
-                                window.set_subtitle("");
-                            }
-                            Some("lessons") => {
-                                if let Some(toolbar_view) =
-                                    page.child().and_downcast::<adw::ToolbarView>()
-                                {
-                                    if let Some(lesson_view) =
-                                        toolbar_view.content().and_downcast::<LessonView>()
-                                    {
-                                        window.update_title_from_lesson_view(&lesson_view);
-                                    }
-                                }
-                            }
-                            Some("speed_test") => {
-                                window.set_title(&gettext("Speed Test"));
-                                window.set_subtitle("");
-                            }
-                            Some("game") => {
-                                window.set_title(&gettext("Falling Keys"));
-                                window.set_subtitle("");
-                            }
-                            Some("lanes_game") => {
-                                window.set_title(&gettext("Scrolling Lanes"));
-                                window.set_subtitle("");
-                            }
-                            Some("preferences") => {
-                                window.set_title(&gettext("Preferences"));
-                                window.set_subtitle("");
-                            }
-                            Some("about") => {
-                                window.set_title(&gettext("About"));
-                                window.set_subtitle("");
-                            }
-                            _ => {}
-                        }
-                    }
-                }
-            });
-    }
-
-    fn update_title_from_lesson_view(&self, lesson_view: &LessonView) {
-        let imp = self.imp();
-        if let Some(lesson_boxed) = lesson_view.current_lesson() {
-            if let Ok(lesson) = lesson_boxed.try_borrow::<Lesson>() {
-                imp.lessons_title.set_title(&lesson.title);
-
-                if lesson.introduction {
-                    let subtitle = i18n_format!("Lesson {}", lesson.id);
-                    imp.lessons_title.set_subtitle(&subtitle);
-                } else {
-                    let current_step = lesson_view.current_step_index() as usize;
-                    let total_steps = lesson.steps.len();
-                    let subtitle = i18n_format!(
-                        "Lesson {}: Step {}/{}",
-                        lesson.id,
-                        current_step + 1,
-                        total_steps
-                    );
-                    imp.lessons_title.set_subtitle(&subtitle);
-                }
-            }
-        } else {
-            imp.lessons_title.set_title("Lessons");
-            imp.lessons_title.set_subtitle("");
-        }
     }
 
     pub fn load_window_state(&self) {

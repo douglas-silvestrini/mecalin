@@ -2,6 +2,8 @@ use gettextrs::gettext;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use i18n_format::i18n_format;
+use libadwaita as adw;
+use libadwaita::subclass::prelude::*;
 use std::cell::{Cell, RefCell};
 
 use crate::course::Lesson;
@@ -16,6 +18,8 @@ mod imp {
     #[template(resource = "/io/github/nacho/mecalin/ui/lesson_view.ui")]
     #[properties(wrapper_type = super::LessonView)]
     pub struct LessonView {
+        #[template_child]
+        pub window_title: TemplateChild<adw::WindowTitle>,
         #[template_child]
         pub lesson_description: TemplateChild<gtk::Label>,
         #[template_child]
@@ -47,7 +51,7 @@ mod imp {
     impl ObjectSubclass for LessonView {
         const NAME: &'static str = "LessonView";
         type Type = super::LessonView;
-        type ParentType = gtk::Box;
+        type ParentType = adw::NavigationPage;
 
         fn class_init(klass: &mut Self::Class) {
             klass.bind_template();
@@ -76,16 +80,12 @@ mod imp {
             self.setup_settings();
             self.setup_signals();
             self.obj().load_course_and_lesson();
+            self.obj().setup_title_updates();
         }
     }
 
-    impl WidgetImpl for LessonView {
-        fn grab_focus(&self) -> bool {
-            self.typing_row.grab_focus()
-        }
-    }
-
-    impl BoxImpl for LessonView {}
+    impl WidgetImpl for LessonView {}
+    impl NavigationPageImpl for LessonView {}
 }
 
 impl imp::LessonView {
@@ -204,13 +204,50 @@ impl imp::LessonView {
 
 glib::wrapper! {
     pub struct LessonView(ObjectSubclass<imp::LessonView>)
-        @extends gtk::Box, gtk::Widget,
-        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget, gtk::Orientable;
+        @extends adw::NavigationPage, gtk::Widget,
+        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 
 impl LessonView {
     pub fn new() -> Self {
         glib::Object::new()
+    }
+
+    fn setup_title_updates(&self) {
+        self.connect_notify_local(Some("current-lesson"), |lesson_view, _| {
+            lesson_view.update_title();
+        });
+
+        self.connect_notify_local(Some("current-step-index"), |lesson_view, _| {
+            lesson_view.update_title();
+        });
+    }
+
+    fn update_title(&self) {
+        let imp = self.imp();
+        if let Some(lesson_boxed) = self.current_lesson() {
+            if let Ok(lesson) = lesson_boxed.try_borrow::<Lesson>() {
+                imp.window_title.set_title(&lesson.title);
+
+                if lesson.introduction {
+                    let subtitle = i18n_format!("Lesson {}", lesson.id);
+                    imp.window_title.set_subtitle(&subtitle);
+                } else {
+                    let current_step = self.current_step_index() as usize;
+                    let total_steps = lesson.steps.len();
+                    let subtitle = i18n_format!(
+                        "Lesson {}: Step {}/{}",
+                        lesson.id,
+                        current_step + 1,
+                        total_steps
+                    );
+                    imp.window_title.set_subtitle(&subtitle);
+                }
+            }
+        } else {
+            imp.window_title.set_title("Lessons");
+            imp.window_title.set_subtitle("");
+        }
     }
 
     fn load_course(&self) {

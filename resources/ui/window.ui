@@ -76,26 +76,7 @@
           </object>
         </child>
         <child>
-          <object class="AdwNavigationPage">
-            <property name="tag">lessons</property>
-            <property name="title">Lessons</property>
-            <property name="child">
-              <object class="AdwToolbarView">
-                <child type="top">
-                  <object class="AdwHeaderBar" id="lessons_header_bar">
-                    <property name="title-widget">
-                      <object class="AdwWindowTitle" id="lessons_title">
-                        <property name="title">Lessons</property>
-                      </object>
-                    </property>
-                  </object>
-                </child>
-                <property name="content">
-                  <object class="LessonView" id="lesson_view_widget"/>
-                </property>
-              </object>
-            </property>
-          </object>
+          <object class="LessonView" id="lesson_view_widget"/>
         </child>
         <child>
           <object class="AdwNavigationPage">
