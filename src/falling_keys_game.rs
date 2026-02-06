@@ -3,8 +3,10 @@ use gtk::glib;
 use gtk::graphene;
 use gtk::pango;
 use gtk::prelude::*;
-use gtk::subclass::prelude::*;
 use i18n_format::i18n_format;
+use libadwaita as adw;
+use libadwaita::prelude::NavigationPageExt;
+use libadwaita::subclass::prelude::*;
 use rand::Rng;
 use std::cell::RefCell;
 use std::rc::Rc;
@@ -122,7 +124,7 @@ mod imp {
     impl ObjectSubclass for FallingKeysGame {
         const NAME: &'static str = "FallingKeysGame";
         type Type = super::FallingKeysGame;
-        type ParentType = gtk::Box;
+        type ParentType = adw::NavigationPage;
 
         fn class_init(klass: &mut Self::Class) {
             klass.bind_template();
@@ -137,21 +139,28 @@ mod imp {
         fn constructed(&self) {
             self.parent_constructed();
             self.obj().setup_game();
+            self.obj().setup_page_signals();
         }
     }
     impl WidgetImpl for FallingKeysGame {}
-    impl BoxImpl for FallingKeysGame {}
+    impl NavigationPageImpl for FallingKeysGame {}
 }
 
 glib::wrapper! {
     pub struct FallingKeysGame(ObjectSubclass<imp::FallingKeysGame>)
-        @extends gtk::Box, gtk::Widget,
-        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget, gtk::Orientable;
+        @extends adw::NavigationPage, gtk::Widget,
+        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 
 impl FallingKeysGame {
     pub fn new() -> Self {
         glib::Object::new()
+    }
+
+    fn setup_page_signals(&self) {
+        self.connect_shown(|game| {
+            game.reset();
+        });
     }
 
     fn setup_game(&self) {

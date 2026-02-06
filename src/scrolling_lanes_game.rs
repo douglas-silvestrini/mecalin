@@ -3,8 +3,10 @@ use gtk::glib;
 use gtk::graphene;
 use gtk::pango;
 use gtk::prelude::*;
-use gtk::subclass::prelude::*;
 use i18n_format::i18n_format;
+use libadwaita as adw;
+use libadwaita::prelude::NavigationPageExt;
+use libadwaita::subclass::prelude::*;
 use rand::prelude::*;
 use std::cell::RefCell;
 use std::rc::Rc;
@@ -200,7 +202,7 @@ mod imp {
     impl ObjectSubclass for ScrollingLanesGame {
         const NAME: &'static str = "ScrollingLanesGame";
         type Type = super::ScrollingLanesGame;
-        type ParentType = gtk::Box;
+        type ParentType = adw::NavigationPage;
 
         fn class_init(klass: &mut Self::Class) {
             klass.bind_template();
@@ -215,21 +217,28 @@ mod imp {
         fn constructed(&self) {
             self.parent_constructed();
             self.obj().setup_game();
+            self.obj().setup_page_signals();
         }
     }
     impl WidgetImpl for ScrollingLanesGame {}
-    impl BoxImpl for ScrollingLanesGame {}
+    impl NavigationPageImpl for ScrollingLanesGame {}
 }
 
 glib::wrapper! {
     pub struct ScrollingLanesGame(ObjectSubclass<imp::ScrollingLanesGame>)
-        @extends gtk::Box, gtk::Widget,
+        @extends adw::NavigationPage, gtk::Widget,
         @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget, gtk::Orientable;
 }
 
 impl ScrollingLanesGame {
     pub fn new() -> Self {
         glib::Object::new()
+    }
+
+    fn setup_page_signals(&self) {
+        self.connect_shown(|game| {
+            game.reset();
+        });
     }
 
     fn setup_game(&self) {

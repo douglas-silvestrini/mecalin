@@ -82,36 +82,10 @@
           <object class="SpeedTestView" id="speed_test_view_widget"/>
         </child>
         <child>
-          <object class="AdwNavigationPage">
-            <property name="tag">game</property>
-            <property name="title" translatable="yes">Falling Keys</property>
-            <property name="child">
-              <object class="AdwToolbarView">
-                <child type="top">
-                  <object class="AdwHeaderBar"/>
-                </child>
-                <property name="content">
-                  <object class="FallingKeysGame" id="falling_keys_game_widget"/>
-                </property>
-              </object>
-            </property>
-          </object>
+          <object class="FallingKeysGame" id="falling_keys_game_widget"/>
         </child>
         <child>
-          <object class="AdwNavigationPage">
-            <property name="tag">lanes_game</property>
-            <property name="title" translatable="yes">Scrolling Lanes</property>
-            <property name="child">
-              <object class="AdwToolbarView">
-                <child type="top">
-                  <object class="AdwHeaderBar"/>
-                </child>
-                <property name="content">
-                  <object class="ScrollingLanesGame" id="scrolling_lanes_game_widget"/>
-                </property>
-              </object>
-            </property>
-          </object>
+          <object class="ScrollingLanesGame" id="scrolling_lanes_game_widget"/>
         </child>
         <child>
           <object class="MecalinPreferencesView" id="preferences_view_widget"/>
