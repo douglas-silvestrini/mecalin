@@ -3,7 +3,7 @@ use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use i18n_format::i18n_format;
 use libadwaita as adw;
-use libadwaita::prelude::ActionRowExt;
+use libadwaita::prelude::{ActionRowExt, NavigationPageExt};
 use libadwaita::subclass::prelude::*;
 
 use crate::about_view::AboutView;
@@ -26,9 +26,9 @@ mod imp {
         #[template_child]
         pub window_title: TemplateChild<adw::WindowTitle>,
         #[template_child]
-        pub back_button: TemplateChild<gtk::Button>,
+        pub lessons_title: TemplateChild<adw::WindowTitle>,
         #[template_child]
-        pub main_stack: TemplateChild<gtk::Stack>,
+        pub navigation_view: TemplateChild<adw::NavigationView>,
         #[template_child]
         pub lessons_row: TemplateChild<adw::ActionRow>,
         #[template_child]
@@ -56,6 +56,7 @@ mod imp {
             FallingKeysGame::ensure_type();
             ScrollingLanesGame::ensure_type();
             PreferencesView::ensure_type();
+            SpeedTestView::ensure_type();
             klass.bind_template();
         }
 
@@ -69,6 +70,7 @@ mod imp {
             self.parent_constructed();
             self.setup_signals();
             self.obj().setup_lesson_view_signals();
+            self.obj().setup_navigation_signals();
         }
     }
     impl WidgetImpl for MecalinWindow {}
@@ -91,91 +93,64 @@ impl MecalinWindow {
 
     pub fn show_lessons(&self) {
         let imp = self.imp();
-        imp.main_stack.set_visible_child_name("lessons");
-        imp.back_button.set_visible(true);
+        imp.navigation_view.push_by_tag("lessons");
 
-        if let Some(lesson_view) = imp.main_stack.child_by_name("lessons") {
-            lesson_view.grab_focus();
-
-            if let Ok(lesson_view) = lesson_view.downcast::<LessonView>() {
-                self.update_title_from_lesson_view(&lesson_view);
+        if let Some(page) = imp.navigation_view.find_page("lessons") {
+            if let Some(toolbar_view) = page.child().and_downcast::<adw::ToolbarView>() {
+                if let Some(lesson_view) = toolbar_view.content().and_downcast::<LessonView>() {
+                    lesson_view.grab_focus();
+                }
             }
         }
     }
 
     pub fn show_game(&self) {
         let imp = self.imp();
-        imp.main_stack.set_visible_child_name("game");
-        imp.back_button.set_visible(true);
-        imp.window_title.set_title(&gettext("Falling Keys"));
-        imp.window_title.set_subtitle("");
+        imp.navigation_view.push_by_tag("game");
 
-        // Reset game when showing
-        if let Some(game) = imp.main_stack.child_by_name("game") {
-            if let Ok(game) = game.downcast::<FallingKeysGame>() {
-                game.reset();
+        if let Some(page) = imp.navigation_view.find_page("game") {
+            if let Some(toolbar_view) = page.child().and_downcast::<adw::ToolbarView>() {
+                if let Some(game) = toolbar_view.content().and_downcast::<FallingKeysGame>() {
+                    game.reset();
+                }
             }
         }
     }
 
     pub fn show_lanes_game(&self) {
         let imp = self.imp();
-        imp.main_stack.set_visible_child_name("lanes_game");
-        imp.back_button.set_visible(true);
-        imp.window_title.set_title(&gettext("Scrolling Lanes"));
-        imp.window_title.set_subtitle("");
+        imp.navigation_view.push_by_tag("lanes_game");
 
-        // Reset game when showing
-        if let Some(game) = imp.main_stack.child_by_name("lanes_game") {
-            if let Ok(game) = game.downcast::<ScrollingLanesGame>() {
-                game.reset();
+        if let Some(page) = imp.navigation_view.find_page("lanes_game") {
+            if let Some(toolbar_view) = page.child().and_downcast::<adw::ToolbarView>() {
+                if let Some(game) = toolbar_view.content().and_downcast::<ScrollingLanesGame>() {
+                    game.reset();
+                }
             }
         }
     }
 
     pub fn show_speed_test(&self) {
         let imp = self.imp();
+        imp.navigation_view.push_by_tag("speed_test");
 
-        // Create speed test view if it doesn't exist
-        if imp.main_stack.child_by_name("speed_test").is_none() {
-            let speed_test = SpeedTestView::new();
-            imp.main_stack.add_named(&speed_test, Some("speed_test"));
-        }
-
-        imp.main_stack.set_visible_child_name("speed_test");
-        imp.back_button.set_visible(true);
-        imp.window_title.set_title(&gettext("Speed Test"));
-        imp.window_title.set_subtitle("");
-    }
-
-    pub fn go_back(&self) {
-        let imp = self.imp();
-        let current_page = imp.main_stack.visible_child_name();
-
-        if let Some("lessons" | "game" | "lanes_game" | "speed_test" | "preferences" | "about") =
-            current_page.as_deref()
-        {
-            imp.main_stack.set_visible_child_name("main_menu");
-            imp.back_button.set_visible(false);
-            imp.window_title.set_title("Mecalin");
-            imp.window_title.set_subtitle("");
+        if let Some(page) = imp.navigation_view.find_page("speed_test") {
+            if let Some(toolbar_view) = page.child().and_downcast::<adw::ToolbarView>() {
+                if let Some(speed_test) = toolbar_view.content().and_downcast::<SpeedTestView>() {
+                    speed_test.grab_focus();
+                }
+            }
         }
     }
 
     pub fn show_about(&self) {
         let imp = self.imp();
-        imp.main_stack.set_visible_child_name("about");
-        imp.back_button.set_visible(true);
-        self.set_title(&gettext("About Mecalin"));
-        self.set_subtitle("");
+        imp.navigation_view.push_by_tag("about");
     }
 
     pub fn show_preferences(&self) {
         let imp = self.imp();
-        imp.main_stack.set_visible_child_name("preferences");
-        imp.back_button.set_visible(true);
-        self.set_title(&gettext("Preferences"));
-        self.set_subtitle("");
+        imp.navigation_view.push_by_tag("preferences");
     }
 
     pub fn set_title(&self, title: &str) {
@@ -190,36 +165,95 @@ impl MecalinWindow {
 
     fn setup_lesson_view_signals(&self) {
         let imp = self.imp();
-        if let Some(lesson_view) = imp.main_stack.child_by_name("lessons") {
-            if let Ok(lesson_view) = lesson_view.downcast::<LessonView>() {
-                let window = self.downgrade();
-                lesson_view.connect_notify_local(Some("current-lesson"), move |lesson_view, _| {
-                    if let Some(window) = window.upgrade() {
-                        window.update_title_from_lesson_view(lesson_view);
-                    }
-                });
+        if let Some(page) = imp.navigation_view.find_page("lessons") {
+            if let Some(toolbar_view) = page.child().and_downcast::<adw::ToolbarView>() {
+                if let Some(lesson_view) = toolbar_view.content().and_downcast::<LessonView>() {
+                    let window = self.downgrade();
+                    lesson_view.connect_notify_local(
+                        Some("current-lesson"),
+                        move |lesson_view, _| {
+                            if let Some(window) = window.upgrade() {
+                                window.update_title_from_lesson_view(lesson_view);
+                            }
+                        },
+                    );
 
-                let window = self.downgrade();
-                lesson_view.connect_notify_local(
-                    Some("current-step-index"),
-                    move |lesson_view, _| {
-                        if let Some(window) = window.upgrade() {
-                            window.update_title_from_lesson_view(lesson_view);
-                        }
-                    },
-                );
+                    let window = self.downgrade();
+                    lesson_view.connect_notify_local(
+                        Some("current-step-index"),
+                        move |lesson_view, _| {
+                            if let Some(window) = window.upgrade() {
+                                window.update_title_from_lesson_view(lesson_view);
+                            }
+                        },
+                    );
+                }
             }
         }
     }
 
+    fn setup_navigation_signals(&self) {
+        let imp = self.imp();
+        let window = self.downgrade();
+
+        imp.navigation_view
+            .connect_notify_local(Some("visible-page"), move |nav_view, _| {
+                if let Some(window) = window.upgrade() {
+                    if let Some(page) = nav_view.visible_page() {
+                        let tag = page.tag().map(|s| s.to_string());
+
+                        match tag.as_deref() {
+                            Some("main_menu") => {
+                                window.set_title("Mecalin");
+                                window.set_subtitle("");
+                            }
+                            Some("lessons") => {
+                                if let Some(toolbar_view) =
+                                    page.child().and_downcast::<adw::ToolbarView>()
+                                {
+                                    if let Some(lesson_view) =
+                                        toolbar_view.content().and_downcast::<LessonView>()
+                                    {
+                                        window.update_title_from_lesson_view(&lesson_view);
+                                    }
+                                }
+                            }
+                            Some("speed_test") => {
+                                window.set_title(&gettext("Speed Test"));
+                                window.set_subtitle("");
+                            }
+                            Some("game") => {
+                                window.set_title(&gettext("Falling Keys"));
+                                window.set_subtitle("");
+                            }
+                            Some("lanes_game") => {
+                                window.set_title(&gettext("Scrolling Lanes"));
+                                window.set_subtitle("");
+                            }
+                            Some("preferences") => {
+                                window.set_title(&gettext("Preferences"));
+                                window.set_subtitle("");
+                            }
+                            Some("about") => {
+                                window.set_title(&gettext("About"));
+                                window.set_subtitle("");
+                            }
+                            _ => {}
+                        }
+                    }
+                }
+            });
+    }
+
     fn update_title_from_lesson_view(&self, lesson_view: &LessonView) {
+        let imp = self.imp();
         if let Some(lesson_boxed) = lesson_view.current_lesson() {
             if let Ok(lesson) = lesson_boxed.try_borrow::<Lesson>() {
-                self.set_title(&lesson.title);
+                imp.lessons_title.set_title(&lesson.title);
 
                 if lesson.introduction {
                     let subtitle = i18n_format!("Lesson {}", lesson.id);
-                    self.set_subtitle(&subtitle);
+                    imp.lessons_title.set_subtitle(&subtitle);
                 } else {
                     let current_step = lesson_view.current_step_index() as usize;
                     let total_steps = lesson.steps.len();
@@ -229,13 +263,12 @@ impl MecalinWindow {
                         current_step + 1,
                         total_steps
                     );
-                    self.set_subtitle(&subtitle);
+                    imp.lessons_title.set_subtitle(&subtitle);
                 }
             }
         } else {
-            // No lesson selected, reset to default title
-            self.set_title("Mecalin");
-            self.set_subtitle("");
+            imp.lessons_title.set_title("Lessons");
+            imp.lessons_title.set_subtitle("");
         }
     }
 
@@ -315,13 +348,6 @@ impl imp::MecalinWindow {
         self.preferences_row.connect_activated(move |_| {
             if let Some(window) = window.upgrade() {
                 window.show_preferences();
-            }
-        });
-
-        let window = self.obj().downgrade();
-        self.back_button.connect_clicked(move |_| {
-            if let Some(window) = window.upgrade() {
-                window.go_back();
             }
         });
     }
