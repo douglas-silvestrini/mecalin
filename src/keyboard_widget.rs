@@ -788,6 +788,35 @@ mod imp {
                             }
                         }
                     }
+
+                    // For characters not directly on keyboard, check if this key is needed
+                    // to compose them (e.g., 'a' + '´' = 'á')
+                    for &visible_char in visible.iter() {
+                        if !layout_borrowed.contains_character(visible_char) {
+                            if let glib::CharacterDecomposition::Pair(dead_key, base) =
+                                visible_char.decompose()
+                            {
+                                if base_char == dead_key || base_char == base {
+                                    return true;
+                                }
+                                if let Some(shift) = &key_info.shift {
+                                    if let Some(shift_char) = shift.chars().next() {
+                                        if shift_char == dead_key || shift_char == base {
+                                            return true;
+                                        }
+                                    }
+                                }
+                                if let Some(altgr) = &key_info.altgr {
+                                    if let Some(altgr_char) = altgr.chars().next() {
+                                        if altgr_char == dead_key || altgr_char == base {
+                                            return true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     false
                 })
             };
