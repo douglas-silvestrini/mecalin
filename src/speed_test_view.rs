@@ -79,6 +79,12 @@ mod imp {
             self.parent_constructed();
             let obj = self.obj();
 
+            // Bind duration setting
+            let settings = gio::Settings::new("io.github.nacho.mecalin");
+            settings
+                .bind("speed-test-duration", &*self.duration_dropdown, "selected")
+                .build();
+
             obj.setup_signals();
             obj.setup_page_signals();
             obj.reset_test();
@@ -114,7 +120,8 @@ impl SpeedTestView {
             1 => TestDuration::Sec30,
             2 => TestDuration::Min1,
             3 => TestDuration::Min5,
-            _ => TestDuration::Min1,
+            4 => TestDuration::Min10,
+            _ => TestDuration::Sec30,
         }
     }
 
