@@ -1,7 +1,7 @@
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use libadwaita as adw;
-use libadwaita::prelude::{ActionRowExt, NavigationPageExt};
+use libadwaita::prelude::ActionRowExt;
 use libadwaita::subclass::prelude::*;
 
 use crate::about_view::AboutView;
@@ -92,40 +92,16 @@ impl MecalinWindow {
     pub fn show_game(&self) {
         let imp = self.imp();
         imp.navigation_view.push_by_tag("game");
-
-        if let Some(page) = imp.navigation_view.find_page("game") {
-            if let Some(toolbar_view) = page.child().and_downcast::<adw::ToolbarView>() {
-                if let Some(game) = toolbar_view.content().and_downcast::<FallingKeysGame>() {
-                    game.reset();
-                }
-            }
-        }
     }
 
     pub fn show_lanes_game(&self) {
         let imp = self.imp();
         imp.navigation_view.push_by_tag("lanes_game");
-
-        if let Some(page) = imp.navigation_view.find_page("lanes_game") {
-            if let Some(toolbar_view) = page.child().and_downcast::<adw::ToolbarView>() {
-                if let Some(game) = toolbar_view.content().and_downcast::<ScrollingLanesGame>() {
-                    game.reset();
-                }
-            }
-        }
     }
 
     pub fn show_speed_test(&self) {
         let imp = self.imp();
         imp.navigation_view.push_by_tag("speed_test");
-
-        if let Some(page) = imp.navigation_view.find_page("speed_test") {
-            if let Some(toolbar_view) = page.child().and_downcast::<adw::ToolbarView>() {
-                if let Some(speed_test) = toolbar_view.content().and_downcast::<SpeedTestView>() {
-                    speed_test.grab_focus();
-                }
-            }
-        }
     }
 
     pub fn show_about(&self) {

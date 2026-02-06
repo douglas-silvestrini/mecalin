@@ -13,6 +13,9 @@ use crate::typing_test_utils::{GeneratedTestDifficulty, TestConfig, TestDuration
 use gtk::glib;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
+use libadwaita as adw;
+use libadwaita::prelude::NavigationPageExt;
+use libadwaita::subclass::prelude::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 use std::str::FromStr;
@@ -46,7 +49,7 @@ mod imp {
     impl ObjectSubclass for SpeedTestView {
         const NAME: &'static str = "SpeedTestView";
         type Type = super::SpeedTestView;
-        type ParentType = gtk::Box;
+        type ParentType = adw::NavigationPage;
 
         fn class_init(klass: &mut Self::Class) {
             klass.bind_template();
@@ -77,28 +80,31 @@ mod imp {
             let obj = self.obj();
 
             obj.setup_signals();
+            obj.setup_page_signals();
             obj.reset_test();
-
-            let text_view = self.text_view.clone();
-            glib::idle_add_local_once(move || {
-                text_view.grab_focus();
-            });
         }
     }
 
     impl WidgetImpl for SpeedTestView {}
-    impl BoxImpl for SpeedTestView {}
+    impl NavigationPageImpl for SpeedTestView {}
 }
 
 glib::wrapper! {
     pub struct SpeedTestView(ObjectSubclass<imp::SpeedTestView>)
-        @extends gtk::Box, gtk::Widget,
-        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget, gtk::Orientable;
+        @extends adw::NavigationPage, gtk::Widget,
+        @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 
 impl SpeedTestView {
     pub fn new() -> Self {
         glib::Object::new()
+    }
+
+    fn setup_page_signals(&self) {
+        let text_view = self.imp().text_view.clone();
+        self.connect_shown(move |_| {
+            text_view.grab_focus();
+        });
     }
 
     fn get_duration(&self) -> TestDuration {

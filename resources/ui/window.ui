@@ -79,20 +79,7 @@
           <object class="LessonView" id="lesson_view_widget"/>
         </child>
         <child>
-          <object class="AdwNavigationPage">
-            <property name="tag">speed_test</property>
-            <property name="title" translatable="yes">Speed Test</property>
-            <property name="child">
-              <object class="AdwToolbarView">
-                <child type="top">
-                  <object class="AdwHeaderBar"/>
-                </child>
-                <property name="content">
-                  <object class="SpeedTestView" id="speed_test_view_widget"/>
-                </property>
-              </object>
-            </property>
-          </object>
+          <object class="SpeedTestView" id="speed_test_view_widget"/>
         </child>
         <child>
           <object class="AdwNavigationPage">
