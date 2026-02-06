@@ -102,7 +102,8 @@ impl SpeedTestView {
 
     fn setup_page_signals(&self) {
         let text_view = self.imp().text_view.clone();
-        self.connect_shown(move |_| {
+        self.connect_shown(move |view| {
+            view.reset_test();
             text_view.grab_focus();
         });
     }
