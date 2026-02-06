@@ -793,7 +793,7 @@ mod imp {
                     // to compose them (e.g., 'a' + '´' = 'á')
                     for &visible_char in visible.iter() {
                         if !layout_borrowed.contains_character(visible_char) {
-                            if let glib::CharacterDecomposition::Pair(combining_accent, base) =
+                            if let glib::CharacterDecomposition::Pair(base, combining_accent) =
                                 visible_char.decompose()
                             {
                                 // Map combining accents to spacing accents
