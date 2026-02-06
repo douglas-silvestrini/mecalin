@@ -329,15 +329,7 @@ impl LessonView {
                     imp.typing_row.grab_focus();
                 }
 
-                // Extract unique characters from the lesson text for keyboard display
-                let mut target_keys = std::collections::HashSet::new();
-                for ch in first_step.text.chars() {
-                    if !ch.is_control() {
-                        target_keys.insert(ch.to_lowercase().next().unwrap_or(ch));
-                    }
-                }
-
-                imp.keyboard_widget.set_visible_keys(Some(target_keys));
+                self.update_keyboard_keys(&first_step.text);
             }
         }
 
@@ -392,15 +384,7 @@ impl LessonView {
                         imp.typing_row.grab_focus();
                     }
 
-                    // Update keyboard for this step
-                    let mut target_keys = std::collections::HashSet::new();
-                    for ch in step.text.chars() {
-                        if !ch.is_control() {
-                            target_keys.insert(ch.to_lowercase().next().unwrap_or(ch));
-                        }
-                    }
-
-                    imp.keyboard_widget.set_visible_keys(Some(target_keys));
+                    self.update_keyboard_keys(&step.text);
 
                     // Set initial key/finger highlight
                     let first_char = step.text.chars().next();
@@ -583,5 +567,57 @@ impl LessonView {
                 imp.typing_row.clear();
             }
         }
+    }
+
+    fn extract_keys(text: &str) -> std::collections::HashSet<char> {
+        text.chars().filter(|ch| !ch.is_control()).collect()
+    }
+
+    fn update_keyboard_keys(&self, text: &str) {
+        self.imp()
+            .keyboard_widget
+            .set_visible_keys(Some(Self::extract_keys(text)));
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_extract_keys_basic() {
+        let keys = LessonView::extract_keys("hello");
+        assert_eq!(keys.len(), 4);
+        assert!(keys.contains(&'h'));
+        assert!(keys.contains(&'e'));
+        assert!(keys.contains(&'l'));
+        assert!(keys.contains(&'o'));
+    }
+
+    #[test]
+    fn test_extract_keys_accented() {
+        let keys = LessonView::extract_keys("café");
+        assert_eq!(keys.len(), 4);
+        assert!(keys.contains(&'c'));
+        assert!(keys.contains(&'a'));
+        assert!(keys.contains(&'f'));
+        assert!(keys.contains(&'é'));
+    }
+
+    #[test]
+    fn test_extract_keys_mixed_accents() {
+        let keys = LessonView::extract_keys("niño español");
+        assert!(keys.contains(&'ñ'));
+        assert!(keys.contains(&'a'));
+        assert!(keys.contains(&' '));
+    }
+
+    #[test]
+    fn test_extract_keys_control_chars() {
+        let keys = LessonView::extract_keys("hello\nworld\t");
+        assert!(!keys.contains(&'\n'));
+        assert!(!keys.contains(&'\t'));
+        assert!(keys.contains(&'h'));
+        assert!(keys.contains(&'w'));
     }
 }
