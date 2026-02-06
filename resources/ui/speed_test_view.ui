@@ -9,63 +9,57 @@
           <object class="AdwHeaderBar">
             <property name="title-widget">
               <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <property name="spacing">6</property>
+                <property name="orientation">horizontal</property>
+                <property name="spacing">12</property>
+                <property name="halign">center</property>
                 <child>
                   <object class="GtkLabel">
-                    <property name="label" translatable="yes">Speed Test</property>
+                    <property name="label" translatable="yes">Speed Test:</property>
                     <style>
                       <class name="title"/>
                     </style>
                   </object>
                 </child>
                 <child>
-                  <object class="GtkBox">
+                  <object class="GtkBox" id="settings_box">
                     <property name="orientation">horizontal</property>
                     <property name="spacing">12</property>
-                    <property name="halign">center</property>
                     <child>
-                      <object class="GtkBox" id="settings_box">
-                        <property name="orientation">horizontal</property>
-                        <property name="spacing">12</property>
-                        <child>
-                          <object class="GtkDropDown" id="text_type_dropdown">
-                            <property name="model">
-                              <object class="GtkStringList">
-                                <items>
-                                  <item translatable="yes">Simple</item>
-                                  <item translatable="yes">Advanced</item>
-                                </items>
-                              </object>
-                            </property>
-                            <property name="selected">0</property>
+                      <object class="GtkDropDown" id="text_type_dropdown">
+                        <property name="model">
+                          <object class="GtkStringList">
+                            <items>
+                              <item translatable="yes">Simple</item>
+                              <item translatable="yes">Advanced</item>
+                            </items>
                           </object>
-                        </child>
-                        <child>
-                          <object class="GtkDropDown" id="duration_dropdown">
-                            <property name="model">
-                              <object class="GtkStringList">
-                                <items>
-                                  <item translatable="yes">15 seconds</item>
-                                  <item translatable="yes">30 seconds</item>
-                                  <item translatable="yes">1 minute</item>
-                                  <item translatable="yes">2 minutes</item>
-                                </items>
-                              </object>
-                            </property>
-                            <property name="selected">1</property>
-                          </object>
-                        </child>
+                        </property>
+                        <property name="selected">0</property>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="timer_label">
-                        <property name="visible">false</property>
-                        <style>
-                          <class name="title-2"/>
-                        </style>
+                      <object class="GtkDropDown" id="duration_dropdown">
+                        <property name="model">
+                          <object class="GtkStringList">
+                            <items>
+                              <item translatable="yes">15 seconds</item>
+                              <item translatable="yes">30 seconds</item>
+                              <item translatable="yes">1 minute</item>
+                              <item translatable="yes">2 minutes</item>
+                            </items>
+                          </object>
+                        </property>
+                        <property name="selected">1</property>
                       </object>
                     </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="timer_label">
+                    <property name="visible">false</property>
+                    <style>
+                      <class name="title"/>
+                    </style>
                   </object>
                 </child>
               </object>
