@@ -1259,10 +1259,19 @@ impl KeyboardWidget {
         if let Some(ch) = key {
             // Only decompose if the character doesn't exist in the layout
             if !imp.layout.borrow().contains_character(ch) {
-                if let glib::CharacterDecomposition::Pair(dead_key, base_char) = ch.decompose() {
-                    *imp.current_key_sequence.borrow_mut() = vec![dead_key, base_char];
+                if let glib::CharacterDecomposition::Pair(base, combining_accent) = ch.decompose() {
+                    // Map combining accent to spacing accent for keyboard
+                    let spacing_accent = match combining_accent {
+                        '\u{0301}' => '´',
+                        '\u{0300}' => '`',
+                        '\u{0302}' => '^',
+                        '\u{0303}' => '~',
+                        '\u{0308}' => '¨',
+                        _ => combining_accent,
+                    };
+                    *imp.current_key_sequence.borrow_mut() = vec![spacing_accent, base];
                     *imp.sequence_index.borrow_mut() = 0;
-                    *imp.current_key.borrow_mut() = Some(dead_key);
+                    *imp.current_key.borrow_mut() = Some(spacing_accent);
                 } else {
                     *imp.current_key_sequence.borrow_mut() = Vec::new();
                     *imp.sequence_index.borrow_mut() = 0;
