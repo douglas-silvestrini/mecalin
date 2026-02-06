@@ -767,10 +767,35 @@ mod imp {
                 current.is_some_and(|c| key_info.matches_char(c, &layout_borrowed))
             };
 
-            let should_show_key = |key_char: char| -> bool {
+            let should_show_key = |key_info: &KeyInfo| -> bool {
                 visible_keys_borrowed.as_ref().is_none_or(|visible| {
-                    visible.contains(&key_char.to_lowercase().next().unwrap())
+                    // Check if any character this key can produce is in the visible set
+                    let base_char = key_info.base.chars().next().unwrap_or(' ');
+                    if visible.contains(&base_char) {
+                        return true;
+                    }
+                    if let Some(shift) = &key_info.shift {
+                        if let Some(shift_char) = shift.chars().next() {
+                            if visible.contains(&shift_char) {
+                                return true;
+                            }
+                        }
+                    }
+                    if let Some(altgr) = &key_info.altgr {
+                        if let Some(altgr_char) = altgr.chars().next() {
+                            if visible.contains(&altgr_char) {
+                                return true;
+                            }
+                        }
+                    }
+                    false
                 })
+            };
+
+            let should_show_char = |ch: char| -> bool {
+                visible_keys_borrowed
+                    .as_ref()
+                    .is_none_or(|visible| visible.contains(&ch))
             };
 
             // Row 0: Number row + Backspace
@@ -778,7 +803,6 @@ mod imp {
             let y = 0.0;
             if let Some(row) = layout_borrowed.keys.first() {
                 for key_info in row {
-                    let key_char = key_info.base.chars().next().unwrap_or(' ');
                     Self::draw_single_key(
                         snapshot,
                         &pango_context,
@@ -789,7 +813,7 @@ mod imp {
                         Some(key_info),
                         None,
                         is_key_current(key_info),
-                        should_show_key(key_char),
+                        should_show_key(key_info),
                         &key_color,
                         &key_current_color,
                         &key_text_color,
@@ -847,7 +871,6 @@ mod imp {
             }
             if let Some(row) = layout_borrowed.keys.get(1) {
                 for key_info in row {
-                    let key_char = key_info.base.chars().next().unwrap_or(' ');
                     Self::draw_single_key(
                         snapshot,
                         &pango_context,
@@ -858,7 +881,7 @@ mod imp {
                         Some(key_info),
                         None,
                         is_key_current(key_info),
-                        should_show_key(key_char),
+                        should_show_key(key_info),
                         &key_color,
                         &key_current_color,
                         &key_text_color,
@@ -917,7 +940,6 @@ mod imp {
             }
             if let Some(row) = layout_borrowed.keys.get(2) {
                 for key_info in row {
-                    let key_char = key_info.base.chars().next().unwrap_or(' ');
                     Self::draw_single_key(
                         snapshot,
                         &pango_context,
@@ -928,7 +950,7 @@ mod imp {
                         Some(key_info),
                         None,
                         is_key_current(key_info),
-                        should_show_key(key_char),
+                        should_show_key(key_info),
                         &key_color,
                         &key_current_color,
                         &key_text_color,
@@ -966,7 +988,6 @@ mod imp {
             }
             if let Some(row) = layout_borrowed.keys.get(3) {
                 for key_info in row {
-                    let key_char = key_info.base.chars().next().unwrap_or(' ');
                     Self::draw_single_key(
                         snapshot,
                         &pango_context,
@@ -977,7 +998,7 @@ mod imp {
                         Some(key_info),
                         None,
                         is_key_current(key_info),
-                        should_show_key(key_char),
+                        should_show_key(key_info),
                         &key_color,
                         &key_current_color,
                         &key_text_color,
@@ -1087,7 +1108,7 @@ mod imp {
                 None,
                 Some(space_label),
                 is_space_current,
-                should_show_key(' '),
+                should_show_char(' '),
                 &key_color,
                 &key_current_color,
                 &key_text_color,
