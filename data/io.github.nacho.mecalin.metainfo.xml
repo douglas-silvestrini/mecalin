@@ -113,6 +113,21 @@
   </screenshots>
   
   <releases>
+    <release version="0.11.0" date="2026-02-08">
+      <description>
+        <ul>
+          <li>Fixed accented characters not showing in lesson keyboard key list</li>
+          <li>Fixed keyboard widget to show dead keys for composed accented characters (e.g., á shows both a and ´)</li>
+          <li>Fixed dead key sequence highlighting to show dead key first, then base character</li>
+          <li>Fixed dead key detection for multi-byte UTF-8 characters</li>
+          <li>Fixed hand widget finger highlighting for dead keys</li>
+          <li>Migrated from GtkStack to AdwNavigationView for modern navigation</li>
+          <li>Moved speed test controls to header bar for cleaner UI</li>
+          <li>Added speed test duration setting (30s, 1min, 2min, 5min)</li>
+          <li>Refactored Unicode decomposition logic into reusable utils module</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.10.0" date="2026-02-06">
       <description>
         <ul>
