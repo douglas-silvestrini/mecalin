@@ -12,7 +12,8 @@ use std::collections::HashSet;
 use std::fmt;
 use std::str::FromStr;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
 pub enum Finger {
     LeftPinky,
     LeftRing,
@@ -100,7 +101,7 @@ pub struct KeyInfo {
     pub label: Option<String>,
     pub shift: Option<String>,
     pub altgr: Option<String>,
-    pub finger: String,
+    pub finger: Finger,
 }
 
 impl KeyInfo {
@@ -149,7 +150,7 @@ impl KeyInfo {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ModifierKey {
     pub label: String,
-    pub finger: String,
+    pub finger: Finger,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -176,12 +177,12 @@ impl KeyboardLayout {
         Ok(serde_json::from_str(json_data)?)
     }
 
-    pub fn get_finger_for_char(&self, ch: char) -> Option<String> {
+    pub fn get_finger_for_char(&self, ch: char) -> Option<Finger> {
         let ch_lower = ch.to_lowercase().next().unwrap();
 
         // Check space key
         if ch == ' ' {
-            return Some(self.space.finger.clone());
+            return Some(self.space.finger);
         }
 
         // Check all keys in the layout
@@ -192,20 +193,20 @@ impl KeyboardLayout {
 
                 // Check base (lowercase comparison)
                 if ch_lower == base_lower {
-                    return Some(key_info.finger.clone());
+                    return Some(key_info.finger);
                 }
 
                 // Check shift (exact match)
                 if let Some(shift) = &key_info.shift {
                     if shift.chars().next().unwrap_or(' ') == ch {
-                        return Some(key_info.finger.clone());
+                        return Some(key_info.finger);
                     }
                 }
 
                 // Check altgr (exact match)
                 if let Some(altgr) = &key_info.altgr {
                     if altgr.chars().next().unwrap_or(' ') == ch {
-                        return Some(key_info.finger.clone());
+                        return Some(key_info.finger);
                     }
                 }
             }
@@ -265,21 +266,21 @@ impl Default for KeyboardLayout {
                     label: None,
                     shift: Some("Q".to_string()),
                     altgr: None,
-                    finger: "left_pinky".to_string(),
+                    finger: Finger::LeftPinky,
                 },
                 KeyInfo {
                     base: "w".to_string(),
                     label: None,
                     shift: Some("W".to_string()),
                     altgr: None,
-                    finger: "left_ring".to_string(),
+                    finger: Finger::LeftRing,
                 },
                 KeyInfo {
                     base: "e".to_string(),
                     label: None,
                     shift: Some("E".to_string()),
                     altgr: None,
-                    finger: "left_middle".to_string(),
+                    finger: Finger::LeftMiddle,
                 },
             ]],
             space: KeyInfo {
@@ -287,7 +288,7 @@ impl Default for KeyboardLayout {
                 label: Some("SPACE".to_string()),
                 shift: None,
                 altgr: None,
-                finger: "both_thumbs".to_string(),
+                finger: Finger::BothThumbs,
             },
             modifiers: HashMap::new(),
         })
@@ -383,42 +384,18 @@ mod tests {
         let layout = KeyboardLayout::load_from_json("us").unwrap();
 
         // Test base characters
-        assert_eq!(
-            layout.get_finger_for_char('a'),
-            Some("left_pinky".to_string())
-        );
-        assert_eq!(
-            layout.get_finger_for_char('A'),
-            Some("left_pinky".to_string())
-        );
-        assert_eq!(
-            layout.get_finger_for_char('f'),
-            Some("left_index".to_string())
-        );
-        assert_eq!(
-            layout.get_finger_for_char('j'),
-            Some("right_index".to_string())
-        );
-        assert_eq!(
-            layout.get_finger_for_char('l'),
-            Some("right_ring".to_string())
-        );
+        assert_eq!(layout.get_finger_for_char('a'), Some(Finger::LeftPinky));
+        assert_eq!(layout.get_finger_for_char('A'), Some(Finger::LeftPinky));
+        assert_eq!(layout.get_finger_for_char('f'), Some(Finger::LeftIndex));
+        assert_eq!(layout.get_finger_for_char('j'), Some(Finger::RightIndex));
+        assert_eq!(layout.get_finger_for_char('l'), Some(Finger::RightRing));
 
         // Test space
-        assert_eq!(
-            layout.get_finger_for_char(' '),
-            Some("both_thumbs".to_string())
-        );
+        assert_eq!(layout.get_finger_for_char(' '), Some(Finger::BothThumbs));
 
         // Test shift characters
-        assert_eq!(
-            layout.get_finger_for_char('!'),
-            Some("left_pinky".to_string())
-        );
-        assert_eq!(
-            layout.get_finger_for_char('@'),
-            Some("left_ring".to_string())
-        );
+        assert_eq!(layout.get_finger_for_char('!'), Some(Finger::LeftPinky));
+        assert_eq!(layout.get_finger_for_char('@'), Some(Finger::LeftRing));
 
         // Test character not in layout
         assert_eq!(layout.get_finger_for_char('Ñ'), None);
@@ -429,30 +406,15 @@ mod tests {
         let layout = KeyboardLayout::load_from_json("es").unwrap();
 
         // Test Spanish-specific characters
-        assert_eq!(
-            layout.get_finger_for_char('ñ'),
-            Some("right_pinky".to_string())
-        );
-        assert_eq!(
-            layout.get_finger_for_char('Ñ'),
-            Some("right_pinky".to_string())
-        );
+        assert_eq!(layout.get_finger_for_char('ñ'), Some(Finger::RightPinky));
+        assert_eq!(layout.get_finger_for_char('Ñ'), Some(Finger::RightPinky));
 
         // Test base characters
-        assert_eq!(
-            layout.get_finger_for_char('a'),
-            Some("left_pinky".to_string())
-        );
-        assert_eq!(
-            layout.get_finger_for_char('s'),
-            Some("left_ring".to_string())
-        );
+        assert_eq!(layout.get_finger_for_char('a'), Some(Finger::LeftPinky));
+        assert_eq!(layout.get_finger_for_char('s'), Some(Finger::LeftRing));
 
         // Test space
-        assert_eq!(
-            layout.get_finger_for_char(' '),
-            Some("both_thumbs".to_string())
-        );
+        assert_eq!(layout.get_finger_for_char(' '), Some(Finger::BothThumbs));
     }
 
     fn create_test_layout() -> KeyboardLayout {
@@ -464,21 +426,21 @@ mod tests {
                     label: None,
                     shift: Some("\"".to_string()),
                     altgr: Some("´".to_string()),
-                    finger: "right_pinky".to_string(),
+                    finger: Finger::RightPinky,
                 },
                 KeyInfo {
                     base: "9".to_string(),
                     label: None,
                     shift: Some("(".to_string()),
                     altgr: Some("'".to_string()),
-                    finger: "right_ring".to_string(),
+                    finger: Finger::RightRing,
                 },
                 KeyInfo {
                     base: "0".to_string(),
                     label: None,
                     shift: Some(")".to_string()),
                     altgr: Some("'".to_string()),
-                    finger: "right_pinky".to_string(),
+                    finger: Finger::RightPinky,
                 },
             ]],
             modifiers: std::collections::HashMap::new(),
@@ -487,7 +449,7 @@ mod tests {
                 label: None,
                 shift: None,
                 altgr: None,
-                finger: "both_thumbs".to_string(),
+                finger: Finger::BothThumbs,
             },
         }
     }
@@ -530,7 +492,7 @@ mod tests {
             label: None,
             shift: Some("A".to_string()),
             altgr: None,
-            finger: "left_pinky".to_string(),
+            finger: Finger::LeftPinky,
         });
 
         let a_key = &layout.keys[0][3];
@@ -667,8 +629,8 @@ mod imp {
             (keyboard_width, keyboard_height)
         }
 
-        fn get_finger_css_class(finger: &str) -> String {
-            format!("finger-{}", finger.replace('_', "-"))
+        fn get_finger_css_class(finger: &Finger) -> String {
+            format!("finger-{}", finger.to_string().replace('_', "-"))
         }
 
         #[allow(clippy::too_many_arguments)]
@@ -836,7 +798,7 @@ mod imp {
             let settings = gio::Settings::new("io.github.nacho.mecalin");
             let use_finger_colors = settings.boolean("use-finger-colors");
 
-            let get_finger_color = |finger: &str| -> gdk::RGBA {
+            let get_finger_color = |finger: &Finger| -> gdk::RGBA {
                 if use_finger_colors {
                     get_color(&Self::get_finger_css_class(finger))
                 } else {
@@ -1371,7 +1333,7 @@ impl KeyboardWidget {
         self.queue_draw();
     }
 
-    pub fn get_finger_for_char(&self, ch: char) -> Option<String> {
+    pub fn get_finger_for_char(&self, ch: char) -> Option<Finger> {
         self.imp().layout.borrow().get_finger_for_char(ch)
     }
 }
