@@ -1,3 +1,4 @@
+use crate::keyboard_widget::Finger;
 use gtk::gdk;
 use gtk::glib;
 use gtk::prelude::*;
@@ -10,7 +11,7 @@ mod imp {
 
     #[derive(Default)]
     pub struct HandWidget {
-        pub current_finger: RefCell<Option<String>>,
+        pub current_finger: RefCell<Option<Finger>>,
     }
 
     #[glib::object_subclass]
@@ -45,14 +46,14 @@ mod imp {
     }
 
     impl HandWidget {
-        fn get_finger_css_class(finger: &str) -> String {
-            format!("finger-{}", finger.replace('_', "-"))
+        fn get_finger_css_class(finger: &Finger) -> String {
+            format!("finger-{}", finger.to_string().replace('_', "-"))
         }
 
         fn draw_hand(
             snapshot: &gtk::Snapshot,
             widget: &super::HandWidget,
-            current_finger: &RefCell<Option<String>>,
+            current_finger: &RefCell<Option<Finger>>,
         ) {
             let current = current_finger.borrow();
 
@@ -124,12 +125,13 @@ mod imp {
 
             // Draw fingers
             for (finger_name, x, y, w, h) in &fingers {
-                let is_current = current.as_ref().is_some_and(|f| f == finger_name);
+                let finger_enum: Finger = finger_name.parse().unwrap();
+                let is_current = current.as_ref().is_some_and(|f| *f == finger_enum);
                 let (fill_color, border_color) = if is_current {
                     let c = get_color("hand-finger-current");
                     (c, c)
                 } else if use_finger_colors {
-                    let c = get_color(&Self::get_finger_css_class(finger_name));
+                    let c = get_color(&Self::get_finger_css_class(&finger_enum));
                     (default_color, c)
                 } else {
                     (default_color, default_border)
@@ -148,14 +150,15 @@ mod imp {
 
             // Draw thumbs
             for (i, (thumb_name, x, y, w, h)) in thumbs.iter().enumerate() {
+                let thumb_enum: Finger = thumb_name.parse().unwrap();
                 let is_current = current
                     .as_ref()
-                    .is_some_and(|f| f == "both_thumbs" || f == thumb_name);
+                    .is_some_and(|f| *f == Finger::BothThumbs || *f == thumb_enum);
                 let (fill_color, border_color) = if is_current {
                     let c = get_color("hand-finger-current");
                     (c, c)
                 } else if use_finger_colors {
-                    let c = get_color(&Self::get_finger_css_class(thumb_name));
+                    let c = get_color(&Self::get_finger_css_class(&thumb_enum));
                     (default_color, c)
                 } else {
                     (default_color, default_border)
@@ -283,7 +286,7 @@ impl HandWidget {
         glib::Object::new()
     }
 
-    pub fn set_current_finger(&self, finger: Option<String>) {
+    pub fn set_current_finger(&self, finger: Option<Finger>) {
         *self.imp().current_finger.borrow_mut() = finger;
         self.queue_draw();
     }
