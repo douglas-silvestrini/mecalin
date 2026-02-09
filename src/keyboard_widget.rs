@@ -519,6 +519,7 @@ mod imp {
         pub current_key_sequence: RefCell<Vec<char>>,
         pub sequence_index: RefCell<usize>,
         pub layout: RefCell<KeyboardLayout>,
+        pub last_finger: RefCell<Option<Finger>>,
     }
 
     #[glib::object_subclass]
