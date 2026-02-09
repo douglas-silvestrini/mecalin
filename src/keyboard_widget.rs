@@ -1309,6 +1309,15 @@ impl KeyboardWidget {
                 *imp.sequence_index.borrow_mut() = 0;
                 *imp.current_key.borrow_mut() = key;
             }
+
+            // Track last finger for non-space characters
+            if ch != ' ' {
+                if let Some(finger) = imp.layout.borrow().get_finger_for_char(ch) {
+                    if finger != Finger::BothThumbs {
+                        *imp.last_finger.borrow_mut() = Some(finger);
+                    }
+                }
+            }
         } else {
             *imp.current_key_sequence.borrow_mut() = Vec::new();
             *imp.sequence_index.borrow_mut() = 0;
@@ -1324,7 +1333,16 @@ impl KeyboardWidget {
 
         if !sequence.is_empty() && *index < sequence.len() - 1 {
             *index += 1;
-            *imp.current_key.borrow_mut() = Some(sequence[*index]);
+            let ch = sequence[*index];
+            *imp.current_key.borrow_mut() = Some(ch);
+
+            // Track last finger for the current character in the sequence
+            if let Some(finger) = imp.layout.borrow().get_finger_for_char(ch) {
+                if finger != Finger::BothThumbs {
+                    *imp.last_finger.borrow_mut() = Some(finger);
+                }
+            }
+
             self.queue_draw();
         }
     }
