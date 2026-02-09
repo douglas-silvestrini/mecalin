@@ -1353,7 +1353,19 @@ impl KeyboardWidget {
     }
 
     pub fn get_finger_for_char(&self, ch: char) -> Option<Finger> {
-        self.imp().layout.borrow().get_finger_for_char(ch)
+        let imp = self.imp();
+
+        // Special handling for space - use opposite thumb based on last finger
+        if ch == ' ' {
+            let last_finger = imp.last_finger.borrow();
+            return Some(
+                last_finger
+                    .as_ref()
+                    .map_or(Finger::RightThumb, |f| f.opposite_thumb()),
+            );
+        }
+
+        imp.layout.borrow().get_finger_for_char(ch)
     }
 }
 
