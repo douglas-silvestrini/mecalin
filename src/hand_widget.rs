@@ -57,10 +57,14 @@ mod imp {
         ) {
             let current = current_finger.borrow();
 
+            // This seems to be the only supported way to get custom colors
+            // even though it is deprecated
+            #[allow(deprecated)]
             let get_color = |class_name: &str| -> gdk::RGBA {
-                widget.add_css_class(class_name);
-                let color = widget.color();
-                widget.remove_css_class(class_name);
+                let style_context = widget.style_context();
+                style_context.add_class(class_name);
+                let color = style_context.color();
+                style_context.remove_class(class_name);
                 color
             };
 
