@@ -9,6 +9,89 @@ use serde::{Deserialize, Serialize};
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::collections::HashSet;
+use std::fmt;
+use std::str::FromStr;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Finger {
+    LeftPinky,
+    LeftRing,
+    LeftMiddle,
+    LeftIndex,
+    LeftThumb,
+    RightIndex,
+    RightMiddle,
+    RightRing,
+    RightPinky,
+    RightThumb,
+    BothThumbs,
+}
+
+impl Finger {
+    pub fn hand(&self) -> Option<&str> {
+        match self {
+            Finger::LeftPinky
+            | Finger::LeftRing
+            | Finger::LeftMiddle
+            | Finger::LeftIndex
+            | Finger::LeftThumb => Some("left"),
+            Finger::RightIndex
+            | Finger::RightMiddle
+            | Finger::RightRing
+            | Finger::RightPinky
+            | Finger::RightThumb => Some("right"),
+            Finger::BothThumbs => None,
+        }
+    }
+
+    pub fn opposite_thumb(&self) -> Finger {
+        match self.hand() {
+            Some("left") => Finger::RightThumb,
+            Some("right") => Finger::LeftThumb,
+            _ => Finger::RightThumb,
+        }
+    }
+}
+
+impl FromStr for Finger {
+    type Err = String;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "left_pinky" => Ok(Finger::LeftPinky),
+            "left_ring" => Ok(Finger::LeftRing),
+            "left_middle" => Ok(Finger::LeftMiddle),
+            "left_index" => Ok(Finger::LeftIndex),
+            "left_thumb" => Ok(Finger::LeftThumb),
+            "right_index" => Ok(Finger::RightIndex),
+            "right_middle" => Ok(Finger::RightMiddle),
+            "right_ring" => Ok(Finger::RightRing),
+            "right_pinky" => Ok(Finger::RightPinky),
+            "right_thumb" => Ok(Finger::RightThumb),
+            "both_thumbs" => Ok(Finger::BothThumbs),
+            _ => Err(format!("Unknown finger: {}", s)),
+        }
+    }
+}
+
+impl fmt::Display for Finger {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let s = match self {
+            Finger::LeftPinky => "left_pinky",
+            Finger::LeftRing => "left_ring",
+            Finger::LeftMiddle => "left_middle",
+            Finger::LeftIndex => "left_index",
+            Finger::LeftThumb => "left_thumb",
+            Finger::RightIndex => "right_index",
+            Finger::RightMiddle => "right_middle",
+            Finger::RightRing => "right_ring",
+            Finger::RightPinky => "right_pinky",
+            Finger::RightThumb => "right_thumb",
+            Finger::BothThumbs => "both_thumbs",
+        };
+        write!(f, "{}", s)
+    }
+}
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct KeyInfo {
