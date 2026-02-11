@@ -2074,6 +2074,127 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 11,
+      "title": "Letras mayúsculas",
+      "description": "Aprender letras mayúsculas",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "En esta lección vamos a practicar las letras mayúsculas",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "PeRióDiCo rEhéN SémOLA témPANO",
+          "description": "Teclee las siguientes palabras con letras mayúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "VesíCulA veRSátiL TáMesis SúbITo",
+          "description": "Teclee las siguientes palabras con letras mayúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "táCTicA ráFaGA POdERío PoESíA",
+          "description": "Teclee las siguientes palabras con letras mayúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "PArtíCiPE PáGINa mORmóN MíNiMo",
+          "description": "Recuerde que debe pulsar las teclas SHIFT para pulsar las mayúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "MIoPíA LLavíN LyóN lluVIa luZ",
+          "description": "Recuerde que debe pulsar las teclas SHIFT para pulsar las mayúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "HéROe, GóTIcO; \"éTico\". EXprés;",
+          "description": "Ahora también vamos a pulsar la tecla de la coma, punto y coma, comillas y punto",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "HíBrIDo. éTeR; ESPíriTu, \"CUesTIón\".",
+          "description": "Ahora también vamos a pulsar la tecla de la coma, punto y coma, comillas y punto",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "cOlIBrí, \"CáDiZ\". áUReO; AnéCdOTa.",
+          "description": "Ahora también vamos a pulsar la tecla de la coma, punto y coma, comillas y punto",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "aCadéMiCO, ACúStiCo; CíTArA. \"AuTOnoMía\".",
+          "description": "No se olvide que la barra espaciadora se pulsa con el dedo pulgar de la mano contraria a la última tecla pulsada",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "CaBeLLo; CiruGíA, DisTRaíDo. FLuIr;",
+          "description": "No se olvide que la barra espaciadora se pulsa con el dedo pulgar de la mano contraria a la última tecla pulsada",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "INeQuíVoCO. \"LéXiCo\"; LuNa, NAiPe.",
+          "description": "No se olvide que la barra espaciadora se pulsa con el dedo pulgar de la mano contraria a la última tecla pulsada",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "Sanxenxo, MARÍN y Meaño, SON municipios de PONTEVEDRA",
+          "description": "Ahora vamos a ir escribiendo pequeñas frases mezclando mayúsculas y minúsculas. Recuerde que para escribir en mayúsculas debe pulsar siempre las teclas SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "Juan HIZO lo SiGuIENte: Se lavó, coMió y SE fue.",
+          "description": "Ahora vamos a ir escribiendo pequeñas frases mezclando mayúsculas y minúsculas. Recuerde que para escribir en mayúsculas debe pulsar siempre las teclas SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "MADRID es LA Capital de ESPAÑA.",
+          "description": "Ahora vamos a ir escribiendo pequeñas frases mezclando mayúsculas y minúsculas. Recuerde que para escribir en mayúsculas debe pulsar siempre las teclas SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "¡Hola! ¿Qué tal? (Bien) [Gracias] {Adiós}",
+          "description": "También vamos a incluir algunos caracteres y números, además de seguir escribiendo palabras en mayúsculas.",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "Precio: 100€ + 21% IVA = 121€ total.",
+          "description": "También vamos a incluir algunos caracteres y números, además de seguir escribiendo palabras en mayúsculas.",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "Email: Ana@Correo.es; Web: www.Ejemplo.com",
+          "description": "También vamos a incluir algunos caracteres y números, además de seguir escribiendo palabras en mayúsculas.",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "",
+          "description": "¡Enhorabuena! Ha acabado la onceava lección",
+          "introduction": true
+        }
+      ]
     }
   ]
 }
