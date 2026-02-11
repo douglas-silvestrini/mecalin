@@ -1955,6 +1955,127 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 11,
+      "title": "Wielkie litery",
+      "description": "Nauka wielkich liter",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "W tej lekcji będziemy ćwiczyć wielkie litery",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "GaZeTa ZaKłaDNiK KaSZa BęBeNeK",
+          "description": "Wpisz następujące słowa z wielkimi literami",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "PęCHeRZyK WsZeChSTRoNNy TaMiZa NaGły",
+          "description": "Wpisz następujące słowa z wielkimi literami",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "TaKTyKa NaWałNiCa MoC PoEZJa",
+          "description": "Wpisz następujące słowa z wielkimi literami",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "UCZeSTNiK STRoNa MoRMoN MiNiMuM",
+          "description": "Pamiętaj, aby naciskać klawisze SHIFT, aby pisać wielkimi literami",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "KRóTKoWZRoCZNoŚć BReLoCZeK LioN DeSZCZ ŚWiaTło",
+          "description": "Pamiętaj, aby naciskać klawisze SHIFT, aby pisać wielkimi literami",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "BoHaTeR, GoTyCKi; \"eTyCZNy\". EkSPReS;",
+          "description": "Teraz będziemy również naciskać klawisz przecinka, średnika, cudzysłowu i kropki",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "HyBRyDa. ETeR; DuCH, \"PyTaNie\".",
+          "description": "Teraz będziemy również naciskać klawisz przecinka, średnika, cudzysłowu i kropki",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "KoLiBeR, \"KaDyKS\". ZłoTy; ANeKDoTa.",
+          "description": "Teraz będziemy również naciskać klawisz przecinka, średnika, cudzysłowu i kropki",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "aKaDeMiCKi, AKuSTyCZNy; CyTRa. \"AuToNoMia\".",
+          "description": "Nie zapomnij, że spacja jest naciskana kciukiem ręki przeciwnej do ostatnio naciśniętego klawisza",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "WłoSy; CHiRuRGia, RoZKoJaRZoNy. PłyNąć;",
+          "description": "Nie zapomnij, że spacja jest naciskana kciukiem ręki przeciwnej do ostatnio naciśniętego klawisza",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "NieDoWiaRyGoDNy. \"LeKSyKoN\"; KSięŻyC, KaRTa.",
+          "description": "Nie zapomnij, że spacja jest naciskana kciukiem ręki przeciwnej do ostatnio naciśniętego klawisza",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "Kraków, WARSZAWA i Gdańsk, SĄ miastami w POLSCE",
+          "description": "Teraz będziemy pisać krótkie zdania mieszając wielkie i małe litery. Pamiętaj, że aby pisać wielkimi literami, musisz zawsze naciskać klawisze SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "Jan ZROBIŁ NaSTęPuJąCo: Umył się, ZJaDł i WySZeDł.",
+          "description": "Teraz będziemy pisać krótkie zdania mieszając wielkie i małe litery. Pamiętaj, że aby pisać wielkimi literami, musisz zawsze naciskać klawisze SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "WARSZAWA jest STolicą POLSKI.",
+          "description": "Teraz będziemy pisać krótkie zdania mieszając wielkie i małe litery. Pamiętaj, że aby pisać wielkimi literami, musisz zawsze naciskać klawisze SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "Cześć! Jak się masz? (Dobrze) [Dziękuję] {Do widzenia}",
+          "description": "Będziemy również uwzględniać niektóre znaki i cyfry, oprócz kontynuowania pisania słów wielkimi literami.",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "Cena: 100zł + 23% VAT = 123zł razem.",
+          "description": "Będziemy również uwzględniać niektóre znaki i cyfry, oprócz kontynuowania pisania słów wielkimi literami.",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "Email: Anna@Poczta.pl; Web: www.Przyklad.pl",
+          "description": "Będziemy również uwzględniać niektóre znaki i cyfry, oprócz kontynuowania pisania słów wielkimi literami.",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "",
+          "description": "Gratulacje! Ukończyłeś jedenastą lekcję",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

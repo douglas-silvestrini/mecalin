@@ -2075,6 +2075,127 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 11,
+      "title": "Lettere maiuscole",
+      "description": "Imparare le lettere maiuscole",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "In questa lezione praticheremo le lettere maiuscole",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "GioRNaLe OsTaGGio SeMoLa TiMPaNo",
+          "description": "Digita le seguenti parole con lettere maiuscole",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "VeSCiCoLa VeRSaTiLe TaMiGi ImPRoVViSo",
+          "description": "Digita le seguenti parole con lettere maiuscole",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "TaTTiCa RaFFiCa PoTeRe PoESia",
+          "description": "Digita le seguenti parole con lettere maiuscole",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "PaRTeCiPaNTe PaGiNa MoRMoNe MiNiMo",
+          "description": "Ricorda di premere i tasti SHIFT per digitare le maiuscole",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "MioPia PoRTaCHiaVi LioNe PioGGia LuCe",
+          "description": "Ricorda di premere i tasti SHIFT per digitare le maiuscole",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "ERoe, GoTiCo; \"eTiCo\". EsPReSso;",
+          "description": "Ora premeremo anche i tasti virgola, punto e virgola, virgolette e punto",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "iBRiDo. eTeRe; SPiRiTo, \"QueSTioNe\".",
+          "description": "Ora premeremo anche i tasti virgola, punto e virgola, virgolette e punto",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "CoLiBRì, \"CaDiCe\". auReo; aNeDDoTo.",
+          "description": "Ora premeremo anche i tasti virgola, punto e virgola, virgolette e punto",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "aCCaDeMiCo, ACuSTiCo; CeTRa. \"AuToNoMia\".",
+          "description": "Non dimenticare che la barra spaziatrice si preme con il pollice della mano opposta all'ultimo tasto premuto",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "CaPeLLi; CHiRuRGia, DiSTRaTTo. FLuiRe;",
+          "description": "Non dimenticare che la barra spaziatrice si preme con il pollice della mano opposta all'ultimo tasto premuto",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "INeQuiVoCaBiLe. \"LeSSiCo\"; LuNa, CaRTa.",
+          "description": "Non dimenticare che la barra spaziatrice si preme con il pollice della mano opposta all'ultimo tasto premuto",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "Milano, ROMA e Napoli, SONO città d'ITALIA",
+          "description": "Ora scriveremo brevi frasi mescolando maiuscole e minuscole. Ricorda che per scrivere in maiuscolo devi sempre premere i tasti SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "Giovanni HA FATTO quanto SeGuE: Si è lavato, ha MaNGiaTo e SE n'è andato.",
+          "description": "Ora scriveremo brevi frasi mescolando maiuscole e minuscole. Ricorda che per scrivere in maiuscolo devi sempre premere i tasti SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "ROMA è LA Capitale d'ITALIA.",
+          "description": "Ora scriveremo brevi frasi mescolando maiuscole e minuscole. Ricorda che per scrivere in maiuscolo devi sempre premere i tasti SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "Ciao! Come stai? (Bene) [Grazie] {Arrivederci}",
+          "description": "Includeremo anche alcuni caratteri e numeri, oltre a continuare a scrivere parole in maiuscolo.",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "Prezzo: 100€ + 22% IVA = 122€ totale.",
+          "description": "Includeremo anche alcuni caratteri e numeri, oltre a continuare a scrivere parole in maiuscolo.",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "Email: Anna@Posta.it; Web: www.Esempio.it",
+          "description": "Includeremo anche alcuni caratteri e numeri, oltre a continuare a scrivere parole in maiuscolo.",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "",
+          "description": "Congratulazioni! Hai finito l'undicesima lezione",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

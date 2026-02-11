@@ -2099,6 +2099,127 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 11,
+      "title": "Letras maiúsculas",
+      "description": "Aprender letras maiúsculas",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "Nesta lección imos practicar as letras maiúsculas",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "PeRióDiCo RéFéN SéMoLa TíMPaNo",
+          "description": "Escriba as seguintes palabras con letras maiúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "VeSíCuLa VeRSáTiL TáMeSiS SúBiTo",
+          "description": "Escriba as seguintes palabras con letras maiúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "TáCTiCa RáFaGa PoDeR PoESía",
+          "description": "Escriba as seguintes palabras con letras maiúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "PaRTiCiPaNTe PáXiNa MoRMóN MíNiMo",
+          "description": "Lembre que debe premer as teclas SHIFT para escribir en maiúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "MioPía CHaVeiRo LyóN CHuVia LuZ",
+          "description": "Lembre que debe premer as teclas SHIFT para escribir en maiúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "HeRoe, GóTiCo; \"éTiCo\". ExPReso;",
+          "description": "Agora tamén imos premer a tecla da coma, punto e coma, comiñas e punto",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "HíBRiDo. éTeR; EsPíRiTo, \"CueSTión\".",
+          "description": "Agora tamén imos premer a tecla da coma, punto e coma, comiñas e punto",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "CoLiBRí, \"CáDiZ\". áuReo; AnéCDoTa.",
+          "description": "Agora tamén imos premer a tecla da coma, punto e coma, comiñas e punto",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "aCaDéMiCo, ACúSTiCo; CíTaRa. \"AuToNoMía\".",
+          "description": "Non esqueza que a barra espazadora se preme co polgar da man contraria á última tecla premida",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "CaBeLo; CiRuRXía, DiSTRaíDo. FLuíR;",
+          "description": "Non esqueza que a barra espazadora se preme co polgar da man contraria á última tecla premida",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "INeQuíVoCo. \"LéXiCo\"; LuA, NaiPe.",
+          "description": "Non esqueza que a barra espazadora se preme co polgar da man contraria á última tecla premida",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "Vigo, SANTIAGO e Ferrol, SON municipios de GALICIA",
+          "description": "Agora imos escribir pequenas frases mesturando maiúsculas e minúsculas. Lembre que para escribir en maiúsculas debe premer sempre as teclas SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "Xoán FIXO o SeGuiNTe: Lavouse, CoMeU e FOI.",
+          "description": "Agora imos escribir pequenas frases mesturando maiúsculas e minúsculas. Lembre que para escribir en maiúsculas debe premer sempre as teclas SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "SANTIAGO é A Capital de GALICIA.",
+          "description": "Agora imos escribir pequenas frases mesturando maiúsculas e minúsculas. Lembre que para escribir en maiúsculas debe premer sempre as teclas SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "Ola! Como estás? (Ben) [Grazas] {Adeus}",
+          "description": "Tamén imos incluír algúns caracteres e números, ademais de seguir escribindo palabras en maiúsculas.",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "Prezo: 100€ + 21% IVE = 121€ total.",
+          "description": "Tamén imos incluír algúns caracteres e números, ademais de seguir escribindo palabras en maiúsculas.",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "Email: Ana@Correo.gal; Web: www.Exemplo.gal",
+          "description": "Tamén imos incluír algúns caracteres e números, ademais de seguir escribindo palabras en maiúsculas.",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "",
+          "description": "¡Parabéns! Rematou a décimo primeira lección",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

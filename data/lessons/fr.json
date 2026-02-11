@@ -2074,6 +2074,127 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 11,
+      "title": "Lettres majuscules",
+      "description": "Apprendre les lettres majuscules",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "Dans cette leçon, nous allons pratiquer les lettres majuscules",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "JoURnaL OtaGe SéMoULe TyMPaN",
+          "description": "Tapez les mots suivants avec des lettres majuscules",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "VéSiCuLe VeRSaTiLe TaMiSe SoUDaiN",
+          "description": "Tapez les mots suivants avec des lettres majuscules",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "TaCTiQuE RaFaLe PoUVoiR PoéSiE",
+          "description": "Tapez les mots suivants avec des lettres majuscules",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "PaRTiCiPaNT PaGe MoRMoN MiNiMuM",
+          "description": "N'oubliez pas d'appuyer sur les touches SHIFT pour taper en majuscules",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "MyoPiE PoRTe-CLéS LyoN PLuiE LuMièRe",
+          "description": "N'oubliez pas d'appuyer sur les touches SHIFT pour taper en majuscules",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "HéRoS, GoTHiQuE; \"éTHiQuE\". ExPRèS;",
+          "description": "Maintenant, nous allons également appuyer sur les touches virgule, point-virgule, guillemets et point",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "HyBRiDe. éTHeR; EsPRiT, \"QuEsTioN\".",
+          "description": "Maintenant, nous allons également appuyer sur les touches virgule, point-virgule, guillemets et point",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "CoLiBRi, \"CaDiX\". DoRé; AnECdoTe.",
+          "description": "Maintenant, nous allons également appuyer sur les touches virgule, point-virgule, guillemets et point",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "aCaDéMiQuE, AcouSTiQuE; CiTHaRe. \"AuToNoMiE\".",
+          "description": "N'oubliez pas que la barre d'espace est pressée avec le pouce de la main opposée à la dernière touche pressée",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "CHeVeuX; CHiRuRGiE, DiSTRaiT. CouLeR;",
+          "description": "N'oubliez pas que la barre d'espace est pressée avec le pouce de la main opposée à la dernière touche pressée",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "SaNS éQuiVoQuE. \"LeXiQuE\"; LuNe, CaRTe.",
+          "description": "N'oubliez pas que la barre d'espace est pressée avec le pouce de la main opposée à la dernière touche pressée",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "Lyon, MARSEILLE et Nice, SONT des villes de FRANCE",
+          "description": "Maintenant, nous allons écrire de courtes phrases en mélangeant majuscules et minuscules. N'oubliez pas que pour écrire en majuscules, vous devez toujours appuyer sur les touches SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "Jean A FAIT ce QuI SuiT: Il s'est lavé, a MaNGé et EST parti.",
+          "description": "Maintenant, nous allons écrire de courtes phrases en mélangeant majuscules et minuscules. N'oubliez pas que pour écrire en majuscules, vous devez toujours appuyer sur les touches SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "PARIS est LA Capitale de la FRANCE.",
+          "description": "Maintenant, nous allons écrire de courtes phrases en mélangeant majuscules et minuscules. N'oubliez pas que pour écrire en majuscules, vous devez toujours appuyer sur les touches SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "Bonjour! Comment allez-vous? (Bien) [Merci] {Au revoir}",
+          "description": "Nous allons également inclure quelques caractères et chiffres, en plus de continuer à écrire des mots en majuscules.",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "Prix: 100€ + 21% TVA = 121€ total.",
+          "description": "Nous allons également inclure quelques caractères et chiffres, en plus de continuer à écrire des mots en majuscules.",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "Email: Anne@Courrier.fr; Web: www.Exemple.fr",
+          "description": "Nous allons également inclure quelques caractères et chiffres, en plus de continuer à écrire des mots en majuscules.",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "",
+          "description": "Félicitations ! Vous avez terminé la onzième leçon",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

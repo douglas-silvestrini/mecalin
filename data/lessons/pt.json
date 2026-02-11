@@ -2099,6 +2099,127 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 11,
+      "title": "Letras maiúsculas",
+      "description": "Aprender letras maiúsculas",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "Nesta lição vamos praticar as letras maiúsculas",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "JoRNaL RéFéM SêMoLa TíMPaNo",
+          "description": "Escreva as seguintes palavras com letras maiúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "VeSíCuLa VeRSáTiL TâMiSa SúBiTo",
+          "description": "Escreva as seguintes palavras com letras maiúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "TáTiCa RáFaGa PoDeR PoESia",
+          "description": "Escreva as seguintes palavras com letras maiúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "PaRTiCiPaNTe PáGiNa MóRMoN MíNiMo",
+          "description": "Lembre-se de pressionar as teclas SHIFT para escrever em maiúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "MioPia CHaVeiRo LyoN CHuVa LuZ",
+          "description": "Lembre-se de pressionar as teclas SHIFT para escrever em maiúsculas",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "HeRói, GóTiCo; \"éTiCo\". ExPReSso;",
+          "description": "Agora também vamos pressionar a tecla da vírgula, ponto e vírgula, aspas e ponto",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "HíBRiDo. éTeR; EsPíRiTo, \"QueSTão\".",
+          "description": "Agora também vamos pressionar a tecla da vírgula, ponto e vírgula, aspas e ponto",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "CoLiBRi, \"CáDiZ\". áUReO; AnéCDoTa.",
+          "description": "Agora também vamos pressionar a tecla da vírgula, ponto e vírgula, aspas e ponto",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "aCaDéMiCo, ACúSTiCo; CíTaRa. \"AuToNoMia\".",
+          "description": "Não se esqueça que a barra de espaço é pressionada com o polegar da mão oposta à última tecla pressionada",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "CaBeLo; CiRuRGia, DiSTRaíDo. FLuiR;",
+          "description": "Não se esqueça que a barra de espaço é pressionada com o polegar da mão oposta à última tecla pressionada",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "INeQuíVoCo. \"LéXiCo\"; LuA, CaRTa.",
+          "description": "Não se esqueça que a barra de espaço é pressionada com o polegar da mão oposta à última tecla pressionada",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "Porto, LISBOA e Coimbra, SÃO cidades de PORTUGAL",
+          "description": "Agora vamos escrever pequenas frases misturando maiúsculas e minúsculas. Lembre-se que para escrever em maiúsculas deve sempre pressionar as teclas SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "João FEZ o SeGuiNTe: Lavou-se, CoMeU e FOI embora.",
+          "description": "Agora vamos escrever pequenas frases misturando maiúsculas e minúsculas. Lembre-se que para escrever em maiúsculas deve sempre pressionar as teclas SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "LISBOA é A Capital de PORTUGAL.",
+          "description": "Agora vamos escrever pequenas frases misturando maiúsculas e minúsculas. Lembre-se que para escrever em maiúsculas deve sempre pressionar as teclas SHIFT",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "Olá! Como está? (Bem) [Obrigado] {Adeus}",
+          "description": "Também vamos incluir alguns caracteres e números, além de continuar a escrever palavras em maiúsculas.",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "Preço: 100€ + 23% IVA = 123€ total.",
+          "description": "Também vamos incluir alguns caracteres e números, além de continuar a escrever palavras em maiúsculas.",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "Email: Ana@Correio.pt; Web: www.Exemplo.pt",
+          "description": "Também vamos incluir alguns caracteres e números, além de continuar a escrever palavras em maiúsculas.",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "",
+          "description": "Parabéns! Acabou a décima primeira lição",
+          "introduction": true
+        }
+      ]
     }
   ]
 }
