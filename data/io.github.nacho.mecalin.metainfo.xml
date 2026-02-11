@@ -113,6 +113,16 @@
   </screenshots>
   
   <releases>
+    <release version="0.12.0" date="2026-02-11">
+      <description>
+        <ul>
+          <li>Added lesson 11 (Capital Letters) to all languages</li>
+          <li>Improved thumb alternation logic for space key</li>
+          <li>Refactored code to use Finger enum for better type safety</li>
+          <li>Updated styling approach to use style_context</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.11.0" date="2026-02-08">
       <description>
         <ul>
