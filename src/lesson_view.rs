@@ -3,6 +3,7 @@ use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use i18n_format::i18n_format;
 use libadwaita as adw;
+use libadwaita::prelude::NavigationPageExt;
 use libadwaita::subclass::prelude::*;
 use std::cell::{Cell, RefCell};
 
@@ -167,6 +168,12 @@ impl imp::LessonView {
                 }
             ),
         );
+
+        // Focus typing row when page is shown
+        self.obj().connect_shown(|page| {
+            let imp = page.imp();
+            imp.typing_row.grab_focus();
+        });
     }
 
     fn setup_settings(&self) {
