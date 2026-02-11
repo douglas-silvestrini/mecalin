@@ -4,7 +4,9 @@ use gtk::glib;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{graphene, gsk};
+use libadwaita as adw;
 use std::cell::RefCell;
+use std::collections::HashMap;
 
 mod imp {
     use super::*;
@@ -12,6 +14,7 @@ mod imp {
     #[derive(Default)]
     pub struct HandWidget {
         pub current_finger: RefCell<Option<Finger>>,
+        pub cached_colors: RefCell<Option<HashMap<String, gdk::RGBA>>>,
     }
 
     #[glib::object_subclass]
@@ -21,7 +24,22 @@ mod imp {
         type ParentType = gtk::Widget;
     }
 
-    impl ObjectImpl for HandWidget {}
+    impl ObjectImpl for HandWidget {
+        fn constructed(&self) {
+            self.parent_constructed();
+            self.cache_colors();
+
+            // Re-cache colors when theme changes
+            let style_manager = adw::StyleManager::default();
+            style_manager.connect_dark_notify(glib::clone!(
+                #[weak(rename_to = this)]
+                self,
+                move |_| {
+                    this.cache_colors();
+                }
+            ));
+        }
+    }
 
     impl WidgetImpl for HandWidget {
         fn snapshot(&self, snapshot: &gtk::Snapshot) {
@@ -33,7 +51,7 @@ mod imp {
                 return;
             }
 
-            Self::draw_hand(snapshot, &widget, &self.current_finger);
+            Self::draw_hand(snapshot, &widget, &self.current_finger, &self.cached_colors);
         }
 
         fn measure(&self, orientation: gtk::Orientation, _for_size: i32) -> (i32, i32, i32, i32) {
@@ -46,19 +64,9 @@ mod imp {
     }
 
     impl HandWidget {
-        fn get_finger_css_class(finger: &Finger) -> String {
-            format!("finger-{}", finger.to_string().replace('_', "-"))
-        }
+        fn cache_colors(&self) {
+            let widget = self.obj();
 
-        fn draw_hand(
-            snapshot: &gtk::Snapshot,
-            widget: &super::HandWidget,
-            current_finger: &RefCell<Option<Finger>>,
-        ) {
-            let current = current_finger.borrow();
-
-            // This seems to be the only supported way to get custom colors
-            // even though it is deprecated
             #[allow(deprecated)]
             let get_color = |class_name: &str| -> gdk::RGBA {
                 let style_context = widget.style_context();
@@ -68,10 +76,65 @@ mod imp {
                 color
             };
 
+            let mut colors = HashMap::new();
+            colors.insert(
+                "hand-finger-default".to_string(),
+                get_color("hand-finger-default"),
+            );
+            colors.insert(
+                "hand-finger-border".to_string(),
+                get_color("hand-finger-border"),
+            );
+            colors.insert(
+                "hand-finger-current".to_string(),
+                get_color("hand-finger-current"),
+            );
+            colors.insert("hand-palm".to_string(), get_color("hand-palm"));
+            colors.insert(
+                "hand-palm-border".to_string(),
+                get_color("hand-palm-border"),
+            );
+
+            // Cache finger colors
+            for finger in [
+                Finger::LeftPinky,
+                Finger::LeftRing,
+                Finger::LeftMiddle,
+                Finger::LeftIndex,
+                Finger::LeftThumb,
+                Finger::RightIndex,
+                Finger::RightMiddle,
+                Finger::RightRing,
+                Finger::RightPinky,
+                Finger::RightThumb,
+                Finger::BothThumbs,
+            ] {
+                let class_name = Self::get_finger_css_class(&finger);
+                colors.insert(class_name.clone(), get_color(&class_name));
+            }
+
+            *self.cached_colors.borrow_mut() = Some(colors);
+        }
+
+        fn get_finger_css_class(finger: &Finger) -> String {
+            format!("finger-{}", finger.to_string().replace('_', "-"))
+        }
+
+        fn draw_hand(
+            snapshot: &gtk::Snapshot,
+            _widget: &super::HandWidget,
+            current_finger: &RefCell<Option<Finger>>,
+            cached_colors: &RefCell<Option<HashMap<String, gdk::RGBA>>>,
+        ) {
+            let current = current_finger.borrow();
+
+            let colors = cached_colors.borrow();
+            let colors = colors.as_ref().expect("Colors should be cached");
+
             let settings = gtk::gio::Settings::new("io.github.nacho.mecalin");
             let use_finger_colors = settings.boolean("use-finger-colors");
-            let default_color = get_color("hand-finger-default");
-            let default_border = get_color("hand-finger-border");
+            let default_color = colors["hand-finger-default"];
+            let default_border = colors["hand-finger-border"];
 
             // Finger layout: (name, x, y, width, height)
             let fingers = [
@@ -91,8 +154,8 @@ mod imp {
             ];
 
             // Draw left palm
-            let palm_color = get_color("hand-palm");
-            let palm_border_color = get_color("hand-palm-border");
+            let palm_color = colors["hand-palm"];
+            let palm_border_color = colors["hand-palm-border"];
             let left_palm_rect = graphene::Rect::new(9.0, 64.0, 89.0, 68.0);
             let left_palm_rounded = gsk::RoundedRect::new(
                 left_palm_rect,
@@ -132,10 +195,14 @@ mod imp {
                 let finger_enum: Finger = finger_name.parse().unwrap();
                 let is_current = current.as_ref().is_some_and(|f| *f == finger_enum);
                 let (fill_color, border_color) = if is_current {
-                    let c = get_color("hand-finger-current");
+                    let c = colors
+                        .get("hand-finger-current")
+                        .copied()
+                        .unwrap_or(default_color);
                     (c, c)
                 } else if use_finger_colors {
-                    let c = get_color(&Self::get_finger_css_class(&finger_enum));
+                    let class_name = Self::get_finger_css_class(&finger_enum);
+                    let c = colors.get(&class_name).copied().unwrap_or(default_border);
                     (default_color, c)
                 } else {
                     (default_color, default_border)
@@ -159,10 +226,14 @@ mod imp {
                     .as_ref()
                     .is_some_and(|f| *f == Finger::BothThumbs || *f == thumb_enum);
                 let (fill_color, border_color) = if is_current {
-                    let c = get_color("hand-finger-current");
+                    let c = colors
+                        .get("hand-finger-current")
+                        .copied()
+                        .unwrap_or(default_color);
                     (c, c)
                 } else if use_finger_colors {
-                    let c = get_color(&Self::get_finger_css_class(&thumb_enum));
+                    let class_name = Self::get_finger_css_class(&thumb_enum);
+                    let c = colors.get(&class_name).copied().unwrap_or(default_border);
                     (default_color, c)
                 } else {
                     (default_color, default_border)

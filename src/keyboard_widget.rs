@@ -5,6 +5,7 @@ use gtk::pango;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{graphene, gsk};
+use libadwaita as adw;
 use serde::{Deserialize, Serialize};
 use std::cell::RefCell;
 use std::collections::HashMap;
@@ -520,6 +521,7 @@ mod imp {
         pub sequence_index: RefCell<usize>,
         pub layout: RefCell<KeyboardLayout>,
         pub last_finger: RefCell<Option<Finger>>,
+        pub cached_colors: RefCell<Option<HashMap<String, gdk::RGBA>>>,
     }
 
     #[glib::object_subclass]
@@ -535,6 +537,18 @@ mod imp {
             let layout_code = crate::utils::language_from_locale();
             *self.layout.borrow_mut() =
                 KeyboardLayout::load_from_json(layout_code).unwrap_or_default();
+
+            self.cache_colors();
+
+            // Re-cache colors when theme changes
+            let style_manager = adw::StyleManager::default();
+            style_manager.connect_dark_notify(glib::clone!(
+                #[weak(rename_to = this)]
+                self,
+                move |_| {
+                    this.cache_colors();
+                }
+            ));
         }
     }
 
@@ -554,6 +568,7 @@ mod imp {
                 &self.current_key,
                 &self.layout,
                 &self.visible_keys,
+                &self.cached_colors,
             );
         }
 
@@ -564,6 +579,65 @@ mod imp {
                 gtk::Orientation::Vertical => (height, height, -1, -1),
                 _ => (0, 0, -1, -1),
             }
+        }
+    }
+
+    impl KeyboardWidget {
+        fn cache_colors(&self) {
+            let widget = self.obj();
+
+            #[allow(deprecated)]
+            let get_color = |class_name: &str| -> gdk::RGBA {
+                let style_context = widget.style_context();
+                style_context.add_class(class_name);
+                let color = style_context.color();
+                style_context.remove_class(class_name);
+                color
+            };
+
+            let mut colors = HashMap::new();
+            colors.insert(
+                "keyboard-modifier".to_string(),
+                get_color("keyboard-modifier"),
+            );
+            colors.insert(
+                "keyboard-modifier-text".to_string(),
+                get_color("keyboard-modifier-text"),
+            );
+            colors.insert(
+                "keyboard-key-text".to_string(),
+                get_color("keyboard-key-text"),
+            );
+            colors.insert("keyboard-key".to_string(), get_color("keyboard-key"));
+            colors.insert(
+                "keyboard-key-current-text".to_string(),
+                get_color("keyboard-key-current-text"),
+            );
+            colors.insert(
+                "keyboard-key-current".to_string(),
+                get_color("keyboard-key-current"),
+            );
+            colors.insert("keyboard-border".to_string(), get_color("keyboard-border"));
+
+            // Cache finger colors
+            for finger in [
+                Finger::LeftPinky,
+                Finger::LeftRing,
+                Finger::LeftMiddle,
+                Finger::LeftIndex,
+                Finger::LeftThumb,
+                Finger::RightIndex,
+                Finger::RightMiddle,
+                Finger::RightRing,
+                Finger::RightPinky,
+                Finger::RightThumb,
+                Finger::BothThumbs,
+            ] {
+                let class_name = Self::get_finger_css_class(&finger);
+                colors.insert(class_name.clone(), get_color(&class_name));
+            }
+
+            *self.cached_colors.borrow_mut() = Some(colors);
         }
     }
 
@@ -662,6 +736,7 @@ mod imp {
                 graphene::Size::zero(),
             );
 
+            snapshot.save();
             snapshot.append_color(
                 if is_current {
                     key_current_color
@@ -670,17 +745,20 @@ mod imp {
                 },
                 &bounds,
             );
+            snapshot.restore();
 
             let border_color = if is_current {
                 key_border_color
             } else {
                 finger_border_color
             };
+            snapshot.save();
             snapshot.append_border(
                 &rounded,
                 &[1.0, 1.0, 1.0, 1.0],
                 &[*border_color, *border_color, *border_color, *border_color],
             );
+            snapshot.restore();
 
             if should_show_text {
                 let text_color = if is_current {
@@ -770,6 +848,7 @@ mod imp {
             current_key: &RefCell<Option<char>>,
             layout: &RefCell<KeyboardLayout>,
             visible_keys: &RefCell<Option<HashSet<char>>>,
+            cached_colors: &RefCell<Option<HashMap<String, gdk::RGBA>>>,
         ) {
             let layout_borrowed = layout.borrow();
             let visible_keys_borrowed = visible_keys.borrow();
@@ -781,31 +860,24 @@ mod imp {
 
             let pango_context = widget.pango_context();
 
-            // This seems to be the only supported way to get custom colors
-            // even though it is deprecated
-            #[allow(deprecated)]
-            let get_color = |class_name: &str| -> gdk::RGBA {
-                let style_context = widget.style_context();
-                style_context.add_class(class_name);
-                let color = style_context.color();
-                style_context.remove_class(class_name);
-                color
-            };
+            let colors = cached_colors.borrow();
+            let colors = colors.as_ref().expect("Colors should be cached");
 
-            let modifier_color = get_color("keyboard-modifier");
-            let modifier_text_color = get_color("keyboard-modifier-text");
-            let key_text_color = get_color("keyboard-key-text");
-            let key_color = get_color("keyboard-key");
-            let key_current_text_color = get_color("keyboard-key-current-text");
-            let key_current_color = get_color("keyboard-key-current");
-            let key_border_color = get_color("keyboard-border");
+            let modifier_color = colors["keyboard-modifier"];
+            let modifier_text_color = colors["keyboard-modifier-text"];
+            let key_text_color = colors["keyboard-key-text"];
+            let key_color = colors["keyboard-key"];
+            let key_current_text_color = colors["keyboard-key-current-text"];
+            let key_current_color = colors["keyboard-key-current"];
+            let key_border_color = colors["keyboard-border"];
 
             let settings = gio::Settings::new("io.github.nacho.mecalin");
             let use_finger_colors = settings.boolean("use-finger-colors");
 
             let get_finger_color = |finger: &Finger| -> gdk::RGBA {
                 if use_finger_colors {
-                    get_color(&Self::get_finger_css_class(finger))
+                    let class_name = Self::get_finger_css_class(finger);
+                    colors.get(&class_name).copied().unwrap_or(key_border_color)
                 } else {
                     key_border_color
                 }
