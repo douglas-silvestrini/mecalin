@@ -26,6 +26,13 @@ mod imp {
             let app = self.obj();
             app.set_resource_base_path(Some("/io/github/nacho/mecalin"));
 
+            // Setup actions
+            app.setup_actions();
+
+            // Set keyboard shortcuts
+            app.set_accels_for_action("app.quit", &["<Ctrl>Q"]);
+            app.set_accels_for_action("window.close", &["<Ctrl>W"]);
+
             // Load CSS
             let provider = gtk::CssProvider::new();
             provider.load_from_resource("/io/github/nacho/mecalin/style.css");
@@ -58,5 +65,11 @@ impl MecalinApplication {
         glib::Object::builder()
             .property("application-id", "io.github.nacho.mecalin")
             .build()
+    }
+
+    fn setup_actions(&self) {
+        self.add_action_entries(vec![gio::ActionEntry::builder("quit")
+            .activate(|app: &Self, _, _| app.quit())
+            .build()]);
     }
 }
