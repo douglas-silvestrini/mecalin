@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mecalin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 10:21+0100\n"
+"POT-Creation-Date: 2026-02-12 11:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,161 +25,143 @@ msgstr ""
 msgid "Learn how to type"
 msgstr ""
 
-#: resources/ui/about_view.ui:23 src/window.rs:169
-msgid "About Mecalin"
-msgstr ""
-
-#: resources/ui/about_view.ui:31
-msgid "Developer"
-msgstr ""
-
-#: resources/ui/about_view.ui:37
-msgid "Website"
-msgstr ""
-
-#: resources/ui/about_view.ui:45
-msgid "Report an Issue"
-msgstr ""
-
-#: resources/ui/about_view.ui:55
-msgid "Code by"
-msgstr ""
-
-#: resources/ui/about_view.ui:73
-msgid "Speed Test Orthography"
-msgstr ""
-
-#: resources/ui/about_view.ui:153
-msgid "Legal"
-msgstr ""
-
-#: resources/ui/about_view.ui:156
-msgid "Copyright"
-msgstr ""
-
-#: resources/ui/about_view.ui:163
-msgid "License"
-msgstr ""
-
-#: resources/ui/falling_keys_game.ui:56 resources/ui/scrolling_lanes_game.ui:57
-msgid "Score"
-msgstr ""
-
-#: resources/ui/falling_keys_game.ui:82 resources/ui/scrolling_lanes_game.ui:83
-msgid "Level Reached"
-msgstr ""
-
-#: resources/ui/falling_keys_game.ui:94 resources/ui/scrolling_lanes_game.ui:95
-msgid "Play Again"
-msgstr ""
-
-#: resources/ui/lesson_view.ui:81
-msgid "Continue"
-msgstr ""
-
-#: resources/ui/preferences_view.ui:14
-msgid "Display"
-msgstr ""
-
-#: resources/ui/preferences_view.ui:17
-msgid "Show Hand Widget"
-msgstr ""
-
-#: resources/ui/preferences_view.ui:18
-msgid "Display finger position guide"
-msgstr ""
-
-#: resources/ui/preferences_view.ui:23
-msgid "Show Keyboard Widget"
-msgstr ""
-
-#: resources/ui/preferences_view.ui:24
-msgid "Display keyboard layout"
-msgstr ""
-
-#: resources/ui/preferences_view.ui:29
-msgid "Use Finger Colors"
-msgstr ""
-
-#: resources/ui/preferences_view.ui:30
-msgid "Color keyboard keys and hand by finger assignment"
-msgstr ""
-
-#: resources/ui/preferences_view.ui:37
-msgid "Lesson Progress"
-msgstr ""
-
-#: resources/ui/preferences_view.ui:40
-msgid "Current Lesson"
-msgstr ""
-
-#: resources/ui/preferences_view.ui:41
-msgid "Select active lesson (resets step to beginning)"
-msgstr ""
-
-#: resources/ui/window.ui:39
-msgid "Lessons"
-msgstr ""
-
-#: resources/ui/window.ui:40
-msgid "Learn typing fundamentals"
-msgstr ""
-
-#: resources/ui/window.ui:46 src/window.rs:147
-msgid "Speed Test"
-msgstr ""
-
-#: resources/ui/window.ui:47
-msgid "Test your typing speed"
-msgstr ""
-
-#: resources/ui/window.ui:53 src/window.rs:110
-msgid "Falling Keys"
-msgstr ""
-
-#: resources/ui/window.ui:54
-msgid "Practice with a fun game"
-msgstr ""
-
-#: resources/ui/window.ui:60 src/window.rs:125
-msgid "Scrolling Lanes"
-msgstr ""
-
-#: resources/ui/window.ui:61
-msgid "Type fast in multiple lanes"
-msgstr ""
-
-#: resources/ui/window.ui:67 src/window.rs:177
-msgid "Preferences"
-msgstr ""
-
-#: resources/ui/window.ui:68
-msgid "Configure application settings"
-msgstr ""
-
-#: resources/ui/window.ui:74
+#: resources/ui/about_view.ui:5 resources/ui/window.ui:65
 msgid "About"
 msgstr ""
 
-#: resources/ui/window.ui:75
+#: resources/ui/about_view.ui:32
+msgid "About Mecalin"
+msgstr ""
+
+#: resources/ui/about_view.ui:40
+msgid "Developer"
+msgstr ""
+
+#: resources/ui/about_view.ui:46
+msgid "Website"
+msgstr ""
+
+#: resources/ui/about_view.ui:54
+msgid "Report an Issue"
+msgstr ""
+
+#: resources/ui/about_view.ui:64
+msgid "Code by"
+msgstr ""
+
+#: resources/ui/about_view.ui:82
+msgid "Speed Test Orthography"
+msgstr ""
+
+#: resources/ui/about_view.ui:162
+msgid "Legal"
+msgstr ""
+
+#: resources/ui/about_view.ui:165
+msgid "Copyright"
+msgstr ""
+
+#: resources/ui/about_view.ui:172
+msgid "License"
+msgstr ""
+
+#: resources/ui/falling_keys_game.ui:5 resources/ui/window.ui:44
+msgid "Falling Keys"
+msgstr ""
+
+#: resources/ui/falling_keys_game.ui:65 resources/ui/scrolling_lanes_game.ui:66
+msgid "Score"
+msgstr ""
+
+#: resources/ui/falling_keys_game.ui:91 resources/ui/scrolling_lanes_game.ui:92
+msgid "Level Reached"
+msgstr ""
+
+#: resources/ui/falling_keys_game.ui:103
+#: resources/ui/scrolling_lanes_game.ui:104
+msgid "Play Again"
+msgstr ""
+
+#: resources/ui/lesson_view.ui:96
+msgid "Continue"
+msgstr ""
+
+#: resources/ui/preferences_view.ui:5 resources/ui/window.ui:58
+msgid "Preferences"
+msgstr ""
+
+#: resources/ui/preferences_view.ui:15
+msgid "Display"
+msgstr ""
+
+#: resources/ui/preferences_view.ui:18
+msgid "Show Hand Widget"
+msgstr ""
+
+#: resources/ui/preferences_view.ui:19
+msgid "Display finger position guide"
+msgstr ""
+
+#: resources/ui/preferences_view.ui:24
+msgid "Show Keyboard Widget"
+msgstr ""
+
+#: resources/ui/preferences_view.ui:25
+msgid "Display keyboard layout"
+msgstr ""
+
+#: resources/ui/preferences_view.ui:30
+msgid "Use Finger Colors"
+msgstr ""
+
+#: resources/ui/preferences_view.ui:31
+msgid "Color keyboard keys and hand by finger assignment"
+msgstr ""
+
+#: resources/ui/preferences_view.ui:38
+msgid "Lesson Progress"
+msgstr ""
+
+#: resources/ui/preferences_view.ui:41
+msgid "Current Lesson"
+msgstr ""
+
+#: resources/ui/preferences_view.ui:42
+msgid "Select active lesson (resets step to beginning)"
+msgstr ""
+
+#: resources/ui/scrolling_lanes_game.ui:5 resources/ui/window.ui:51
+msgid "Scrolling Lanes"
+msgstr ""
+
+#: resources/ui/window.ui:30
+msgid "Lessons"
+msgstr ""
+
+#: resources/ui/window.ui:31
+msgid "Learn typing fundamentals"
+msgstr ""
+
+#: resources/ui/window.ui:37
+msgid "Speed Test"
+msgstr ""
+
+#: resources/ui/window.ui:38
+msgid "Test your typing speed"
+msgstr ""
+
+#: resources/ui/window.ui:45
+msgid "Practice with a fun game"
+msgstr ""
+
+#: resources/ui/window.ui:52
+msgid "Type fast in multiple lanes"
+msgstr ""
+
+#: resources/ui/window.ui:59
+msgid "Configure application settings"
+msgstr ""
+
+#: resources/ui/window.ui:66
 msgid "Application information"
-msgstr ""
-
-#: src/falling_keys_game.rs:307 src/falling_keys_game.rs:329
-#: src/falling_keys_game.rs:392 src/scrolling_lanes_game.rs:460
-#: src/scrolling_lanes_game.rs:474 src/scrolling_lanes_game.rs:525
-msgid "Score: {}"
-msgstr ""
-
-#: src/falling_keys_game.rs:314 src/falling_keys_game.rs:394
-#: src/scrolling_lanes_game.rs:466 src/scrolling_lanes_game.rs:527
-msgid "Level: {}"
-msgstr ""
-
-#: src/window.rs:221
-msgid "Lesson {}"
-msgstr ""
-
-#: src/window.rs:226
-msgid "Lesson {}: Step {}/{}"
 msgstr ""
