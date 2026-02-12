@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mecalin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 11:51+0100\n"
+"POT-Creation-Date: 2026-02-12 11:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,16 +134,80 @@ msgstr ""
 msgid "Scrolling Lanes"
 msgstr ""
 
+#: resources/ui/speed_test_results_view.ui:57
+msgid "New Personal Best for Configuration"
+msgstr ""
+
+#: resources/ui/speed_test_results_view.ui:73
+msgid "Words per Minute"
+msgstr ""
+
+#: resources/ui/speed_test_results_view.ui:97
+msgid "Accuracy"
+msgstr ""
+
+#: resources/ui/speed_test_results_view.ui:115
+msgid "Test Type"
+msgstr ""
+
+#: resources/ui/speed_test_results_view.ui:130
+msgid "Test Duration"
+msgstr ""
+
+#: resources/ui/speed_test_results_view.ui:145
+msgid "Text Language"
+msgstr ""
+
+#: resources/ui/speed_test_results_view.ui:160
+msgid "Retry"
+msgstr ""
+
+#: resources/ui/speed_test_text_view.ui:27
+msgid "Text View"
+msgstr ""
+
+#: resources/ui/speed_test_view.ui:5 resources/ui/window.ui:37
+msgid "Speed Test"
+msgstr ""
+
+#: resources/ui/speed_test_view.ui:17
+msgid "Speed Test:"
+msgstr ""
+
+#: resources/ui/speed_test_view.ui:32
+msgid "Simple"
+msgstr ""
+
+#: resources/ui/speed_test_view.ui:33
+msgid "Advanced"
+msgstr ""
+
+#: resources/ui/speed_test_view.ui:45
+msgid "15 seconds"
+msgstr ""
+
+#: resources/ui/speed_test_view.ui:46
+msgid "30 seconds"
+msgstr ""
+
+#: resources/ui/speed_test_view.ui:47
+msgid "1 minute"
+msgstr ""
+
+#: resources/ui/speed_test_view.ui:48
+msgid "5 minutes"
+msgstr ""
+
+#: resources/ui/speed_test_view.ui:49
+msgid "10 minutes"
+msgstr ""
+
 #: resources/ui/window.ui:30
 msgid "Lessons"
 msgstr ""
 
 #: resources/ui/window.ui:31
 msgid "Learn typing fundamentals"
-msgstr ""
-
-#: resources/ui/window.ui:37
-msgid "Speed Test"
 msgstr ""
 
 #: resources/ui/window.ui:38

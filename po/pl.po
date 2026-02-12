@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mecalin 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 11:51+0100\n"
+"POT-Creation-Date: 2026-02-12 11:55+0100\n"
 "PO-Revision-Date: 2026-01-20 08:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
@@ -133,6 +133,74 @@ msgstr "Wybierz aktywną lekcję (resetuje krok do początku)"
 msgid "Scrolling Lanes"
 msgstr "Przewijane Pasy"
 
+#: resources/ui/speed_test_results_view.ui:57
+msgid "New Personal Best for Configuration"
+msgstr "Nowy rekord osobisty dla tej konfiguracji"
+
+#: resources/ui/speed_test_results_view.ui:73
+msgid "Words per Minute"
+msgstr "Słów na minutę"
+
+#: resources/ui/speed_test_results_view.ui:97
+msgid "Accuracy"
+msgstr "Dokładność"
+
+#: resources/ui/speed_test_results_view.ui:115
+msgid "Test Type"
+msgstr "Typ testu"
+
+#: resources/ui/speed_test_results_view.ui:130
+msgid "Test Duration"
+msgstr "Czas trwania testu"
+
+#: resources/ui/speed_test_results_view.ui:145
+msgid "Text Language"
+msgstr "Język tekstu"
+
+#: resources/ui/speed_test_results_view.ui:160
+msgid "Retry"
+msgstr "Ponów"
+
+#: resources/ui/speed_test_text_view.ui:27
+msgid "Text View"
+msgstr "Widok tekstu"
+
+#: resources/ui/speed_test_view.ui:5 resources/ui/window.ui:37
+msgid "Speed Test"
+msgstr "Test prędkości"
+
+#: resources/ui/speed_test_view.ui:17
+msgid "Speed Test:"
+msgstr "Test prędkości:"
+
+#: resources/ui/speed_test_view.ui:32
+msgid "Simple"
+msgstr "Prosty"
+
+#: resources/ui/speed_test_view.ui:33
+msgid "Advanced"
+msgstr "Zaawansowany"
+
+#: resources/ui/speed_test_view.ui:45
+msgid "15 seconds"
+msgstr "15 sekund"
+
+#: resources/ui/speed_test_view.ui:46
+msgid "30 seconds"
+msgstr "30 sekund"
+
+#: resources/ui/speed_test_view.ui:47
+msgid "1 minute"
+msgstr "1 minuta"
+
+#: resources/ui/speed_test_view.ui:48
+msgid "5 minutes"
+msgstr "5 minut"
+
+#: resources/ui/speed_test_view.ui:49
+msgid "10 minutes"
+msgstr "10 minut"
+
 #: resources/ui/window.ui:30
 msgid "Lessons"
 msgstr "Lekcje"
@@ -140,10 +208,6 @@ msgstr "Lekcje"
 #: resources/ui/window.ui:31
 msgid "Learn typing fundamentals"
 msgstr "Naucz się podstaw pisania"
-
-#: resources/ui/window.ui:37
-msgid "Speed Test"
-msgstr "Test prędkości"
 
 #: resources/ui/window.ui:38
 msgid "Test your typing speed"
@@ -195,26 +259,5 @@ msgstr "Informacje o aplikacji"
 #~ msgid "Custom"
 #~ msgstr "Niestandardowy"
 
-#~ msgid "Simple"
-#~ msgstr "Prosty"
-
-#~ msgid "Advanced"
-#~ msgstr "Zaawansowany"
-
 #~ msgid "{}m {}s"
 #~ msgstr "{}m {}s"
-
-#~ msgid "15 seconds"
-#~ msgstr "15 sekund"
-
-#~ msgid "30 seconds"
-#~ msgstr "30 sekund"
-
-#~ msgid "1 minute"
-#~ msgstr "1 minuta"
-
-#~ msgid "5 minutes"
-#~ msgstr "5 minut"
-
-#~ msgid "10 minutes"
-#~ msgstr "10 minut"
