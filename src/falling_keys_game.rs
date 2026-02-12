@@ -174,10 +174,13 @@ impl FallingKeysGame {
         keyboard.set_margin_bottom(20);
         imp.keyboard_widget.replace(Some(keyboard));
 
-        // Query text color from CSS
-        let temp_widget = gtk::Label::new(None);
-        temp_widget.add_css_class("falling-key-text");
-        let text_color = temp_widget.color();
+        // Query text color using lookup_color
+        #[allow(deprecated)]
+        let style_context = self.style_context();
+        #[allow(deprecated)]
+        let text_color = style_context
+            .lookup_color("game-falling-key-text")
+            .unwrap_or_else(|| gdk::RGBA::new(0.0, 0.0, 0.0, 1.0));
 
         // Create falling keys widget
         let keys_widget = FallingKeysWidget::new(imp.falling_keys.clone());

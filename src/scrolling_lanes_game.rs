@@ -249,18 +249,21 @@ impl ScrollingLanesGame {
         lanes_container.set_vexpand(true);
         lanes_container.set_hexpand(true);
 
-        // Query colors
-        let temp_widget = gtk::Label::new(None);
-        temp_widget.add_css_class("lane-background");
-        let bg_color = temp_widget.color();
-        temp_widget.remove_css_class("lane-background");
-
-        temp_widget.add_css_class("lane-current");
-        let current_color = temp_widget.color();
-        temp_widget.remove_css_class("lane-current");
-
-        temp_widget.add_css_class("lane-text");
-        let text_color = temp_widget.color();
+        // Query colors using lookup_color
+        #[allow(deprecated)]
+        let style_context = lanes_container.style_context();
+        #[allow(deprecated)]
+        let bg_color = style_context
+            .lookup_color("game-lane-bg")
+            .unwrap_or_else(|| gdk::RGBA::new(0.0, 0.0, 0.0, 1.0));
+        #[allow(deprecated)]
+        let current_color = style_context
+            .lookup_color("game-lane-active")
+            .unwrap_or_else(|| gdk::RGBA::new(0.0, 0.0, 0.0, 1.0));
+        #[allow(deprecated)]
+        let text_color = style_context
+            .lookup_color("game-lane-text")
+            .unwrap_or_else(|| gdk::RGBA::new(0.0, 0.0, 0.0, 1.0));
 
         let mut lanes = Vec::new();
         let lane_texts = vec![Vec::new(), Vec::new(), Vec::new(), Vec::new()];

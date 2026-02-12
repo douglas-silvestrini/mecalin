@@ -585,39 +585,42 @@ mod imp {
     impl KeyboardWidget {
         fn cache_colors(&self) {
             let widget = self.obj();
+            #[allow(deprecated)]
+            let style_context = widget.style_context();
 
             #[allow(deprecated)]
-            let get_color = |class_name: &str| -> gdk::RGBA {
-                let style_context = widget.style_context();
-                style_context.add_class(class_name);
-                let color = style_context.color();
-                style_context.remove_class(class_name);
-                color
+            let lookup = |color_name: &str| -> gdk::RGBA {
+                style_context
+                    .lookup_color(color_name)
+                    .unwrap_or_else(|| gdk::RGBA::new(0.0, 0.0, 0.0, 1.0))
             };
 
             let mut colors = HashMap::new();
             colors.insert(
                 "keyboard-modifier".to_string(),
-                get_color("keyboard-modifier"),
+                lookup("keyboard-modifier-color"),
             );
             colors.insert(
                 "keyboard-modifier-text".to_string(),
-                get_color("keyboard-modifier-text"),
+                lookup("keyboard-modifier-text-color"),
             );
             colors.insert(
                 "keyboard-key-text".to_string(),
-                get_color("keyboard-key-text"),
+                lookup("keyboard-key-text-color"),
             );
-            colors.insert("keyboard-key".to_string(), get_color("keyboard-key"));
+            colors.insert("keyboard-key".to_string(), lookup("keyboard-key-color"));
             colors.insert(
                 "keyboard-key-current-text".to_string(),
-                get_color("keyboard-key-current-text"),
+                lookup("keyboard-key-current-text-color"),
             );
             colors.insert(
                 "keyboard-key-current".to_string(),
-                get_color("keyboard-key-current"),
+                lookup("keyboard-key-current-color"),
             );
-            colors.insert("keyboard-border".to_string(), get_color("keyboard-border"));
+            colors.insert(
+                "keyboard-border".to_string(),
+                lookup("keyboard-border-color"),
+            );
 
             // Cache finger colors
             for finger in [
@@ -634,7 +637,8 @@ mod imp {
                 Finger::BothThumbs,
             ] {
                 let class_name = Self::get_finger_css_class(&finger);
-                colors.insert(class_name.clone(), get_color(&class_name));
+                let color_name = format!("{}-color", class_name);
+                colors.insert(class_name, lookup(&color_name));
             }
 
             *self.cached_colors.borrow_mut() = Some(colors);

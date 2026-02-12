@@ -66,33 +66,33 @@ mod imp {
     impl HandWidget {
         fn cache_colors(&self) {
             let widget = self.obj();
+            #[allow(deprecated)]
+            let style_context = widget.style_context();
 
             #[allow(deprecated)]
-            let get_color = |class_name: &str| -> gdk::RGBA {
-                let style_context = widget.style_context();
-                style_context.add_class(class_name);
-                let color = style_context.color();
-                style_context.remove_class(class_name);
-                color
+            let lookup = |color_name: &str| -> gdk::RGBA {
+                style_context
+                    .lookup_color(color_name)
+                    .unwrap_or_else(|| gdk::RGBA::new(0.0, 0.0, 0.0, 1.0))
             };
 
             let mut colors = HashMap::new();
             colors.insert(
                 "hand-finger-default".to_string(),
-                get_color("hand-finger-default"),
+                lookup("hand-finger-default-color"),
             );
             colors.insert(
                 "hand-finger-border".to_string(),
-                get_color("hand-finger-border"),
+                lookup("hand-finger-border-color"),
             );
             colors.insert(
                 "hand-finger-current".to_string(),
-                get_color("hand-finger-current"),
+                lookup("hand-finger-current-color"),
             );
-            colors.insert("hand-palm".to_string(), get_color("hand-palm"));
+            colors.insert("hand-palm".to_string(), lookup("hand-palm-color"));
             colors.insert(
                 "hand-palm-border".to_string(),
-                get_color("hand-palm-border"),
+                lookup("hand-palm-border-color"),
             );
 
             // Cache finger colors
@@ -110,7 +110,8 @@ mod imp {
                 Finger::BothThumbs,
             ] {
                 let class_name = Self::get_finger_css_class(&finger);
-                colors.insert(class_name.clone(), get_color(&class_name));
+                let color_name = format!("{}-color", class_name);
+                colors.insert(class_name, lookup(&color_name));
             }
 
             *self.cached_colors.borrow_mut() = Some(colors);

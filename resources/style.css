@@ -1,96 +1,39 @@
-/* Keyboard widget color styles */
+/* Semantic color definitions for lookup_color */
 
-.keyboard-key {
-  color: @view_bg_color;
-}
+/* Game colors */
+@define-color game-lane-bg @view_bg_color;
+@define-color game-lane-active @accent_bg_color;
+@define-color game-lane-text @view_fg_color;
+@define-color game-falling-key-text @view_fg_color;
 
-.keyboard-key-text {
-  color: @view_fg_color;
-}
+/* Keyboard colors */
+@define-color keyboard-key-color @view_bg_color;
+@define-color keyboard-key-text-color @view_fg_color;
+@define-color keyboard-key-current-color @accent_bg_color;
+@define-color keyboard-key-current-text-color @accent_fg_color;
+@define-color keyboard-modifier-color mix(@card_bg_color, @window_bg_color, 0.5);
+@define-color keyboard-modifier-text-color @window_fg_color;
+@define-color keyboard-border-color @borders;
 
-.keyboard-key-current {
-  color: @accent_bg_color;
-}
-
-.keyboard-key-current-text {
-  color: @accent_fg_color;
-}
-
-.keyboard-modifier {
-  color: mix(@card_bg_color, @window_bg_color, 0.5);
-}
-
-.keyboard-modifier-text {
-  color: @window_fg_color;
-}
-
-.keyboard-border {
-  color: @borders;
-}
+/* Hand colors */
+@define-color hand-palm-color @card_bg_color;
+@define-color hand-palm-border-color @borders;
+@define-color hand-finger-default-color @view_bg_color;
+@define-color hand-finger-border-color @borders;
+@define-color hand-finger-current-color @accent_bg_color;
 
 /* Finger colors - GNOME HIG palette */
-
-.finger-left-pinky, .finger-right-pinky {
-  color: @red_3;
-}
-
-.finger-left-ring, .finger-right-ring {
-  color: @orange_3;
-}
-
-.finger-left-middle, .finger-right-middle {
-  color: @yellow_3;
-}
-
-.finger-left-index, .finger-right-index {
-  color: @blue_3;
-}
-
-.finger-left-thumb, .finger-right-thumb, .finger-both-thumbs {
-  color: @green_3;
-}
-
-/* Hand widget color styles - GNOME HIG palette */
-
-.hand-palm {
-  color: @card_bg_color;
-}
-
-.hand-palm-border {
-  color: @borders;
-}
-
-.hand-finger-default {
-  color: @view_bg_color;
-}
-
-.hand-finger-border {
-  color: @borders;
-}
-
-.hand-finger-current {
-  color: @accent_bg_color;
-}
-
-/* Scrolling lanes game color styles */
-
-.lane-background {
-  color: @view_bg_color;
-}
-
-.lane-current {
-  color: @accent_bg_color;
-}
-
-.lane-text {
-  color: @view_fg_color;
-}
-
-/* Falling keys game color styles */
-
-.falling-key-text {
-  color: @view_fg_color;
-}
+@define-color finger-left-pinky-color @red_3;
+@define-color finger-right-pinky-color @red_3;
+@define-color finger-left-ring-color @orange_3;
+@define-color finger-right-ring-color @orange_3;
+@define-color finger-left-middle-color @yellow_3;
+@define-color finger-right-middle-color @yellow_3;
+@define-color finger-left-index-color @blue_3;
+@define-color finger-right-index-color @blue_3;
+@define-color finger-left-thumb-color @green_3;
+@define-color finger-right-thumb-color @green_3;
+@define-color finger-both-thumbs-color @green_3;
 
 /* Speed test text view styles (from Keypunch) */
 
