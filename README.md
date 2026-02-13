@@ -31,6 +31,12 @@ meson compile -C builddir
 
 Uses GTK Builder with XML UI templates and GResource embedding for a modern GNOME application structure.
 
+## Contributing
+
+Contributions are welcome! Please note:
+
+- This project follows the [GNOME Code of Conduct](https://conduct.gnome.org).
+
 ## Translation
 
 ### UI Translation
