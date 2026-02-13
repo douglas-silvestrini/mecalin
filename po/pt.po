@@ -65,20 +65,20 @@ msgid "License"
 msgstr "Licença"
 
 #: resources/ui/course_completion_view.ui:4
-#, fuzzy
 msgid "Course Completed"
-msgstr "Curso concluído! Parabéns!"
+msgstr "Curso concluído"
 
 #: resources/ui/course_completion_view.ui:13
-#, fuzzy
 msgid "Congratulations!"
-msgstr "Curso concluído! Parabéns!"
+msgstr "Parabéns!"
 
 #: resources/ui/course_completion_view.ui:14
 msgid ""
 "You've completed all lessons! Keep practicing with the speed test to improve "
 "your typing skills."
 msgstr ""
+"Concluiu todas as lições! Continue a praticar com o teste de velocidade "
+"para melhorar as suas habilidades de digitação."
 
 #: resources/ui/falling_keys_game.ui:5 resources/ui/window.ui:44
 msgid "Falling Keys"
