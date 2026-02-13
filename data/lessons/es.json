@@ -2195,6 +2195,175 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 12,
+      "title": "Repaso general",
+      "description": "Lección de repaso general",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "A continuación haremos una lección de repaso general",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "¿Cómo la pobreza? -preguntó Don Quijote-",
+          "description": "Escriba las frases siguientes empleando correctamente todos los signos",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "Señor huésped, ¿hay posada? Que viene aquí el mono -",
+          "description": "Escriba las frases siguientes empleando correctamente todos los signos",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "- adivino y el retablo de la libertad de Melisendra.",
+          "description": "Escriba las frases siguientes empleando correctamente todos los signos",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "4 - 2 = 2; (8 - 6) x 7 = 14;",
+          "description": "Ahora vamos a probar con los signos y números. El signo menos se escribe con el guión",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "1$ = 70pts. 2$ = 140 pts.",
+          "description": "Ahora vamos a probar con los signos y números. El signo menos se escribe con el guión",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "6 x (3+2-1) = 24. (6-4+1) x 10 = 30.",
+          "description": "Ahora vamos a probar con los signos y números. El signo menos se escribe con el guión",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "abcdefghijklmnñopqrstuvwxyz':.,;",
+          "description": "Recuerde la posición correcta de las manos",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ\";!?",
+          "description": "Recuerde la posición correcta de las manos",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "zyxwvutsrqpoñNMLKJIHGFEDCBA *%¿",
+          "description": "Recuerde la posición correcta de las manos",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "Hízolo así Sancho; lo cual visto por el eclesiástico...",
+          "description": "Recuerde que no debe mirar al teclado. Atienda a las pulsaciones",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "¿Quién va allá? ¿Qué gente? ¿Es por ventura?",
+          "description": "Recuerde que no debe mirar al teclado. Atienda a las pulsaciones",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "¡Bravo mojón!, respondió el del Bosque.",
+          "description": "Recuerde que no debe mirar al teclado. Atienda a las pulsaciones",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "ki, muj, decrvf. FVRCED; JUM. IK,",
+          "description": "Recuerde que no debe mirar al teclado. Atienda a las pulsaciones",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "Hable con menos tono -dijo el comisario-,",
+          "description": "Recuerde que no debe mirar al teclado. Atienda a las pulsaciones",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "n6umy t4vrb (r. n/kumy* t$vrbf)",
+          "description": "Recuerde que no debe mirar al teclado. Atienda a las pulsaciones",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "1/5; 3/6; 12 de Febrero de 2026.",
+          "description": "Recuerde que no debe mirar al teclado. Atienda a las pulsaciones",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "\"10.725.845,97; > 8.945.432,56;\"",
+          "description": "No olvide pulsar las teclas SHIFT para las mayúsculas y signos que lo requieran",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "\"No hay libro tan malo, que no tenga algo bueno.\"",
+          "description": "No olvide pulsar las teclas SHIFT para las mayúsculas y signos que lo requieran",
+          "repetitions": 2
+        },
+        {
+          "id": 19,
+          "text": "SEñor GoBerNaDor, De MuY BueNA GaNa.",
+          "description": "No olvide pulsar las teclas SHIFT para las mayúsculas y signos que lo requieran",
+          "repetitions": 2
+        },
+        {
+          "id": 20,
+          "text": "OMUNDIKJH WRBDFG",
+          "description": "Sigamos practicando mayúsculas y símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 21,
+          "text": "¿TienE rAzóN? ¿QUé pASó? ¡CóMo lO dIjo!",
+          "description": "Sigamos practicando mayúsculas y símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 22,
+          "text": "100% = 100; #3.567#, 1/6; 4 (3+5) = 32",
+          "description": "Sigamos practicando mayúsculas y símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 23,
+          "text": "\"Las leyes CAen DebAJo de Lo Que SOn.\"",
+          "description": "Sigamos practicando mayúsculas y símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 24,
+          "text": "¿ReSPonDIó ClARa?; ¡QUé fáCIl!",
+          "description": "Sigamos practicando mayúsculas y símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 25,
+          "text": "ECASWX i, nlo. (EcAs)',;.",
+          "description": "Sigamos practicando mayúsculas y símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 26,
+          "text": "",
+          "description": "¡Enhorabuena! Ha acabado la doceava lección. A partir de ahora le recomiendo que practique con la prueba de velocidad",
+          "introduction": true
+        }
+      ]
     }
   ]
 }
