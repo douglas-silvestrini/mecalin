@@ -2076,6 +2076,175 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 12,
+      "title": "Powtórka ogólna",
+      "description": "Lekcja powtórki ogólnej",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "Teraz przeprowadzimy lekcję powtórki ogólnej",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "Jak bieda? -zapytał Don Kichot-",
+          "description": "Wpisz następujące zdania używając poprawnie wszystkich znaków",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "Panie gospodarzu, czy jest nocleg? Nadchodzi małpa -",
+          "description": "Wpisz następujące zdania używając poprawnie wszystkich znaków",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "- wróżbita i teatrzyk kukiełkowy o wolności Melisendy.",
+          "description": "Wpisz następujące zdania używając poprawnie wszystkich znaków",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "4 - 2 = 2; (8 - 6) x 7 = 14;",
+          "description": "Teraz spróbujmy ze znakami i liczbami. Znak minus pisze się myślnikiem",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "1$ = 70pts. 2$ = 140 pts.",
+          "description": "Teraz spróbujmy ze znakami i liczbami. Znak minus pisze się myślnikiem",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "6 x (3+2-1) = 24. (6-4+1) x 10 = 30.",
+          "description": "Teraz spróbujmy ze znakami i liczbami. Znak minus pisze się myślnikiem",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "abcdefghijklmnopqrstuvwxyz':.,;",
+          "description": "Pamiętaj o prawidłowej pozycji rąk",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "ABCDEFGHIJKLMNOPQRSTUVWXYZ\";!?",
+          "description": "Pamiętaj o prawidłowej pozycji rąk",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "zyxwvutsrqponMLKJIHGFEDCBA *%",
+          "description": "Pamiętaj o prawidłowej pozycji rąk",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "Sancho tak uczynił; co widząc duchowny...",
+          "description": "Pamiętaj, aby nie patrzeć na klawiaturę. Zwracaj uwagę na naciśnięcia klawiszy",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "Kto tam idzie? Jacy ludzie? Czy przypadkiem?",
+          "description": "Pamiętaj, aby nie patrzeć na klawiaturę. Zwracaj uwagę na naciśnięcia klawiszy",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "Brawo kamień milowy!, odpowiedział ten z Lasu.",
+          "description": "Pamiętaj, aby nie patrzeć na klawiaturę. Zwracaj uwagę na naciśnięcia klawiszy",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "ki, muj, decrvf. FVRCED; JUM. IK,",
+          "description": "Pamiętaj, aby nie patrzeć na klawiaturę. Zwracaj uwagę na naciśnięcia klawiszy",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "Mów łagodniejszym tonem -powiedział komisarz-,",
+          "description": "Pamiętaj, aby nie patrzeć na klawiaturę. Zwracaj uwagę na naciśnięcia klawiszy",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "n6umy t4vrb (r. n/kumy* t$vrbf)",
+          "description": "Pamiętaj, aby nie patrzeć na klawiaturę. Zwracaj uwagę na naciśnięcia klawiszy",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "1/5; 3/6; 12 lutego 2026.",
+          "description": "Pamiętaj, aby nie patrzeć na klawiaturę. Zwracaj uwagę na naciśnięcia klawiszy",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "\"10.725.845,97; > 8.945.432,56;\"",
+          "description": "Nie zapomnij naciskać klawiszy SHIFT dla wielkich liter i znaków, które tego wymagają",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "\"Nie ma książki tak złej, żeby nie miała nic dobrego.\"",
+          "description": "Nie zapomnij naciskać klawiszy SHIFT dla wielkich liter i znaków, które tego wymagają",
+          "repetitions": 2
+        },
+        {
+          "id": 19,
+          "text": "PaNie GuBeRnAtOrZe, BaRdZo ChĘtNiE.",
+          "description": "Nie zapomnij naciskać klawiszy SHIFT dla wielkich liter i znaków, które tego wymagają",
+          "repetitions": 2
+        },
+        {
+          "id": 20,
+          "text": "OMUNDIKJH WRBDFG",
+          "description": "Kontynuujmy ćwiczenie wielkich liter i symboli",
+          "repetitions": 2
+        },
+        {
+          "id": 21,
+          "text": "Czy Ma RaCjĘ? Co SiĘ StAłO? JaK tO pOwIeDzIał!",
+          "description": "Kontynuujmy ćwiczenie wielkich liter i symboli",
+          "repetitions": 2
+        },
+        {
+          "id": 22,
+          "text": "100% = 100; #3.567#, 1/6; 4 (3+5) = 32",
+          "description": "Kontynuujmy ćwiczenie wielkich liter i symboli",
+          "repetitions": 2
+        },
+        {
+          "id": 23,
+          "text": "\"PrAwA sPaDaJą PoNiŻeJ tEgO, CzYm Są.\"",
+          "description": "Kontynuujmy ćwiczenie wielkich liter i symboli",
+          "repetitions": 2
+        },
+        {
+          "id": 24,
+          "text": "Czy OdPoWieDzIała WyRaŹnIe?; JaK łAtWo!",
+          "description": "Kontynuujmy ćwiczenie wielkich liter i symboli",
+          "repetitions": 2
+        },
+        {
+          "id": 25,
+          "text": "ECASWX i, nlo. (EcAs)',;.",
+          "description": "Kontynuujmy ćwiczenie wielkich liter i symboli",
+          "repetitions": 2
+        },
+        {
+          "id": 26,
+          "text": "",
+          "description": "Gratulacje! Ukończyłeś dwunastą lekcję. Od teraz polecam ćwiczyć z testem prędkości",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

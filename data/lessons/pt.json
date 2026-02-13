@@ -2220,6 +2220,175 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 12,
+      "title": "Revisão geral",
+      "description": "Lição de revisão geral",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "A seguir faremos uma lição de revisão geral",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "Como a pobreza? -perguntou Dom Quixote-",
+          "description": "Digite as seguintes frases usando corretamente todos os sinais",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "Senhor hospedeiro, há pousada? Vem aí o macaco -",
+          "description": "Digite as seguintes frases usando corretamente todos os sinais",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "- adivinho e o retábulo da liberdade de Melisendra.",
+          "description": "Digite as seguintes frases usando corretamente todos os sinais",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "4 - 2 = 2; (8 - 6) x 7 = 14;",
+          "description": "Agora vamos experimentar com os sinais e números. O sinal de menos escreve-se com o hífen",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "1$ = 70pts. 2$ = 140 pts.",
+          "description": "Agora vamos experimentar com os sinais e números. O sinal de menos escreve-se com o hífen",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "6 x (3+2-1) = 24. (6-4+1) x 10 = 30.",
+          "description": "Agora vamos experimentar com os sinais e números. O sinal de menos escreve-se com o hífen",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "abcdefghijklmnopqrstuvwxyz':.,;",
+          "description": "Lembre-se da posição correta das mãos",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "ABCDEFGHIJKLMNOPQRSTUVWXYZ\";!?",
+          "description": "Lembre-se da posição correta das mãos",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "zyxwvutsrqponMLKJIHGFEDCBA *%",
+          "description": "Lembre-se da posição correta das mãos",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "Fê-lo assim Sancho; o que visto pelo eclesiástico...",
+          "description": "Lembre-se de não olhar para o teclado. Preste atenção às teclas",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "Quem vai lá? Que gente? É por acaso?",
+          "description": "Lembre-se de não olhar para o teclado. Preste atenção às teclas",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "Bravo marco!, respondeu o do Bosque.",
+          "description": "Lembre-se de não olhar para o teclado. Preste atenção às teclas",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "ki, muj, decrvf. FVRCED; JUM. IK,",
+          "description": "Lembre-se de não olhar para o teclado. Preste atenção às teclas",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "Fale com menos tom -disse o comissário-,",
+          "description": "Lembre-se de não olhar para o teclado. Preste atenção às teclas",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "n6umy t4vrb (r. n/kumy* t$vrbf)",
+          "description": "Lembre-se de não olhar para o teclado. Preste atenção às teclas",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "1/5; 3/6; 12 de fevereiro de 2026.",
+          "description": "Lembre-se de não olhar para o teclado. Preste atenção às teclas",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "\"10.725.845,97; > 8.945.432,56;\"",
+          "description": "Não se esqueça de pressionar as teclas SHIFT para as maiúsculas e sinais que o exigem",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "\"Não há livro tão mau que não tenha algo de bom.\"",
+          "description": "Não se esqueça de pressionar as teclas SHIFT para as maiúsculas e sinais que o exigem",
+          "repetitions": 2
+        },
+        {
+          "id": 19,
+          "text": "SeNhOr GoVeRnAdOr, De MuItO BoA VoNtAdE.",
+          "description": "Não se esqueça de pressionar as teclas SHIFT para as maiúsculas e sinais que o exigem",
+          "repetitions": 2
+        },
+        {
+          "id": 20,
+          "text": "OMUNDIKJH WRBDFG",
+          "description": "Continuemos a praticar maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 21,
+          "text": "TeM rAzÃo? O qUe AcOnTeCeU? CoMo ElE dIsSe!",
+          "description": "Continuemos a praticar maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 22,
+          "text": "100% = 100; #3.567#, 1/6; 4 (3+5) = 32",
+          "description": "Continuemos a praticar maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 23,
+          "text": "\"As LeIs CaEm AbAiXo Do QuE sÃo.\"",
+          "description": "Continuemos a praticar maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 24,
+          "text": "ReSpoNdEu ClArAmEnTe?; QuE fÁcIl!",
+          "description": "Continuemos a praticar maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 25,
+          "text": "ECASWX i, nlo. (EcAs)',;.",
+          "description": "Continuemos a praticar maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 26,
+          "text": "",
+          "description": "Parabéns! Terminou a décima segunda lição. A partir de agora recomendo que pratique com o teste de velocidade",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

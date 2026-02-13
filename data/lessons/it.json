@@ -2196,6 +2196,175 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 12,
+      "title": "Ripasso generale",
+      "description": "Lezione di ripasso generale",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "Ora faremo una lezione di ripasso generale",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "Come la povertà? -chiese Don Chisciotte-",
+          "description": "Digita le seguenti frasi usando correttamente tutti i segni",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "Signor ospite, c'è alloggio? Ecco la scimmia -",
+          "description": "Digita le seguenti frasi usando correttamente tutti i segni",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "- indovino e lo spettacolo di marionette della libertà di Melisendra.",
+          "description": "Digita le seguenti frasi usando correttamente tutti i segni",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "4 - 2 = 2; (8 - 6) x 7 = 14;",
+          "description": "Ora proviamo con i segni e i numeri. Il segno meno si scrive con il trattino",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "1$ = 70pts. 2$ = 140 pts.",
+          "description": "Ora proviamo con i segni e i numeri. Il segno meno si scrive con il trattino",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "6 x (3+2-1) = 24. (6-4+1) x 10 = 30.",
+          "description": "Ora proviamo con i segni e i numeri. Il segno meno si scrive con il trattino",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "abcdefghijklmnopqrstuvwxyz':.,;",
+          "description": "Ricorda la posizione corretta delle mani",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "ABCDEFGHIJKLMNOPQRSTUVWXYZ\";!?",
+          "description": "Ricorda la posizione corretta delle mani",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "zyxwvutsrqponMLKJIHGFEDCBA *%",
+          "description": "Ricorda la posizione corretta delle mani",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "Sancho lo fece così; il che visto dall'ecclesiastico...",
+          "description": "Ricorda di non guardare la tastiera. Presta attenzione alle battute",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "Chi va là? Che gente? È per caso?",
+          "description": "Ricorda di non guardare la tastiera. Presta attenzione alle battute",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "Bravo pietra miliare!, rispose quello del Bosco.",
+          "description": "Ricorda di non guardare la tastiera. Presta attenzione alle battute",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "ki, muj, decrvf. FVRCED; JUM. IK,",
+          "description": "Ricorda di non guardare la tastiera. Presta attenzione alle battute",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "Parla con meno tono -disse il commissario-,",
+          "description": "Ricorda di non guardare la tastiera. Presta attenzione alle battute",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "n6umy t4vrb (r. n/kumy* t$vrbf)",
+          "description": "Ricorda di non guardare la tastiera. Presta attenzione alle battute",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "1/5; 3/6; 12 febbraio 2026.",
+          "description": "Ricorda di non guardare la tastiera. Presta attenzione alle battute",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "\"10.725.845,97; > 8.945.432,56;\"",
+          "description": "Non dimenticare di premere i tasti SHIFT per le maiuscole e i segni che lo richiedono",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "\"Non c'è libro così cattivo che non abbia nulla di buono.\"",
+          "description": "Non dimenticare di premere i tasti SHIFT per le maiuscole e i segni che lo richiedono",
+          "repetitions": 2
+        },
+        {
+          "id": 19,
+          "text": "SiGnOr GoVeRnAtOrE, MoLtO VoLeNtIeRi.",
+          "description": "Non dimenticare di premere i tasti SHIFT per le maiuscole e i segni che lo richiedono",
+          "repetitions": 2
+        },
+        {
+          "id": 20,
+          "text": "OMUNDIKJH WRBDFG",
+          "description": "Continuiamo a praticare maiuscole e simboli",
+          "repetitions": 2
+        },
+        {
+          "id": 21,
+          "text": "Ha RaGiOnE? CoSa È sUcCeSsO? CoMe Lo Ha DeTtO!",
+          "description": "Continuiamo a praticare maiuscole e simboli",
+          "repetitions": 2
+        },
+        {
+          "id": 22,
+          "text": "100% = 100; #3.567#, 1/6; 4 (3+5) = 32",
+          "description": "Continuiamo a praticare maiuscole e simboli",
+          "repetitions": 2
+        },
+        {
+          "id": 23,
+          "text": "\"Le LeGgI cAdOnO aL dI sOtTo Di CiÒ cHe SoNo.\"",
+          "description": "Continuiamo a praticare maiuscole e simboli",
+          "repetitions": 2
+        },
+        {
+          "id": 24,
+          "text": "Ha RiSpOsTo ChIaRaMeNtE?; QuAnTo È fAcIlE!",
+          "description": "Continuiamo a praticare maiuscole e simboli",
+          "repetitions": 2
+        },
+        {
+          "id": 25,
+          "text": "ECASWX i, nlo. (EcAs)',;.",
+          "description": "Continuiamo a praticare maiuscole e simboli",
+          "repetitions": 2
+        },
+        {
+          "id": 26,
+          "text": "",
+          "description": "Congratulazioni! Hai finito la dodicesima lezione. D'ora in poi ti consiglio di esercitarti con il test di velocità",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

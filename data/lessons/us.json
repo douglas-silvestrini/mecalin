@@ -2195,6 +2195,175 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 12,
+      "title": "General Review",
+      "description": "General review lesson",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "Next we will do a general review lesson",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "How about poverty? -asked Don Quixote-",
+          "description": "Type the following sentences using all signs correctly",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "Sir host, is there lodging? Here comes the monkey -",
+          "description": "Type the following sentences using all signs correctly",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "- fortune teller and the puppet show of Melisendra's freedom.",
+          "description": "Type the following sentences using all signs correctly",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "4 - 2 = 2; (8 - 6) x 7 = 14;",
+          "description": "Now let's try signs and numbers. The minus sign is written with the hyphen",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "1$ = 70pts. 2$ = 140 pts.",
+          "description": "Now let's try signs and numbers. The minus sign is written with the hyphen",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "6 x (3+2-1) = 24. (6-4+1) x 10 = 30.",
+          "description": "Now let's try signs and numbers. The minus sign is written with the hyphen",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "abcdefghijklmnopqrstuvwxyz':.,;",
+          "description": "Remember the correct hand position",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "ABCDEFGHIJKLMNOPQRSTUVWXYZ\";!?",
+          "description": "Remember the correct hand position",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "zyxwvutsrqponMLKJIHGFEDCBA *%",
+          "description": "Remember the correct hand position",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "Sancho did so; which being seen by the clergyman...",
+          "description": "Remember not to look at the keyboard. Pay attention to the keystrokes",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "Who goes there? What people? Is it by chance?",
+          "description": "Remember not to look at the keyboard. Pay attention to the keystrokes",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "Brave milestone!, replied the one from the Forest.",
+          "description": "Remember not to look at the keyboard. Pay attention to the keystrokes",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "ki, muj, decrvf. FVRCED; JUM. IK,",
+          "description": "Remember not to look at the keyboard. Pay attention to the keystrokes",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "Speak with less tone -said the commissioner-,",
+          "description": "Remember not to look at the keyboard. Pay attention to the keystrokes",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "n6umy t4vrb (r. n/kumy* t$vrbf)",
+          "description": "Remember not to look at the keyboard. Pay attention to the keystrokes",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "1/5; 3/6; February 12, 2026.",
+          "description": "Remember not to look at the keyboard. Pay attention to the keystrokes",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "\"10,725,845.97; > 8,945,432.56;\"",
+          "description": "Don't forget to press the SHIFT keys for capital letters and signs that require it",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "\"There is no book so bad that it has nothing good.\"",
+          "description": "Don't forget to press the SHIFT keys for capital letters and signs that require it",
+          "repetitions": 2
+        },
+        {
+          "id": 19,
+          "text": "MiSteR GoVerNoR, VeRy WiLLinGLy.",
+          "description": "Don't forget to press the SHIFT keys for capital letters and signs that require it",
+          "repetitions": 2
+        },
+        {
+          "id": 20,
+          "text": "OMUNDIKJH WRBDFG",
+          "description": "Let's keep practicing capital letters and symbols",
+          "repetitions": 2
+        },
+        {
+          "id": 21,
+          "text": "Is hE RiGhT? WhAt HaPPeNeD? HoW hE SaiD iT!",
+          "description": "Let's keep practicing capital letters and symbols",
+          "repetitions": 2
+        },
+        {
+          "id": 22,
+          "text": "100% = 100; #3,567#, 1/6; 4 (3+5) = 32",
+          "description": "Let's keep practicing capital letters and symbols",
+          "repetitions": 2
+        },
+        {
+          "id": 23,
+          "text": "\"The LaWs FaLL BeLoW WhAt TheY ArE.\"",
+          "description": "Let's keep practicing capital letters and symbols",
+          "repetitions": 2
+        },
+        {
+          "id": 24,
+          "text": "DiD sHe AnSWeR CleArLy?; HoW eAsY!",
+          "description": "Let's keep practicing capital letters and symbols",
+          "repetitions": 2
+        },
+        {
+          "id": 25,
+          "text": "ECASWX i, nlo. (EcAs)',;.",
+          "description": "Let's keep practicing capital letters and symbols",
+          "repetitions": 2
+        },
+        {
+          "id": 26,
+          "text": "",
+          "description": "Congratulations! You have finished the twelfth lesson. From now on I recommend you practice with the speed test",
+          "introduction": true
+        }
+      ]
     }
   ]
 }

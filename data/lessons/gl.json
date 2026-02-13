@@ -2220,6 +2220,175 @@
           "introduction": true
         }
       ]
+    },
+    {
+      "id": 12,
+      "title": "Repaso xeral",
+      "description": "Lección de repaso xeral",
+      "steps": [
+        {
+          "id": 0,
+          "text": "",
+          "description": "A continuación faremos unha lección de repaso xeral",
+          "introduction": true
+        },
+        {
+          "id": 1,
+          "text": "Como a pobreza? -preguntou Don Quixote-",
+          "description": "Escriba as frases seguintes empregando correctamente todos os signos",
+          "repetitions": 2
+        },
+        {
+          "id": 2,
+          "text": "Señor hóspede, hai pousada? Que vén aquí o mono -",
+          "description": "Escriba as frases seguintes empregando correctamente todos os signos",
+          "repetitions": 2
+        },
+        {
+          "id": 3,
+          "text": "- adiviño e o retablo da liberdade de Melisendra.",
+          "description": "Escriba as frases seguintes empregando correctamente todos os signos",
+          "repetitions": 2
+        },
+        {
+          "id": 4,
+          "text": "4 - 2 = 2; (8 - 6) x 7 = 14;",
+          "description": "Agora imos probar cos signos e números. O signo menos escríbese co guión",
+          "repetitions": 2
+        },
+        {
+          "id": 5,
+          "text": "1$ = 70pts. 2$ = 140 pts.",
+          "description": "Agora imos probar cos signos e números. O signo menos escríbese co guión",
+          "repetitions": 2
+        },
+        {
+          "id": 6,
+          "text": "6 x (3+2-1) = 24. (6-4+1) x 10 = 30.",
+          "description": "Agora imos probar cos signos e números. O signo menos escríbese co guión",
+          "repetitions": 2
+        },
+        {
+          "id": 7,
+          "text": "abcdefghijklmnñopqrstuvwxyz':.,;",
+          "description": "Lembre a posición correcta das mans",
+          "repetitions": 2
+        },
+        {
+          "id": 8,
+          "text": "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ\";!?",
+          "description": "Lembre a posición correcta das mans",
+          "repetitions": 2
+        },
+        {
+          "id": 9,
+          "text": "zyxwvutsrqpoñNMLKJIHGFEDCBA *%¿",
+          "description": "Lembre a posición correcta das mans",
+          "repetitions": 2
+        },
+        {
+          "id": 10,
+          "text": "Fíxoo así Sancho; o cal visto polo eclesiástico...",
+          "description": "Lembre que non debe mirar o teclado. Atenda ás pulsacións",
+          "repetitions": 2
+        },
+        {
+          "id": 11,
+          "text": "Quen vai alá? Que xente? É por ventura?",
+          "description": "Lembre que non debe mirar o teclado. Atenda ás pulsacións",
+          "repetitions": 2
+        },
+        {
+          "id": 12,
+          "text": "¡Bravo marco!, respondeu o do Bosque.",
+          "description": "Lembre que non debe mirar o teclado. Atenda ás pulsacións",
+          "repetitions": 2
+        },
+        {
+          "id": 13,
+          "text": "ki, muj, decrvf. FVRCED; JUM. IK,",
+          "description": "Lembre que non debe mirar o teclado. Atenda ás pulsacións",
+          "repetitions": 2
+        },
+        {
+          "id": 14,
+          "text": "Fale con menos ton -dixo o comisario-,",
+          "description": "Lembre que non debe mirar o teclado. Atenda ás pulsacións",
+          "repetitions": 2
+        },
+        {
+          "id": 15,
+          "text": "n6umy t4vrb (r. n/kumy* t$vrbf)",
+          "description": "Lembre que non debe mirar o teclado. Atenda ás pulsacións",
+          "repetitions": 2
+        },
+        {
+          "id": 16,
+          "text": "1/5; 3/6; 12 de febreiro de 2026.",
+          "description": "Lembre que non debe mirar o teclado. Atenda ás pulsacións",
+          "repetitions": 2
+        },
+        {
+          "id": 17,
+          "text": "\"10.725.845,97; > 8.945.432,56;\"",
+          "description": "Non esqueza pulsar as teclas SHIFT para as maiúsculas e signos que o requiran",
+          "repetitions": 2
+        },
+        {
+          "id": 18,
+          "text": "\"Non hai libro tan malo, que non teña algo bo.\"",
+          "description": "Non esqueza pulsar as teclas SHIFT para as maiúsculas e signos que o requiran",
+          "repetitions": 2
+        },
+        {
+          "id": 19,
+          "text": "SeÑoR GoBeRnAdOr, De MuI BoA GaNa.",
+          "description": "Non esqueza pulsar as teclas SHIFT para as maiúsculas e signos que o requiran",
+          "repetitions": 2
+        },
+        {
+          "id": 20,
+          "text": "OMUNDIKJH WRBDFG",
+          "description": "Sigamos practicando maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 21,
+          "text": "¿TeN rAzÓn? ¿QuE pAsOu? ¡CoMo O dIxO!",
+          "description": "Sigamos practicando maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 22,
+          "text": "100% = 100; #3.567#, 1/6; 4 (3+5) = 32",
+          "description": "Sigamos practicando maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 23,
+          "text": "\"As LeIs CaEn DeBaIxO dO Que SoN.\"",
+          "description": "Sigamos practicando maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 24,
+          "text": "¿ReSPoNdEu ClArA?; ¡QuE fÁcIl!",
+          "description": "Sigamos practicando maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 25,
+          "text": "ECASWX i, nlo. (EcAs)',;.",
+          "description": "Sigamos practicando maiúsculas e símbolos",
+          "repetitions": 2
+        },
+        {
+          "id": 26,
+          "text": "",
+          "description": "¡Parabéns! Rematou a décimo segunda lección. A partir de agora recoméndolle que practique coa proba de velocidade",
+          "introduction": true
+        }
+      ]
     }
   ]
 }
