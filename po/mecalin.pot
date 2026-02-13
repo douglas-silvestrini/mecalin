@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mecalin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 11:55+0100\n"
+"POT-Creation-Date: 2026-02-13 10:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,6 +63,20 @@ msgstr ""
 
 #: resources/ui/about_view.ui:172
 msgid "License"
+msgstr ""
+
+#: resources/ui/course_completion_view.ui:4
+msgid "Course Completed"
+msgstr ""
+
+#: resources/ui/course_completion_view.ui:13
+msgid "Congratulations!"
+msgstr ""
+
+#: resources/ui/course_completion_view.ui:14
+msgid ""
+"You've completed all lessons! Keep practicing with the speed test to improve "
+"your typing skills."
 msgstr ""
 
 #: resources/ui/falling_keys_game.ui:5 resources/ui/window.ui:44

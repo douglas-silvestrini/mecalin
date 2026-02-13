@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mecalin 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 11:55+0100\n"
+"POT-Creation-Date: 2026-02-13 10:44+0100\n"
 "PO-Revision-Date: 2026-01-23 09:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
@@ -63,6 +63,22 @@ msgstr "Direitos de autor"
 #: resources/ui/about_view.ui:172
 msgid "License"
 msgstr "Licença"
+
+#: resources/ui/course_completion_view.ui:4
+#, fuzzy
+msgid "Course Completed"
+msgstr "Curso concluído! Parabéns!"
+
+#: resources/ui/course_completion_view.ui:13
+#, fuzzy
+msgid "Congratulations!"
+msgstr "Curso concluído! Parabéns!"
+
+#: resources/ui/course_completion_view.ui:14
+msgid ""
+"You've completed all lessons! Keep practicing with the speed test to improve "
+"your typing skills."
+msgstr ""
 
 #: resources/ui/falling_keys_game.ui:5 resources/ui/window.ui:44
 msgid "Falling Keys"
@@ -244,9 +260,6 @@ msgstr "Informação da aplicação"
 
 #~ msgid "{}/{} Good"
 #~ msgstr "{}/{} Bom"
-
-#~ msgid "Course completed! Congratulations!"
-#~ msgstr "Curso concluído! Parabéns!"
 
 #~ msgid "Lesson completed! Well done!"
 #~ msgstr "Lição concluída! Muito bem!"
