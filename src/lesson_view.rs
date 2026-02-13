@@ -1,4 +1,3 @@
-use gettextrs::gettext;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use i18n_format::i18n_format;
@@ -8,6 +7,7 @@ use libadwaita::subclass::prelude::*;
 use std::cell::{Cell, RefCell};
 
 use crate::course::Lesson;
+use crate::course_completion_view::CourseCompletionView;
 use crate::hand_widget::HandWidget;
 use crate::keyboard_widget::KeyboardWidget;
 use crate::typing_row::TypingRow;
@@ -518,12 +518,8 @@ impl LessonView {
                 // Load next lesson
                 self.set_lesson(&next_lesson);
             } else {
-                // All lessons completed
-                imp.lesson_description
-                    .set_text(&gettext("Course completed! Congratulations!"));
-                imp.step_description.set_visible(false);
-                imp.continue_button.set_visible(false);
-                imp.text_container.set_visible(false);
+                // All lessons completed - show completion view
+                self.show_completion_view();
             }
             return;
         }
@@ -564,19 +560,22 @@ impl LessonView {
                 // Load next lesson
                 self.set_lesson(&next_lesson);
             } else {
-                // Check if we have a course to determine the message
-                let has_course = imp.course.borrow().is_some();
-                if has_course {
-                    // All lessons completed
-                    imp.typing_row
-                        .set_target_text(&gettext("Course completed! Congratulations!"));
-                } else {
-                    // No course set, just show lesson completion
-                    imp.typing_row
-                        .set_target_text(&gettext("Lesson completed! Well done!"));
-                }
-                imp.typing_row.clear();
+                // All lessons completed - show completion view
+                self.show_completion_view();
             }
+        }
+    }
+
+    fn show_completion_view(&self) {
+        // Get the navigation view from the widget hierarchy
+        let mut ancestor = self.parent();
+        while let Some(widget) = ancestor {
+            if let Some(nav_view) = widget.downcast_ref::<adw::NavigationView>() {
+                let completion_view = CourseCompletionView::new();
+                nav_view.push(&completion_view);
+                return;
+            }
+            ancestor = widget.parent();
         }
     }
 

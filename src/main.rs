@@ -1,6 +1,7 @@
 mod about_view;
 mod application;
 mod course;
+mod course_completion_view;
 mod falling_keys_game;
 mod hand_widget;
 mod keyboard_widget;

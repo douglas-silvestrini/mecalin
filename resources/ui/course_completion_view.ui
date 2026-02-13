@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="CourseCompletionView" parent="AdwNavigationPage">
+    <property name="title" translatable="yes">Course Completed</property>
+    <property name="child">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar"/>
+        </child>
+        <property name="content">
+          <object class="AdwStatusPage">
+            <property name="icon-name">trophy-symbolic</property>
+            <property name="title" translatable="yes">Congratulations!</property>
+            <property name="description" translatable="yes">You've completed all lessons! Keep practicing with the speed test to improve your typing skills.</property>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>
