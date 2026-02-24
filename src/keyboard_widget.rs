@@ -538,7 +538,13 @@ mod imp {
             *self.layout.borrow_mut() =
                 KeyboardLayout::load_from_json(layout_code).unwrap_or_default();
 
-            self.cache_colors();
+            glib::idle_add_local_once(glib::clone!(
+                #[weak(rename_to = this)]
+                self,
+                move || {
+                    this.cache_colors();
+                }
+            ));
 
             // Re-cache colors when theme changes
             let style_manager = adw::StyleManager::default();
@@ -546,7 +552,10 @@ mod imp {
                 #[weak(rename_to = this)]
                 self,
                 move |_| {
-                    this.cache_colors();
+                    glib::idle_add_local_once(glib::clone!(move || {
+                        this.cache_colors();
+                        this.obj().queue_draw();
+                    }));
                 }
             ));
         }
