@@ -370,6 +370,22 @@ impl LessonView {
         if let Some(boxed) = current_lesson_boxed.as_ref() {
             if let Ok(lesson) = boxed.try_borrow::<Lesson>() {
                 if let Some(step) = lesson.steps.get(step_index as usize) {
+                    // Construct accessibility announcement
+                    let announcement = if step.introduction {
+                        // Introduction step - announce description
+                        step.description
+                            .as_deref()
+                            .unwrap_or(&step.text)
+                            .to_string()
+                    } else {
+                        // Regular step - announce description (if available) and target text
+                        if let Some(description) = &step.description {
+                            format!("{}. {}", description, step.text)
+                        } else {
+                            step.text.clone()
+                        }
+                    };
+
                     if step.introduction {
                         // Introduction step - show description and continue button, hide text views
                         imp.step_description.set_visible(true);
@@ -404,6 +420,9 @@ impl LessonView {
                     let finger =
                         first_char.and_then(|ch| imp.keyboard_widget.get_finger_for_char(ch));
                     imp.hand_widget.set_current_finger(finger);
+
+                    // Announce step content to screen readers
+                    self.announce(&announcement, gtk::AccessibleAnnouncementPriority::Medium);
                 }
             }
         }
