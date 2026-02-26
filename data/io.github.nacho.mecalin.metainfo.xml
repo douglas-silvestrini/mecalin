@@ -113,6 +113,14 @@
   </screenshots>
   
   <releases>
+    <release version="1.0.1" date="2026-02-26">
+      <description>
+        <ul>
+          <li>Added screen reader announcements for lesson step changes</li>
+          <li>Improved theme change handling</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.0" date="2026-02-13">
       <description>
         <ul>
