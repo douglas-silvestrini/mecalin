@@ -7,7 +7,7 @@ use i18n_format::i18n_format;
 use libadwaita as adw;
 use libadwaita::prelude::NavigationPageExt;
 use libadwaita::subclass::prelude::*;
-use rand::Rng;
+use rand::RngExt;
 use std::cell::RefCell;
 use std::rc::Rc;
 
