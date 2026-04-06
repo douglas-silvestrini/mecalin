@@ -24,7 +24,7 @@ mod input;
 mod scrolling;
 
 use crate::text_utils::{
-    current_word, insert_replacements, validate_with_replacements, GraphemeState,
+    GraphemeState, current_word, insert_replacements, validate_with_replacements,
 };
 use glib::subclass::Signal;
 use gtk::glib;

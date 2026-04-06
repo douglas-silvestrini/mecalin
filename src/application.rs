@@ -68,8 +68,10 @@ impl MecalinApplication {
     }
 
     fn setup_actions(&self) {
-        self.add_action_entries(vec![gio::ActionEntry::builder("quit")
-            .activate(|app: &Self, _, _| app.quit())
-            .build()]);
+        self.add_action_entries(vec![
+            gio::ActionEntry::builder("quit")
+                .activate(|app: &Self, _, _| app.quit())
+                .build(),
+        ]);
     }
 }

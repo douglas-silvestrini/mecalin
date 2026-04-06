@@ -195,10 +195,10 @@ impl FallingKeysGame {
         let key_controller = gtk::EventControllerKey::new();
         let obj = self.downgrade();
         key_controller.connect_key_pressed(move |_, key, _, _| {
-            if let Some(obj) = obj.upgrade() {
-                if let Some(c) = key.to_unicode() {
-                    obj.handle_key_press(c.to_ascii_lowercase());
-                }
+            if let Some(obj) = obj.upgrade()
+                && let Some(c) = key.to_unicode()
+            {
+                obj.handle_key_press(c.to_ascii_lowercase());
             }
             glib::Propagation::Stop
         });

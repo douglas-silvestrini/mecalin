@@ -18,7 +18,7 @@
  */
 
 use super::*;
-use crate::text_utils::{line_offset_with_replacements, GraphemeState};
+use crate::text_utils::{GraphemeState, line_offset_with_replacements};
 use gtk::pango;
 use unicode_segmentation::UnicodeSegmentation;
 

@@ -8,7 +8,7 @@
 
 use crate::speed_test_results_view::SpeedTestResultsView;
 use crate::speed_test_text_view::SpeedTestTextView;
-use crate::text_generation::{advanced, simple, Language};
+use crate::text_generation::{Language, advanced, simple};
 use crate::typing_test_utils::{GeneratedTestDifficulty, TestConfig, TestDuration, TestSummary};
 use gtk::glib;
 use gtk::prelude::*;

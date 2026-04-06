@@ -17,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-use include_dir::{include_dir, Dir};
+use include_dir::{Dir, include_dir};
 use rand::prelude::*;
 use rand::seq::index::sample;
 use strum_macros::{Display as EnumDisplay, EnumIter, EnumMessage, EnumString};
@@ -369,15 +369,15 @@ fn advanced_generic(
     // Sample from the entire text except for the last word, since that gets punctuation
     // further down in the function
     for i in sample(&mut rng, len - 2, len / 4) {
-        if let Some(word) = generated.get_mut(i) {
-            if let Ok(punctuation) = punctuations.choose_weighted(&mut rng, |p| p.weight) {
-                *word = insert_punctuation(word, *punctuation);
+        if let Some(word) = generated.get_mut(i)
+            && let Ok(punctuation) = punctuations.choose_weighted(&mut rng, |p| p.weight)
+        {
+            *word = insert_punctuation(word, *punctuation);
 
-                if punctuation.ends_sentence {
-                    if let Some(next) = generated.get_mut(i + 1) {
-                        *next = uppercase_first_letter(next);
-                    }
-                }
+            if punctuation.ends_sentence
+                && let Some(next) = generated.get_mut(i + 1)
+            {
+                *next = uppercase_first_letter(next);
             }
         }
     }
@@ -387,10 +387,9 @@ fn advanced_generic(
         .iter()
         .filter(|p| p.ends_sentence)
         .choose(&mut rng)
+        && let Some(word) = generated.get_mut(len - 1)
     {
-        if let Some(word) = generated.get_mut(len - 1) {
-            *word = insert_punctuation(word, *end_punctuation);
-        }
+        *word = insert_punctuation(word, *end_punctuation);
     }
 
     generated.into_iter().map(|s| s + spacing).collect()

@@ -198,17 +198,17 @@ impl KeyboardLayout {
                 }
 
                 // Check shift (exact match)
-                if let Some(shift) = &key_info.shift {
-                    if shift.chars().next().unwrap_or(' ') == ch {
-                        return Some(key_info.finger);
-                    }
+                if let Some(shift) = &key_info.shift
+                    && shift.chars().next().unwrap_or(' ') == ch
+                {
+                    return Some(key_info.finger);
                 }
 
                 // Check altgr (exact match)
-                if let Some(altgr) = &key_info.altgr {
-                    if altgr.chars().next().unwrap_or(' ') == ch {
-                        return Some(key_info.finger);
-                    }
+                if let Some(altgr) = &key_info.altgr
+                    && altgr.chars().next().unwrap_or(' ') == ch
+                {
+                    return Some(key_info.finger);
                 }
             }
         }
@@ -238,17 +238,17 @@ impl KeyboardLayout {
                 }
 
                 // Check shift (exact match)
-                if let Some(shift) = &key_info.shift {
-                    if shift.chars().next().unwrap_or(' ') == ch {
-                        return true;
-                    }
+                if let Some(shift) = &key_info.shift
+                    && shift.chars().next().unwrap_or(' ') == ch
+                {
+                    return true;
                 }
 
                 // Check altgr (exact match)
-                if let Some(altgr) = &key_info.altgr {
-                    if altgr.chars().next().unwrap_or(' ') == ch {
-                        return true;
-                    }
+                if let Some(altgr) = &key_info.altgr
+                    && altgr.chars().next().unwrap_or(' ') == ch
+                {
+                    return true;
                 }
             }
         }
@@ -837,18 +837,18 @@ mod imp {
                             snapshot.restore();
                         }
 
-                        if let Some(altgr_text) = &key.altgr {
-                            if !altgr_text.is_empty() {
-                                layout.set_text(altgr_text);
-                                let (text_width, text_height) = layout.pixel_size();
-                                snapshot.save();
-                                snapshot.translate(&graphene::Point::new(
-                                    x + width - text_width as f32 - 5.0,
-                                    y + height - text_height as f32,
-                                ));
-                                snapshot.append_layout(&layout, text_color);
-                                snapshot.restore();
-                            }
+                        if let Some(altgr_text) = &key.altgr
+                            && !altgr_text.is_empty()
+                        {
+                            layout.set_text(altgr_text);
+                            let (text_width, text_height) = layout.pixel_size();
+                            snapshot.save();
+                            snapshot.translate(&graphene::Point::new(
+                                x + width - text_width as f32 - 5.0,
+                                y + height - text_height as f32,
+                            ));
+                            snapshot.append_layout(&layout, text_color);
+                            snapshot.restore();
                         }
                     }
                 }
@@ -909,45 +909,40 @@ mod imp {
                     if visible.contains(&base_char) {
                         return true;
                     }
-                    if let Some(shift) = &key_info.shift {
-                        if let Some(shift_char) = shift.chars().next() {
-                            if visible.contains(&shift_char) {
-                                return true;
-                            }
-                        }
+                    if let Some(shift) = &key_info.shift
+                        && let Some(shift_char) = shift.chars().next()
+                        && visible.contains(&shift_char)
+                    {
+                        return true;
                     }
-                    if let Some(altgr) = &key_info.altgr {
-                        if let Some(altgr_char) = altgr.chars().next() {
-                            if visible.contains(&altgr_char) {
-                                return true;
-                            }
-                        }
+                    if let Some(altgr) = &key_info.altgr
+                        && let Some(altgr_char) = altgr.chars().next()
+                        && visible.contains(&altgr_char)
+                    {
+                        return true;
                     }
 
                     // For characters not directly on keyboard, check if this key is needed
                     // to compose them (e.g., 'a' + '´' = 'á')
                     for &visible_char in visible.iter() {
-                        if !layout_borrowed.contains_character(visible_char) {
-                            if let Some((spacing_accent, base)) =
+                        if !layout_borrowed.contains_character(visible_char)
+                            && let Some((spacing_accent, base)) =
                                 decompose_with_spacing_accent(visible_char)
+                        {
+                            if base_char == spacing_accent || base_char == base {
+                                return true;
+                            }
+                            if let Some(shift) = &key_info.shift
+                                && let Some(shift_char) = shift.chars().next()
+                                && (shift_char == spacing_accent || shift_char == base)
                             {
-                                if base_char == spacing_accent || base_char == base {
-                                    return true;
-                                }
-                                if let Some(shift) = &key_info.shift {
-                                    if let Some(shift_char) = shift.chars().next() {
-                                        if shift_char == spacing_accent || shift_char == base {
-                                            return true;
-                                        }
-                                    }
-                                }
-                                if let Some(altgr) = &key_info.altgr {
-                                    if let Some(altgr_char) = altgr.chars().next() {
-                                        if altgr_char == spacing_accent || altgr_char == base {
-                                            return true;
-                                        }
-                                    }
-                                }
+                                return true;
+                            }
+                            if let Some(altgr) = &key_info.altgr
+                                && let Some(altgr_char) = altgr.chars().next()
+                                && (altgr_char == spacing_accent || altgr_char == base)
+                            {
+                                return true;
                             }
                         }
                     }
@@ -1400,12 +1395,11 @@ impl KeyboardWidget {
             }
 
             // Track last finger for non-space characters
-            if ch != ' ' {
-                if let Some(finger) = imp.layout.borrow().get_finger_for_char(ch) {
-                    if finger != Finger::BothThumbs {
-                        *imp.last_finger.borrow_mut() = Some(finger);
-                    }
-                }
+            if ch != ' '
+                && let Some(finger) = imp.layout.borrow().get_finger_for_char(ch)
+                && finger != Finger::BothThumbs
+            {
+                *imp.last_finger.borrow_mut() = Some(finger);
             }
         } else {
             *imp.current_key_sequence.borrow_mut() = Vec::new();
@@ -1426,10 +1420,10 @@ impl KeyboardWidget {
             *imp.current_key.borrow_mut() = Some(ch);
 
             // Track last finger for the current character in the sequence
-            if let Some(finger) = imp.layout.borrow().get_finger_for_char(ch) {
-                if finger != Finger::BothThumbs {
-                    *imp.last_finger.borrow_mut() = Some(finger);
-                }
+            if let Some(finger) = imp.layout.borrow().get_finger_for_char(ch)
+                && finger != Finger::BothThumbs
+            {
+                *imp.last_finger.borrow_mut() = Some(finger);
             }
 
             self.queue_draw();

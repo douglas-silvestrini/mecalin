@@ -367,64 +367,62 @@ impl LessonView {
         imp.has_mistake.set(false);
 
         let current_lesson_boxed = imp.current_lesson.borrow();
-        if let Some(boxed) = current_lesson_boxed.as_ref() {
-            if let Ok(lesson) = boxed.try_borrow::<Lesson>() {
-                if let Some(step) = lesson.steps.get(step_index as usize) {
-                    // Construct accessibility announcement
-                    let announcement = if step.introduction {
-                        // Introduction step - announce description
-                        step.description
-                            .as_deref()
-                            .unwrap_or(&step.text)
-                            .to_string()
-                    } else {
-                        // Regular step - announce description (if available) and target text
-                        if let Some(description) = &step.description {
-                            format!("{}. {}", description, step.text)
-                        } else {
-                            step.text.clone()
-                        }
-                    };
-
-                    if step.introduction {
-                        // Introduction step - show description and continue button, hide text views
-                        imp.step_description.set_visible(true);
-                        imp.step_description
-                            .set_text(step.description.as_deref().unwrap_or(&step.text));
-                        imp.continue_button.set_visible(true);
-                        imp.text_container.set_visible(false);
-                    } else {
-                        // Regular step - show description if available, show text views
-                        if let Some(description) = &step.description {
-                            imp.step_description.set_visible(true);
-                            imp.step_description.set_text(description);
-                        } else {
-                            imp.step_description.set_visible(false);
-                        }
-                        imp.continue_button.set_visible(false);
-                        imp.text_container.set_visible(true);
-                        imp.typing_row.set_target_text(&step.text);
-                        imp.typing_row.clear();
-                        self.update_repetition_label();
-
-                        // Focus the text view for immediate typing
-                        imp.typing_row.grab_focus();
-                    }
-
-                    self.update_keyboard_keys(&step.text);
-
-                    // Set initial key/finger highlight
-                    let first_char = step.text.chars().next();
-                    imp.keyboard_widget.set_current_key(first_char);
-
-                    let finger =
-                        first_char.and_then(|ch| imp.keyboard_widget.get_finger_for_char(ch));
-                    imp.hand_widget.set_current_finger(finger);
-
-                    // Announce step content to screen readers
-                    self.announce(&announcement, gtk::AccessibleAnnouncementPriority::Medium);
+        if let Some(boxed) = current_lesson_boxed.as_ref()
+            && let Ok(lesson) = boxed.try_borrow::<Lesson>()
+            && let Some(step) = lesson.steps.get(step_index as usize)
+        {
+            // Construct accessibility announcement
+            let announcement = if step.introduction {
+                // Introduction step - announce description
+                step.description
+                    .as_deref()
+                    .unwrap_or(&step.text)
+                    .to_string()
+            } else {
+                // Regular step - announce description (if available) and target text
+                if let Some(description) = &step.description {
+                    format!("{}. {}", description, step.text)
+                } else {
+                    step.text.clone()
                 }
+            };
+
+            if step.introduction {
+                // Introduction step - show description and continue button, hide text views
+                imp.step_description.set_visible(true);
+                imp.step_description
+                    .set_text(step.description.as_deref().unwrap_or(&step.text));
+                imp.continue_button.set_visible(true);
+                imp.text_container.set_visible(false);
+            } else {
+                // Regular step - show description if available, show text views
+                if let Some(description) = &step.description {
+                    imp.step_description.set_visible(true);
+                    imp.step_description.set_text(description);
+                } else {
+                    imp.step_description.set_visible(false);
+                }
+                imp.continue_button.set_visible(false);
+                imp.text_container.set_visible(true);
+                imp.typing_row.set_target_text(&step.text);
+                imp.typing_row.clear();
+                self.update_repetition_label();
+
+                // Focus the text view for immediate typing
+                imp.typing_row.grab_focus();
             }
+
+            self.update_keyboard_keys(&step.text);
+
+            // Set initial key/finger highlight
+            let first_char = step.text.chars().next();
+            imp.keyboard_widget.set_current_key(first_char);
+
+            let finger = first_char.and_then(|ch| imp.keyboard_widget.get_finger_for_char(ch));
+            imp.hand_widget.set_current_finger(finger);
+
+            // Announce step content to screen readers
+            self.announce(&announcement, gtk::AccessibleAnnouncementPriority::Medium);
         }
     }
 
@@ -444,14 +442,13 @@ impl LessonView {
         let current_repetition = imp.current_repetition.get();
 
         let current_lesson_boxed = imp.current_lesson.borrow();
-        if let Some(boxed) = current_lesson_boxed.as_ref() {
-            if let Ok(lesson) = boxed.try_borrow::<Lesson>() {
-                let step_index = self.current_step_index() as usize;
-                if let Some(step) = lesson.steps.get(step_index) {
-                    let label_text =
-                        i18n_format!("{}/{} Good", current_repetition, step.repetitions);
-                    imp.typing_row.set_repetition_text(&label_text);
-                }
+        if let Some(boxed) = current_lesson_boxed.as_ref()
+            && let Ok(lesson) = boxed.try_borrow::<Lesson>()
+        {
+            let step_index = self.current_step_index() as usize;
+            if let Some(step) = lesson.steps.get(step_index) {
+                let label_text = i18n_format!("{}/{} Good", current_repetition, step.repetitions);
+                imp.typing_row.set_repetition_text(&label_text);
             }
         }
     }
@@ -473,22 +470,22 @@ impl LessonView {
         imp.current_repetition.set(current_repetition);
 
         let current_lesson_boxed = imp.current_lesson.borrow();
-        if let Some(boxed) = current_lesson_boxed.as_ref() {
-            if let Ok(lesson) = boxed.try_borrow::<Lesson>() {
-                let step_index = self.current_step_index() as usize;
-                if let Some(step) = lesson.steps.get(step_index) {
-                    self.update_repetition_label();
+        if let Some(boxed) = current_lesson_boxed.as_ref()
+            && let Ok(lesson) = boxed.try_borrow::<Lesson>()
+        {
+            let step_index = self.current_step_index() as usize;
+            if let Some(step) = lesson.steps.get(step_index) {
+                self.update_repetition_label();
 
-                    if current_repetition >= step.repetitions {
-                        // Required repetitions completed, advance to next step
-                        self.advance_to_next_step();
-                    } else {
-                        // Need more repetitions, clear text for next attempt
-                        imp.typing_row.clear();
+                if current_repetition >= step.repetitions {
+                    // Required repetitions completed, advance to next step
+                    self.advance_to_next_step();
+                } else {
+                    // Need more repetitions, clear text for next attempt
+                    imp.typing_row.clear();
 
-                        // Focus the text view for next repetition
-                        imp.typing_row.grab_focus();
-                    }
+                    // Focus the text view for next repetition
+                    imp.typing_row.grab_focus();
                 }
             }
         }
