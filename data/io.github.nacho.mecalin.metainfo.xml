@@ -113,6 +113,15 @@
   </screenshots>
   
   <releases>
+    <release version="1.0.2" date="2026-04-07">
+      <description>
+        <ul>
+          <li>Fixed clippy warnings</li>
+          <li>Updated to Rust 2024 edition</li>
+          <li>Updated dependencies</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.1" date="2026-02-26">
       <description>
         <ul>

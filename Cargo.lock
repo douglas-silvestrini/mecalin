@@ -644,7 +644,7 @@ dependencies = [
 
 [[package]]
 name = "mecalin"
-version = "1.0.1"
+version = "1.0.2"
 dependencies = [
  "anyhow",
  "gettext-rs",
