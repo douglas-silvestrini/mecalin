@@ -152,6 +152,14 @@ impl KeyInfo {
 pub struct ModifierKey {
     pub label: String,
     pub finger: Finger,
+    #[serde(default)]
+    pub rows: Option<Vec<u8>>,
+}
+
+impl ModifierKey {
+    pub fn spans_row(&self, row: u8) -> bool {
+        self.rows.as_ref().is_some_and(|r| r.contains(&row))
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -508,6 +516,50 @@ mod tests {
 
         assert!(!key.matches_char(' ', &layout));
     }
+
+    #[test]
+    fn test_modifier_key_spans_row_two_rows() {
+        let m: ModifierKey =
+            serde_json::from_str(r#"{"label":"Enter","finger":"right_pinky","rows":[1,2]}"#)
+                .unwrap();
+        assert!(m.spans_row(1));
+        assert!(m.spans_row(2));
+        assert!(!m.spans_row(3));
+    }
+
+    #[test]
+    fn test_modifier_key_spans_row_single_row() {
+        let m: ModifierKey =
+            serde_json::from_str(r#"{"label":"Enter","finger":"right_pinky","rows":[2]}"#).unwrap();
+        assert!(!m.spans_row(1));
+        assert!(m.spans_row(2));
+    }
+
+    #[test]
+    fn test_modifier_key_spans_row_none() {
+        let m: ModifierKey =
+            serde_json::from_str(r#"{"label":"Shift","finger":"left_pinky"}"#).unwrap();
+        assert!(!m.spans_row(1));
+        assert!(!m.spans_row(2));
+    }
+
+    #[test]
+    fn test_us_layout_enter_rows() {
+        let layout = KeyboardLayout::load_from_json("us").unwrap();
+        let enter = layout.modifiers.get("enter").unwrap();
+        assert_eq!(enter.rows, Some(vec![2]));
+        assert!(!enter.spans_row(1));
+        assert!(enter.spans_row(2));
+    }
+
+    #[test]
+    fn test_es_layout_enter_rows() {
+        let layout = KeyboardLayout::load_from_json("es").unwrap();
+        let enter = layout.modifiers.get("enter").unwrap();
+        assert_eq!(enter.rows, Some(vec![1, 2]));
+        assert!(enter.spans_row(1));
+        assert!(enter.spans_row(2));
+    }
 }
 
 mod imp {
@@ -667,13 +719,21 @@ mod imp {
                 + key_spacing
                 + key_width * 2.0;
 
+            let enter_on_row1 = layout
+                .modifiers
+                .get("enter")
+                .is_some_and(|e| e.spans_row(1));
+
             let row1_keys = layout.keys.get(1).map(|r| r.len()).unwrap_or(12);
             let row1_width = key_width * 1.5
                 + key_spacing
                 + row1_keys as f64 * key_width
                 + (row1_keys - 1) as f64 * key_spacing
-                + key_spacing
-                + key_width * 1.75;
+                + if enter_on_row1 {
+                    key_spacing + key_width * 1.75
+                } else {
+                    0.0
+                };
 
             let row2_keys = layout.keys.get(2).map(|r| r.len()).unwrap_or(12);
             let row2_width = key_width * 1.75
@@ -1053,7 +1113,9 @@ mod imp {
                     x += key_width + key_spacing;
                 }
             }
-            if let Some(enter) = layout_borrowed.modifiers.get("enter") {
+            if let Some(enter) = layout_borrowed.modifiers.get("enter")
+                && enter.spans_row(1)
+            {
                 let enter_height = key_height * 2.0 + row_spacing;
                 Self::draw_single_key(
                     snapshot,
@@ -1075,7 +1137,7 @@ mod imp {
                 );
             }
 
-            // Row 2: Caps Lock + Home row (Enter already drawn)
+            // Row 2: Caps Lock + Home row + Enter (if single-row)
             x = 0.0;
             let y2 = y1 + key_height + row_spacing;
             if let Some(caps) = layout_borrowed.modifiers.get("caps_lock") {
@@ -1121,6 +1183,35 @@ mod imp {
                     );
                     x += key_width + key_spacing;
                 }
+            }
+            if let Some(enter) = layout_borrowed.modifiers.get("enter")
+                && enter.spans_row(2)
+                && !enter.spans_row(1)
+            {
+                let row0_keys = layout_borrowed.keys.first().map(|r| r.len()).unwrap_or(13);
+                let keyboard_right_edge = row0_keys as f32 * key_width
+                    + (row0_keys - 1) as f32 * key_spacing
+                    + key_spacing
+                    + key_width * 2.0;
+                let enter_width = keyboard_right_edge - x;
+                Self::draw_single_key(
+                    snapshot,
+                    &pango_context,
+                    x,
+                    y2,
+                    enter_width,
+                    key_height,
+                    None,
+                    Some(&enter.label),
+                    false,
+                    true,
+                    &modifier_color,
+                    &key_current_color,
+                    &modifier_text_color,
+                    &key_current_text_color,
+                    &key_border_color,
+                    &key_border_color,
+                );
             }
 
             // Row 3: Left Shift + Bottom row + Right Shift

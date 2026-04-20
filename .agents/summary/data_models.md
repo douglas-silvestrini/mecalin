@@ -88,9 +88,10 @@ classDiagram
         BothThumbs
     }
     class ModifierKey {
-        <<enumeration>>
-        Shift
-        AltGr
+        +label: String
+        +finger: Finger
+        +rows: Option~Vec~u8~~
+        +spans_row(row: u8) bool
     }
     KeyboardLayout "1" --> "*" KeyInfo
     KeyInfo --> Finger
@@ -101,14 +102,28 @@ classDiagram
 File location: `data/keyboard_layouts/{language_code}.json`
 
 ```json
-[
-  [
-    {"base": "`", "shift": "~", "finger": "left_pinky"},
-    {"base": "1", "shift": "!", "finger": "left_pinky"},
-    {"base": "q", "shift": "Q", "finger": "left_pinky", "altgr": "ä"}
-  ]
-]
+{
+  "name": "US QWERTY",
+  "keys": [
+    [
+      {"base": "`", "shift": "~", "finger": "left_pinky"},
+      {"base": "1", "shift": "!", "finger": "left_pinky"},
+      {"base": "q", "shift": "Q", "finger": "left_pinky", "altgr": "ä"}
+    ]
+  ],
+  "space": {"base": " ", "label": "SPACE", "finger": "both_thumbs"},
+  "modifiers": {
+    "tab": {"label": "Tab", "finger": "left_pinky"},
+    "caps_lock": {"label": "Caps", "finger": "left_pinky"},
+    "enter": {"label": "Enter", "finger": "right_pinky", "rows": [2]},
+    "backspace": {"label": "Backspace", "finger": "right_pinky"}
+  }
+}
 ```
+
+The `rows` field on the `enter` modifier specifies which keyboard rows the Enter key occupies:
+- `[1, 2]` — ISO-style tall Enter spanning rows 1–2 (used by ES, GL, IT, PL, PT layouts)
+- `[2]` — ANSI-style single-row Enter on row 2 only (used by US layout)
 
 ## Speed Test Data Models
 
