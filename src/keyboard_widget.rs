@@ -785,11 +785,13 @@ mod imp {
                     let font_desc = pango::FontDescription::from_string("Sans 9");
                     layout.set_font_description(Some(&font_desc));
                     layout.set_text(label_text);
-                    let (text_width, text_height) = layout.pixel_size();
+                    let (_, logical_rect) = layout.pixel_extents();
+                    let text_width = logical_rect.width();
+                    let text_height = logical_rect.height();
                     snapshot.save();
                     snapshot.translate(&graphene::Point::new(
                         x + (width - text_width as f32) / 2.0,
-                        y + height / 2.0 - text_height as f32 / 2.0,
+                        y + (height - text_height as f32) / 2.0 - logical_rect.y() as f32,
                     ));
                     snapshot.append_layout(&layout, text_color);
                     snapshot.restore();
