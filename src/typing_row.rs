@@ -115,8 +115,12 @@ impl imp::TypingRow {
                     let typed_text = buffer.text();
                     let target_text = imp.target_label.text();
 
-                    let typed_str = typed_text.as_str();
-                    let target_str = target_text.as_str();
+                    let typed_normalized =
+                        glib::normalize(typed_text.as_str(), glib::NormalizeMode::DefaultCompose);
+                    let target_normalized =
+                        glib::normalize(target_text.as_str(), glib::NormalizeMode::DefaultCompose);
+                    let typed_str = typed_normalized.as_str();
+                    let target_str = target_normalized.as_str();
 
                     // Check if the new text would match target text
                     if !target_str.starts_with(typed_str) && !typed_str.is_empty() {
