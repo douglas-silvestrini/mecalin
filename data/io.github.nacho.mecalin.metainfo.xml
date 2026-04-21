@@ -113,6 +113,17 @@
   </screenshots>
   
   <releases>
+    <release version="1.1.0" date="2026-04-21">
+      <description>
+        <ul>
+          <li>Made Enter key row placement configurable in keyboard layouts</li>
+          <li>Fixed accented characters not recognized in lesson mode</li>
+          <li>Fixed US keyboard layout</li>
+          <li>Fixed 1px text clipping on Backspace, Enter and Tab labels</li>
+          <li>Updated dependencies</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.2" date="2026-04-07">
       <description>
         <ul>
