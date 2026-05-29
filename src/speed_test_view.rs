@@ -233,7 +233,7 @@ impl SpeedTestView {
                     let imp = view.imp();
                     let typed = text_view.typed_text();
 
-                    if typed.len() == 1 && imp.start_time.borrow().is_none() {
+                    if !typed.is_empty() && imp.start_time.borrow().is_none() {
                         text_view.set_running(true);
                         *imp.start_time.borrow_mut() = Some(Instant::now());
 
