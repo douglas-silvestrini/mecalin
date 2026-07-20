@@ -113,6 +113,15 @@
   </screenshots>
   
   <releases>
+    <release version="1.1.1" date="2026-07-20">
+      <description>
+        <ul>
+          <li>Added keywords to desktop file</li>
+          <li>Fixed timer not starting when first typed character is multi-byte</li>
+          <li>Updated dependencies</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.1.0" date="2026-04-21">
       <description>
         <ul>
