@@ -227,7 +227,7 @@ impl imp::TypingRow {
             )
             .unwrap_or_else(|| gtk::graphene::Point::new(0.0, 0.0));
 
-        let x = point.x() + (rect.x() / pango::SCALE) as f32;
+        let x = point.x() + (rect.x() / pango::SCALE) as f32 - 1.0;
         let y = point.y() + (rect.y() / pango::SCALE) as f32;
         let height = (rect.height() / pango::SCALE) as f32;
 
