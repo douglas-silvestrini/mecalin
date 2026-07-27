@@ -236,7 +236,7 @@ impl imp::TypingRow {
         #[allow(deprecated)]
         let color = style_ctx.color();
 
-        let cursor_rect = gtk::graphene::Rect::new(x, y, 2.0, height);
+        let cursor_rect = gtk::graphene::Rect::new(x, y, 1.0, height);
         snapshot.append_color(&color, &cursor_rect);
     }
 }
