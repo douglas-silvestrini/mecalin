@@ -113,6 +113,15 @@
   </screenshots>
   
   <releases>
+    <release version="1.1.2" date="2026-07-27">
+      <description>
+        <ul>
+          <li>Fixed cursor obscuring current letter in lessons</li>
+          <li>Added small gap between cursor and current character for better readability</li>
+          <li>Updated dependencies</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.1.1" date="2026-07-20">
       <description>
         <ul>
