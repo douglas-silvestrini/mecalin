@@ -15,6 +15,9 @@ pub fn language_from_locale() -> &'static str {
         "pl"
     } else if locale.starts_with("pt") {
         "pt"
+    }
+    else if locale.starts_with("pt_br") {
+        "pt_br"
     } else {
         "us"
     }
